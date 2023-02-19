@@ -13,8 +13,8 @@ const data = {
             description: "high quality product",
         },
         {
-            name:"nike T-shart",
-            slug:"nike T-shart",
+            name:"nike full-shart",
+            slug:"nike full-shart",
             category:"sharts",
             image:"/images/p2.jpg",
             price: 189,
@@ -25,20 +25,20 @@ const data = {
             description: "high quality product"
         },
         {
-            name:"nike T-shart",
-            slug:"nike T-shart",
+            name:"addidas T-shart",
+            slug:"addidas T-shart",
             category:"sharts",
             image:"/images/p3.jpg   ",
             price: 110,
-            countInStock: 10,
+            countInStock: 0,
             brand: "nike",
             rating: 2.5,
             numReview: 11,
             description: "high quality product"
         },
         {
-            name:"nike T-shart",
-            slug:"nike T-shart",
+            name:"addidas full-shart",
+            slug:"addidas full-shart",
             category:"sharts",
             image:"/images/p1.png",
             price: 115,

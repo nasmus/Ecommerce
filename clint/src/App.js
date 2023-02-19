@@ -4,7 +4,7 @@ import ProductScreen from './screen/ProductScreen';
 import "./App.css";
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import LinkContainer from 'react-router-bootstrap/LinkContainer';
+//import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         </Routes>
       </main>
       <footer className='text-center' >
-          @ This is all reserved
+          
       </footer>
     </div>
     </BrowserRouter>

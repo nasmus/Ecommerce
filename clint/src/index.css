@@ -23,4 +23,10 @@
 .product__info{
     padding: 1rem;
 }
-
+.img-large {
+    height: 80vh;
+    
+}
+.product__container {
+    padding-top: 50px;
+}
