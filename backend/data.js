@@ -20,7 +20,7 @@ const data = {
             price: 189,
             countInStock: 10,
             brand: "nike",
-            rating: 5,
+            rating: 4.5,
             numReview: 7,
             description: "high quality product"
         },
@@ -32,7 +32,7 @@ const data = {
             price: 110,
             countInStock: 10,
             brand: "nike",
-            rating: 2,
+            rating: 2.5,
             numReview: 11,
             description: "high quality product"
         },
