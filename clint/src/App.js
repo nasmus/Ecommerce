@@ -9,13 +9,13 @@ import LinkContainer from 'react-router-bootstrap/LinkContainer';
 function App() {
   return (
     <BrowserRouter>
-    <div className="d-flex flen-column">
+    <div className="d-flex flex-column">
       <header>
         <Navbar bd="green" variant="dark" >
           <Container>
-            <LinkContainer to="/" >
-              <Navbar.Brand>MoneybagGo.com</Navbar.Brand>
-            </LinkContainer>
+            <Link to="/" >
+              MoneybagGo.com
+            </Link>
           </Container>
         </Navbar>
         <Link ></Link>

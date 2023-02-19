@@ -1,7 +1,10 @@
 import React, { useEffect, useReducer, useState } from 'react'
-import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 import logger from 'use-reducer-logger'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Product from '../components/Product';
 
 const reducer = (state,action) => {
   switch(action.type){
@@ -46,26 +49,17 @@ function HomeScreen() {
               <div>Lodding ...</div>
             ) : error ? (
               <div>{error}</div>
-            ): (
+            ) : (
+              <Row>
+              {products.map((product) => (
+                <Col key={product.id} sm={6} md={4} lg={3} className="md-3" >
+                  <Product product={product} ></Product>
+                </Col>
+            ))}
+            </Row>
+              
+            )
             
-              products.map(product => (
-              <div className="product" key={product.id} >
-                <Link to={`/product/${product.slug}`}>
-                  <img className="product__image" src={product.image} alt={product.name} />
-                </Link>
-                <div className="product__info">
-                  <Link to={`/product/${product.slug}`}>
-                    <p>
-                      {product.name}
-                    </p>
-                  </Link>
-                  <p>
-                   <strong>${product.price}</strong> 
-                  </p>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            )))
           }
         </div>
     </div>
