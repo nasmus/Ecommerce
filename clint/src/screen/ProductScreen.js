@@ -10,6 +10,8 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/esm/Button';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox'
 
 
 const reducer = (state,action) => {
@@ -50,9 +52,9 @@ function ProductScreen() {
     },[slug])
   return (
     loading ? (
-      <div>Loading ...</div>
+        <LoadingBox />
     ) : error ? (
-      <div>{error}</div>
+      <MessageBox>{error}</MessageBox>
 
     ) : (
       <div className='product__container'>
