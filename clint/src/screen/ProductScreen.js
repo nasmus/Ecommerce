@@ -12,6 +12,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/esm/Button';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox'
+import { getError } from '../utils';
 
 
 const reducer = (state,action) => {
@@ -44,7 +45,7 @@ function ProductScreen() {
           const result = await axios.get(`/api/products/slug/${slug}`);
           dispatch({type:'FATCH_SUCCESS', payload:result.data})
         } catch (err) {
-          dispatch({ type: 'FATCH_FAILLED', payload:err.message })
+          dispatch({ type: 'FATCH_FAILLED', payload: getError(err) })
         }
         
       };
@@ -52,10 +53,9 @@ function ProductScreen() {
     },[slug])
   return (
     loading ? (
-        <LoadingBox />
-    ) : error ? (
-      <MessageBox>{error}</MessageBox>
-
+      <LoadingBox />
+      ) : error ? (
+        <MessageBox>{error}</MessageBox>
     ) : (
       <div className='product__container'>
         <Container>
