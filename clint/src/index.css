@@ -30,3 +30,9 @@
 .product__container {
     padding-top: 50px;
 }
+.img-thumbnile{
+    height: 80px;
+}
+.listGroup__css {
+    display: flex;
+}

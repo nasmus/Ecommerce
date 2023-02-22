@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Badge from 'react-bootstrap/esm/Badge';
 import { Store } from './Store';
+import CartScreen from './screen/CartScreen';
 //import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Routes>
           <Route path='/product/:slug' element={ <ProductScreen /> } />
           <Route path='/' element={<HomeScreen />} />
+          <Route path='/cart' element={ <CartScreen /> } />
         </Routes>
       </main>
       <footer className='text-center' >
