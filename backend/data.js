@@ -1,6 +1,7 @@
 const data = {
     products: [
         {
+            _id:'1',
             name:"nike T-shart",
             slug:"nike T-shart",
             category:"sharts",
@@ -13,6 +14,7 @@ const data = {
             description: "high quality product",
         },
         {
+            _id:'2',
             name:"nike full-shart",
             slug:"nike full-shart",
             category:"sharts",
@@ -25,6 +27,7 @@ const data = {
             description: "high quality product"
         },
         {
+            _id:'3',
             name:"addidas T-shart",
             slug:"addidas T-shart",
             category:"sharts",
@@ -37,6 +40,7 @@ const data = {
             description: "high quality product"
         },
         {
+            _id:'4',
             name:"addidas full-shart",
             slug:"addidas full-shart",
             category:"sharts",
