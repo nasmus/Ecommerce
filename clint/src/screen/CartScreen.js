@@ -5,15 +5,38 @@ import Col from 'react-bootstrap/esm/Col';
 import ListGroup from 'react-bootstrap/esm/ListGroup';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import Row from 'react-bootstrap/esm/Row';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store'
+import axios from 'axios';
+
+
+
 
 function CartScreen() {
+    const navigate = useNavigate()
     const { state, dispatch: ctxDispatch} = useContext(Store);
     const {
         cart:{cartItems},
     } = state
+    const updateCartHandeler = async (item, quantity) => {
+        const { data } = await axios.get(`/api/products/${item._id}`)
+        if(data.countInStock < quantity){
+            window.alert('Sorry Bro !');
+            return ;
+        }
+        ctxDispatch({
+            type:'CART_ADD_ITEM',
+            payload:{...item,quantity}
+        })
+        
+    }
+    const removeItemHandeler = (item) => {
+        ctxDispatch({type:'CART_REMOVE_ITEM', payload:item})
+    }
+    const checkOutHandler = () => {
+        navigate('/signin?redirect=/shipping');
+    }
 
   return (
     <div>
@@ -30,8 +53,8 @@ function CartScreen() {
                         <ListGroup>
                             {
                                 cartItems.map((item) => (
-                                    <ListGroupItem className='listGroup__css' key={item._id}>
-                                        <Row className='align-item-center' ></Row>
+                                    <ListGroupItem  key={item._id}>
+                                        <Row >
                                             <Col md={4}>
                                                 <img
                                                     src={item.image}
@@ -42,21 +65,24 @@ function CartScreen() {
                                                 <Link to={`/product/${item.slug}`} >{item.name}</Link>
                                             </Col>
                                             <Col md={3}>
-                                                <Button variant='light' disabled={item.quantity === 1} >
+                                                <Button variant='light' onClick={() => updateCartHandeler(item, item.quantity - 1)} disabled={item.quantity === 1} >
                                                     <i className='fas fa-minus-circle' ></i>
                                                 </Button>{' '}
                                                 <span>{item.quantity}</span>{' '}
-                                                <Button variant='light' disabled={item.quantity === item.countInStock} >
+                                                <Button variant='light' onClick={() => updateCartHandeler(item, item.quantity + 1)} disabled={item.quantity === item.countInStock} >
                                                     <i className='fas fa-plus-circle'> </i>
                                                 </Button>{' '}
                                             </Col>
                                             <Col>${item.price}</Col>
                                             <Col md={2}>
-                                                <Button variant='light' >
+                                                <Button
+                                                    onClick={()=>removeItemHandeler(item)}
+                                                    variant='light'
+                                                 >
                                                     <i className='fas fa-trash' ></i>
                                                 </Button>
                                             </Col>
-
+                                        </Row>
                                     </ListGroupItem>
                                 ))
                             }
@@ -79,6 +105,7 @@ function CartScreen() {
                                     <Button 
                                         type='button'
                                         variant='primary'
+                                        onClick={checkOutHandler}
                                         disabled={cartItems.length === 0}
                                     >
                                         Process To Checkout
