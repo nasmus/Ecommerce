@@ -1,23 +1,33 @@
 import { useContext } from 'react';
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import HomeScreen from './screen/HomeScreen';
 import ProductScreen from './screen/ProductScreen';
 import "./App.css";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Badge from 'react-bootstrap/esm/Badge';
 import { Store } from './Store';
 import CartScreen from './screen/CartScreen';
 import SignInScreen from './screen/SignInScreen';
-//import LinkContainer from 'react-router-bootstrap/LinkContainer';
+import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
 function App() {
-  const {state} = useContext(Store);
-  const {cart} = state;
+  const {state, dispatch:ctxDispatch} = useContext(Store);
+  const {cart,userInfo} = state;
+
+  const signOutHandler = () =>{
+    ctxDispatch({ type:'USER_SIGNOUT' });
+    localStorage.removeItem('userInfo ')
+  }
+
   return (
     <BrowserRouter>
     <div className="d-flex flex-column">
+      <ToastContainer position='bottom-center' limit={1} />
       <header>
         <Navbar bg="dark" variant="dark">
         <Container>
@@ -37,6 +47,23 @@ function App() {
                 )
               }
             </Link>
+            { userInfo ? (
+              <NavDropdown title={userInfo.name} id="basic-nav-dropdown" >
+                <LinkContainer to="/profile" >
+                  <NavDropdown.Item>User Profoile</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/profile" >
+                  <NavDropdown.Item>Order Histori</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Divider />
+                <Link className='dropdown-item' to='#signOut' onClick={signOutHandler} >
+                  Sign Out
+                </Link>
+                
+              </NavDropdown>
+            ) : (
+              <Link className="nav__link" to="/signin" >Sing In</Link>
+            ) }
           </Nav>
         </Container>
       </Navbar>
