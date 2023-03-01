@@ -56,7 +56,7 @@ function App() {
                   <NavDropdown.Item>Order Histori</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
-                <Link className='dropdown-item' to='#signOut' onClick={signOutHandler} >
+                <Link className='dropdown-item' to='signOut' onClick={signOutHandler} >
                   Sign Out
                 </Link>
                 
