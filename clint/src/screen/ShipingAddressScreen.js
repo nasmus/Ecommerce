@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Form from 'react-bootstrap/Form'
 import { useNavigate } from 'react-router-dom';
+import CheckOut from '../components/CheckOut';
 import { Store } from '../Store';
 
 function ShipingAddressScreen() {
@@ -48,7 +49,8 @@ function ShipingAddressScreen() {
     const [phoneNumber, setPhoneNumber] = useState( shippingAddress.phoneNumber || '');
   return (
     <div>
-        <Container className='small__container'>
+        <CheckOut step1 step2 ></CheckOut>
+        <Container className='small-container'>
         <h1>Shipping Address</h1>
             <Form onSubmit={submitHandler} >
             <Form.Group className='mb-3' controlId='fullName' >
