@@ -5,6 +5,7 @@ import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRouter.js';
 import userRouter from './routes/userRouter.js';
 
+
 const app = express();
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 
+//mongoose.set("strictQuery", false);
 
 mongoose.connect(process.env.MONGODB_URL ).then(()=> {
     console.log('connect to db')

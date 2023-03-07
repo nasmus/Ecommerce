@@ -12,7 +12,7 @@ function CheckOut(props) {
                 <Col className={props.step2 ? 'active' : ''} >Shipping</Col>
                 <Col className={props.step3 ? 'active' : ''} >payment</Col>
                 <Col className={props.step4 ? 'active' : ''} >Place Order</Col>
-            </Row>
+            </Row> 
         </div>
     </Container>
   )

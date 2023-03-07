@@ -15,6 +15,7 @@ import CartScreen from './screen/CartScreen';
 import SignInScreen from './screen/SignInScreen';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 import ShipingAddressScreen from './screen/ShipingAddressScreen';
+import SignUpScreen from './screen/SignUpScreen';
 
 function App() {
   const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -75,6 +76,7 @@ function App() {
           <Route path='/product/:slug' element={ <ProductScreen /> } />
           <Route path='/' element={<HomeScreen />} />
           <Route path='/signin' element={ <SignInScreen /> } />
+          <Route path='/signup' element={ <SignUpScreen /> } />
           <Route path='/cart' element={ <CartScreen /> } />
           <Route path='/shipping' element={ <ShipingAddressScreen /> } />
         </Routes>
