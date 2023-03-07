@@ -45,7 +45,6 @@ userRouter.post(
             isAdmin:user.isAdmin,
             token: generateToken(user),
            })
-         
         })
     )
 
