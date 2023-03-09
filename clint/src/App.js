@@ -17,6 +17,7 @@ import LinkContainer from 'react-router-bootstrap/LinkContainer';
 import ShipingAddressScreen from './screen/ShipingAddressScreen';
 import SignUpScreen from './screen/SignUpScreen';
 import PaymentMethodScreen from './screen/PaymentMethodScreen';
+import PlaceOrderScreen from './screen/PlaceOrderScreen';
 
 function App() {
   const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -61,7 +62,7 @@ function App() {
                   <NavDropdown.Item>Order Histori</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
-                <Link className='dropdown-item' to='signOut' onClick={signOutHandler} >
+                <Link className='dropdown-item' to='/' onClick={signOutHandler} >
                   Sign Out
                 </Link>
                 
@@ -81,6 +82,7 @@ function App() {
           <Route path='/signup' element={ <SignUpScreen /> } />
           <Route path='/cart' element={ <CartScreen /> } />
           <Route path='/payment' element={ <PaymentMethodScreen /> } />
+          <Route path='/placeorder' element={ <PlaceOrderScreen />  } />
           <Route path='/shipping' element={ <ShipingAddressScreen /> } />
         </Routes>
       </main>
@@ -93,3 +95,4 @@ function App() {
 }
 
 export default App;
+
