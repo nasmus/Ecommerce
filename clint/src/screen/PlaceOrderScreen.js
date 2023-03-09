@@ -46,7 +46,6 @@ function PlaceOrderScreen() {
                             </Card.Text>
                             <Link to='/shipping' >Edit</Link>
                         </Card.Body>
-                        <Button>Plase Order</Button>
                     </Card>
 
                     <Card className='mb-3' >
@@ -84,7 +83,7 @@ function PlaceOrderScreen() {
                             </ListGroup>
                             <Link to="/cart">Edit</Link>
                         </Card.Body>
-                        <Button>Plase Order</Button>
+                        
                     </Card>
                 </Col>
                 <Col>
@@ -124,6 +123,7 @@ function PlaceOrderScreen() {
                                     <div className='d-grid' >
                                         <Button
                                             type='button'
+                                            variant="warning"
                                             onClick={placeOrderHandler}
                                             disabled={cart.cartItems.length === 0}
                                         >

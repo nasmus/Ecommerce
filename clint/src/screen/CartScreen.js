@@ -9,6 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store'
 import axios from 'axios';
+import Container from 'react-bootstrap/esm/Container';
 
 
 
@@ -40,6 +41,7 @@ function CartScreen() {
 
   return (
     <div>
+        <Container>
         <h1>Shoping Cart</h1>
         <Row>
             <Col md={8}>
@@ -104,7 +106,7 @@ function CartScreen() {
                                 <div className='d-grid'>
                                     <Button 
                                         type='button'
-                                        variant='primary'
+                                        variant="warning"
                                         onClick={checkOutHandler}
                                         disabled={cartItems.length === 0}
                                     >
@@ -117,6 +119,7 @@ function CartScreen() {
                 </Card>
             </Col>
         </Row>
+        </Container>
     </div>
   )
 }
