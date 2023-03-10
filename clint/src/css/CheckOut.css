@@ -81,7 +81,7 @@
   #progressbar-2 li:nth-child(3):after {
     left: 1%;
     width: 100%;
-    background: #c5cae9 !important;
+    
   }
   
   #progressbar-2 li:nth-child(4) {
@@ -94,7 +94,9 @@
     width: 0;
   }
   
-  #progressbar-2 li.active:before,
-  #progressbar-2 li.active:after {
-    background: #6520ff;
+  #progressbar-2 li.active:before{
+    background: #e2930a;
+  }
+  #progressbar-2 li.active::after {
+    background: #e2930a;
   }

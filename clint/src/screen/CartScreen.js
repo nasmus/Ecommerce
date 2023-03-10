@@ -57,7 +57,7 @@ function CartScreen() {
                                 cartItems.map((item) => (
                                     <ListGroupItem  key={item._id}>
                                         <Row >
-                                            <Col md={4}>
+                                            <Col md={4} className="cartScreen__image" >
                                                 <img
                                                     src={item.image}
                                                     alt={item.name}
@@ -92,6 +92,7 @@ function CartScreen() {
                     )
                 }
             </Col>
+            
             <Col md={4}>
                 <Card>
                     <Card.Body>
