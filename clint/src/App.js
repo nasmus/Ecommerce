@@ -19,6 +19,7 @@ import SignUpScreen from './screen/SignUpScreen';
 import PaymentMethodScreen from './screen/PaymentMethodScreen';
 import PlaceOrderScreen from './screen/PlaceOrderScreen';
 import OrderScreen from './screen/OrderScreen';
+import OrederHistoryScreen from './screen/OrederHistoryScreen';
 
 function App() {
   const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -59,8 +60,8 @@ function App() {
                 <LinkContainer to="/profile" >
                   <NavDropdown.Item>User Profoile</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/profile" >
-                  <NavDropdown.Item>Order Histori</NavDropdown.Item>
+                <LinkContainer to="/orderhistory" >
+                  <NavDropdown.Item>Order history</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
                 <Link className='dropdown-item' to='/' onClick={signOutHandler} >
@@ -86,6 +87,7 @@ function App() {
           <Route path='/placeorder' element={ <PlaceOrderScreen />  } />
           <Route path='/shipping' element={ <ShipingAddressScreen /> } />
           <Route path='/order/:id' element={ <OrderScreen /> } />
+          <Route path='/orderhistory' element={ <OrederHistoryScreen /> } />
         </Routes>
       </main>
       <footer className='text-center' >
