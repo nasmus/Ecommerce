@@ -1,5 +1,6 @@
 import React, { useContext, useReducer, useState } from 'react'
 //import { useNavigate } from 'react-router-dom';
+//profile
 import { Store } from '../Store';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
