@@ -1,6 +1,6 @@
 import React, { useContext, useReducer, useState } from 'react'
 //import { useNavigate } from 'react-router-dom';
-//profile
+
 import { Store } from '../Store';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
@@ -27,6 +27,7 @@ const reducer = (state, action) => {
     const { userInfo } = state;
     const [name, setName] = useState(userInfo.name);
     const [email, setEmail] = useState(userInfo.email);
+    const [phone, setPhone] = useState(userInfo.phone);
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
   
@@ -43,6 +44,7 @@ const reducer = (state, action) => {
             name,
             email,
             password,
+            phone,
           },
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -80,6 +82,14 @@ const reducer = (state, action) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="phone">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               required
             />
           </Form.Group>
