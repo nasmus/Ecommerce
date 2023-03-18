@@ -4,6 +4,8 @@ import logger from 'use-reducer-logger'
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import LeftSideBar from '../components/LeftSideBar';
+import Container from 'react-bootstrap/Container'
 
 const reducer = (state,action) => {
   switch(action.type){
@@ -40,8 +42,9 @@ function HomeScreen() {
     fatchData();
   },[])
   return (
-    <div>
-        <h1>Featured Product</h1>
+    <Container style={{display:'flex', width:'100%', margin:'auto'}} >
+      <LeftSideBar />
+        
         <div className="products">
           {
             loading? (
@@ -49,29 +52,24 @@ function HomeScreen() {
             ) : error ? (
               <MessageBox>{error}</MessageBox>
             ) : (
-              <div>
-                <section className="ec-page-content section-space-p" />
-                <div className="container">
-                    <div className="row">
-                        <div className="ec-shop-rightside col-lg-9 col-md-12 order-lg-last order-md-first margin-b-30">
-                            <div className="shop-pro-content">
-                                <div className="shop-pro-inner">
-                                    <div className="row">
-                                      {products.map((product) => (
-                                          <Product product={product} ></Product>
-                                        ))
-                                      }
-                                    </div>
-                                </div>  
-                            </div> 
-                        </div>
-                    </div>
-                  </div>
+              <div style={{display:'flex'}} >
+                <div className="shop-pro-content">
+                  <div className="shop-pro-inner">
+                      <div className="row">
+                          {products.map((product) => (
+                              <Product product={product} ></Product>
+                            ))
+                          }
+                      </div>
+                  </div>  
+                </div> 
               </div> 
             )
           }
+          
         </div>
-    </div>
+        
+    </Container>
   )
 }
 
