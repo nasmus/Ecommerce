@@ -1,9 +1,6 @@
 import React, { useEffect, useReducer, useState } from 'react'
-
 import axios from 'axios';
 import logger from 'use-reducer-logger'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -27,7 +24,7 @@ function HomeScreen() {
     loading:true,
     error:''
   })
-  //const [products,setProducts] = useState([]); // if we use useState then this is use it
+  //const [products,setProducts] = useState([]); // if we use useState then use it
   useEffect(()=>{
     const fatchData = async() => {
       dispatch({ type:'FATCH_REQUEST' })
@@ -52,16 +49,26 @@ function HomeScreen() {
             ) : error ? (
               <MessageBox>{error}</MessageBox>
             ) : (
-              <Row>
-              {products.map((product) => (
-                <Col key={product.id} sm={6} md={4} lg={3} className="md-3" >
-                  <Product product={product} ></Product>
-                </Col>
-            ))}
-            </Row>
-              
+              <div>
+                <section className="ec-page-content section-space-p" />
+                <div className="container">
+                    <div className="row">
+                        <div className="ec-shop-rightside col-lg-9 col-md-12 order-lg-last order-md-first margin-b-30">
+                            <div className="shop-pro-content">
+                                <div className="shop-pro-inner">
+                                    <div className="row">
+                                      {products.map((product) => (
+                                          <Product product={product} ></Product>
+                                        ))
+                                      }
+                                    </div>
+                                </div>  
+                            </div> 
+                        </div>
+                    </div>
+                  </div>
+              </div> 
             )
-            
           }
         </div>
     </div>

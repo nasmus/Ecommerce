@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+//import Button from 'react-bootstrap/Button'
 import Rating from './Rating';
 import { Store } from '../Store';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 function Product(props) {
     const { product } =props;
@@ -30,28 +32,39 @@ function Product(props) {
   }
 
   return (
-    <Card className="product" >
-     <Link to={`/product/${product.slug}`}>
-        <img className="card-img-top" src={product.image} alt={product.name} />
-     </Link>
-     <Card.Body>
-        <Link to={`/product/${product.slug}`}>
-          <Card.Title>
-            {product.name}
-          </Card.Title>  
-        </Link>
-        <Rating rating={product.rating} numReviews={product.numReview} />
-        <Card.Text>
-            ${product.price}
-        </Card.Text>
-        {
-          product.countInStock === 0 
-          ? <Button variant='light' disabled >Out Of Stock</Button>
-          : <Button onClick={() => addToCartHandeler(product)} >Add to cart</Button>
-        }
-        
-     </Card.Body>
-    </Card>           
+    
+      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+        <div className="ec-product-inner">
+          <div className="ec-pro-image-outer">
+            <div className="ec-pro-image">
+            <Link to={`/product/${product.slug}`} className="image">
+              <img className="main-image"
+                src={product.image} alt={product.name} />
+            </Link>
+              <span className="percentage">20%</span>
+            </div>
+          </div>
+              <div className="ec-pro-content">
+                <h5 className="ec-pro-title"><Link to={`/product/${product.slug}`}>{product.name}</Link></h5>
+                  <div className="ec-pro-rating">
+                    <span> <Rating rating={product.rating} numReviews={product.numReviews} /> </span>
+                  </div>
+                    <span className="ec-price">
+                    <span className="new-price">${product.price}</span>
+                    </span>
+                      <div className="ec-pro-option">
+                        <div className="ec-pro-size">
+                          <span className="ec-pro-opt-label">Button</span>
+                          {
+                            product.countInStock === 0 
+                            ? <Button variant='contained' size="small" endIcon={<AddShoppingCartIcon />} disabled >Out Of Stock</Button>
+                            : <Button onClick={() => addToCartHandeler(product)} variant="contained" size="small" endIcon={<AddShoppingCartIcon />} >Add To Cart</Button>
+                          }
+                        </div>
+                    </div>
+              </div>
+          </div>
+      </div>          
   )
 }
 
