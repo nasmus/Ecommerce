@@ -20,7 +20,7 @@ const reducer = (state,action) => {
   }
 }
 
-function HomeScreen() {
+function HomeScreen(props) {
   const [{loading, error, products}, dispatch] = useReducer( logger(reducer),{
     products:[],
     loading:true,
@@ -43,7 +43,10 @@ function HomeScreen() {
   },[])
   return (
     <Container style={{display:'flex', width:'100%', margin:'auto'}} >
-      <LeftSideBar />
+      {
+        (props.isVisible) ? <LeftSideBar /> : <div></div>
+      }
+      
         
         <div className="products">
           {

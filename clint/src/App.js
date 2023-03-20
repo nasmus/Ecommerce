@@ -17,10 +17,17 @@ import OrederHistoryScreen from './screen/OrederHistoryScreen';
 import ProfileScreen from './screen/ProfileScreen';
 import SearchScreen from './screen/SearchScreen';
 import Header from './components/Header';
+import { useState } from 'react';
 
 function App() {
   // const {state, dispatch:ctxDispatch} = useContext(Store);
   // const {cart,userInfo} = state;
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleClick =() => {
+    setIsVisible(!isVisible);
+    console.log(isVisible);
+  }
 
   return (
     <BrowserRouter>
@@ -28,12 +35,12 @@ function App() {
     <div className="d-flex flex-column">
       <ToastContainer position='bottom-center' limit={1} />
       <header>
-        <Header />
+        <Header isVisible={isVisible} handleClick={handleClick} />
       </header>
       <main>
         <Routes>
           <Route path='/product/:slug' element={ <ProductScreen /> } />
-          <Route path='/' element={<HomeScreen />} />
+          <Route path='/' element={<HomeScreen isVisible={isVisible} />} />
           <Route path='/signin' element={ <SignInScreen /> } />
           <Route path='/signup' element={ <SignUpScreen /> } />
           <Route path='/profile' element={ <ProfileScreen /> } />

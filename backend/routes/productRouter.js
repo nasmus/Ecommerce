@@ -9,6 +9,13 @@ productRouter.get('/', async(req,res) => {
     res.send(products);
 })
 
+productRouter.get('/categories',
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Product.find().distinct('category')
+    res.send(categories);
+  })
+);
+
 productRouter.get('/search', expressAsyncHandler (async(req,res) => {
     const { query } = req;
     const pageSize = query.pageSize || PAGE_SIZE;
@@ -104,5 +111,7 @@ productRouter.get('/:id', async(req,res) => {
         res.status(404).send({message: "product not found"});
     }
 })
+
+
 
 export default productRouter;

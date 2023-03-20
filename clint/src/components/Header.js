@@ -4,9 +4,12 @@ import { Store } from '../Store';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 import logo from '../css/logo.png'
+import { Button } from '@mui/material';
+import DensitySmallIcon from '@mui/icons-material/DensitySmall';
+import SearchBox from './SearchBox';
 
 
-function Header() {
+function Header({handleClick}) {
     const {state, dispatch:ctxDispatch} = useContext(Store);
     const {cart,userInfo} = state;
     
@@ -22,6 +25,12 @@ function Header() {
             <div className="container position-relative">
                 <div className="row">
                     <div className="ec-flex">
+                        <div className="align-self-center">
+                            <div className="navbar_button">
+                                <Button onClick={handleClick} > <DensitySmallIcon /> </Button>
+                            </div>
+                        </div>
+
                         
                         <div className="align-self-center">
                             <div className="header-logo">
@@ -29,15 +38,7 @@ function Header() {
                             </div>
                         </div>
                         
-                        <div className="align-self-center">
-                            <div className="header-search">
-                                <form className="ec-btn-group-form" action="#">
-                                    <input className="form-control ec-search-bar" placeholder="Search products..."
-                                        type="text" />
-                                    <button className="submit" type="submit"><i className="fi-rr-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
+                        {<SearchBox />}
                         
                         <div className="align-self-center">
                             <div className="ec-header-bottons">
