@@ -45,8 +45,62 @@ function SignInScreen() {
     },[navigate,redirect,userInfo]);
 
   return (
-    <div>
-        <Container className='small-container' >
+    <div style={{width:'35%', margin: 'auto', padding: '25px'}} >
+        <Form onSubmit={submitHendler} >
+        <div className="form-outline mb-4">
+            <input type="email" onChange={(e) => setEmail(e.target.value)} required controlId="email" className="form-control" />
+            <label className="form-label" >Email address</label>
+        </div>
+
+        
+        <div className="form-outline mb-4">
+            <input type="password" onChange={(e) => setPassword(e.target.value)} required  className="form-control" />
+            <label  className="form-label" >Password</label>
+        </div>
+
+        
+        <div className="row mb-4">
+            <div className="col d-flex justify-content-center">
+            
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="form2Example31" />
+                <label className="form-check-label" > Remember me </label>
+            </div>
+            </div>
+
+            <div className="col">
+            
+            <a href="#!">Forgot password?</a>
+            </div>
+        </div>
+
+        
+        <Button type='submit' className="btn btn-primary btn-block mb-4">Sign in</Button>
+
+        
+        <div className="text-center">
+            <p>Not a member? <Link to={`/signup?redirect=${redirect}`}>Create Your Account</Link></p>
+            <p>or sign in with</p>
+            <button type="button" className="btn btn-link btn-floating mx-1">
+            <i className="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" className="btn btn-link btn-floating mx-1">
+            <i className="fab fa-google"></i>
+            </button>
+
+            <button type="button" className="btn btn-link btn-floating mx-1">
+            <i className="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" className="btn btn-link btn-floating mx-1">
+            <i className="fab fa-github"></i>
+            </button>
+        </div>
+        </Form>
+
+
+        {/* <Container className='small-container' >
             <h1>Sign In</h1>
             <Form onSubmit={submitHendler} >
                 <Form.Group className="md-3" controlId="email"  >
@@ -67,7 +121,7 @@ function SignInScreen() {
                     <Link to={`/signup?redirect=${redirect}`}>Create Your Account</Link>
                 </div>
             </Form>
-        </Container>
+        </Container> */}
     </div>
   )
 }
