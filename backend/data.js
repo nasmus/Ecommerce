@@ -67,6 +67,19 @@ const data = {
             rating: 4.5,
             numReviews: 23,
             description: "high quality product"
+        },
+        {
+            //_id:'4',
+            name:"addidas full-shart",
+            slug:"addidas full-shart",
+            category:"wallet",
+            image:"/images/p4.jpg",
+            price: 50,
+            countInStock: 4,
+            brand: "mascot",
+            rating: 5,
+            numReviews: 8,
+            description: "very good product"
         }
     ]
 }
