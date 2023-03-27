@@ -18,14 +18,15 @@ userRouter.post(
                     email:user.email,
                     phone:user.phone,
                     isAdmin: user.isAdmin,
+                    role:user.role,
                     token: generateToken(user.toObject()),
                 })
             }
         }
         res.status(401).send({message:'invalid email or password'});
     })
-    
 )
+
 userRouter.post(
     '/signup',
         expressAsyncHandler ( async(req,res) => {
@@ -33,6 +34,7 @@ userRouter.post(
             name: req.body.name,
             email: req.body.email,
             phone: req.body.phone,
+            role: 'user',
             password:bcrypt.hashSync(req.body.password)
            });
 
@@ -43,6 +45,7 @@ userRouter.post(
             email:user.email,
             phone: user.phone,
             isAdmin:user.isAdmin,
+            role: user.role,
             token: generateToken(user),
            })
         })

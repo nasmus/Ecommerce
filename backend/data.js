@@ -7,12 +7,23 @@ const data = {
             email:"shakil@gmail.com",
             password:bcrypt.hashSync('123456'),
             isAdmin:true,
+            role:"admin"
         },
         {
             name: "shoab",
             email:"shoab@gmail.com",
             password:bcrypt.hashSync('123456'),
             isAdmin:false,
+            role:"user"
+            
+        },
+        {
+            name: "shoab",
+            email:"shoab@gmail.com",
+            password:bcrypt.hashSync('123456'),
+            isAdmin:false,
+            role:"seller"
+            
         }
     ],
     products: [
@@ -68,19 +79,7 @@ const data = {
             numReviews: 23,
             description: "high quality product"
         },
-        {
-            //_id:'4',
-            name:"addidas full-shart",
-            slug:"addidas full-shart",
-            category:"wallet",
-            image:"/images/p4.jpg",
-            price: 50,
-            countInStock: 4,
-            brand: "mascot",
-            rating: 5,
-            numReviews: 8,
-            description: "very good product"
-        }
+        
     ]
 }
 

@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema(
         phone:{ type:String, required:true, unique:true },
         password:{ type:String, required:true, unique:true },
         isAdmin: { type:Boolean, default:false, required:true},
+        role: { type:String, required:true, }
     },
     {
         timestamps:true,

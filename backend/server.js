@@ -5,6 +5,7 @@ import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRouter.js';
 import userRouter from './routes/userRouter.js';
 import orderRouter from './routes/orderRouter.js';
+import sellerRouter from './routes/sellerRouter/sellerRouter.js'
 
 
 const app = express();
@@ -19,7 +20,10 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-//mongoose.set("strictQuery", false);
+//seller api
+app.use('/api/seller', sellerRouter);
+
+mongoose.set("strictQuery", false);
 
 mongoose.connect(process.env.MONGODB_URL ).then(()=> {
     console.log('connect to db')
