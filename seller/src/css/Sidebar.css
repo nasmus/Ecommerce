@@ -1,32 +1,39 @@
 .sidebar {
-  background-color: #f2f2f2;
-  padding: 20px;
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
   width: 250px;
-  float: left;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #37474F;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-
-.content {
-  padding: 20px;
-  margin-left: 270px;
+.sidebar {
+  padding: 5px 10px;
 }
-
-/* Style for heading in sidebar */
-.sidebar h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 10px;
+.sidebar > h1 {
+  background-color: #263238;
+font-size: 20px;
+line-height: 52px;
+text-align: center;
+color: #fff;
 }
-
-/* Style for links in sidebar */
-.sidebar a {
-  display: block;
-  margin-bottom: 10px;
-  color: #333;
+.sidebar__link {
+  border-top:1px solid #455A64;
+  padding-top: 10px;
   text-decoration: none;
+  display: block;
+  font-size: 14px;
+  color: #CFD8DC;
+  background: none;
 }
 
-/* Style for active link in sidebar */
-.sidebar a.active {
-  color: #f00;
+.sidebar__link :hover {
+  text-decoration: none;
+  display: block;
+  color: #fff;
 }
