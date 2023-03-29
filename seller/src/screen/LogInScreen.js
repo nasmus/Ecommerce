@@ -21,14 +21,14 @@ function LogInScreen() {
     const submitHendler = async(e) => {
         e.preventDefault();
         try{
-            const {value} = await axios.post('/api/seller/login', {
+            const {data} = await axios.post('/api/seller/login', {
                 email,
                 password
             })
-            //console.log(value);
-            ctxDispatch({type:'USER_SIGNIN', payload: value});
-            localStorage.setItem('userInfo', JSON.stringify(value));
-            navigate(redirect || '/dashbord');
+            console.log(data);
+            ctxDispatch({type:'USER_SIGNIN', payload: data});
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            navigate('/dashboard');
 
         } catch (err){
             toast.error(getError(err));            

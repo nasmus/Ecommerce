@@ -1,9 +1,10 @@
 import React from 'react'
+import Sidebar from '../component/Sidebar'
 
 function SellerDashBoard() {
   return (
     <div>
-        <h1>Seller DashBoard</h1>
+        <Sidebar />
     </div>
   )
 }

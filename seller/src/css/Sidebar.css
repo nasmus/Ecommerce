@@ -1,0 +1,32 @@
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 250px;
+  float: left;
+}
+
+.content {
+  padding: 20px;
+  margin-left: 270px;
+}
+
+/* Style for heading in sidebar */
+.sidebar h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Style for links in sidebar */
+.sidebar a {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Style for active link in sidebar */
+.sidebar a.active {
+  color: #f00;
+}
