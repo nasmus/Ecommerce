@@ -2,7 +2,7 @@ import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import User from '../../models/userModel.js'
 import bcrypt from 'bcryptjs';
-import { generateToken } from '../../utils.js'
+import { generateToken, isAuth } from '../../utils.js'
 
 const sellerRouter = express.Router();
 
@@ -26,5 +26,6 @@ sellerRouter.post(
         res.status(401).send({message:'invalid email or password'});
     })
 )
+
 
 export default sellerRouter;

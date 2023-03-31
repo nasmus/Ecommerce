@@ -35,4 +35,17 @@ productCreateRouter.post(
     })
 )
 
+productCreateRouter.get(
+    '/:id',
+    isAuth,
+    expressAsyncHandler( async(req,res) => {
+        const data = await Product.findOne({createdBy:req.params.createdBy});
+        if(data){
+            res.send(data);
+        } else {
+            res.status(404).send({message: "Product Not Found"});
+        }
+    })
+)
+
 export default productCreateRouter;
