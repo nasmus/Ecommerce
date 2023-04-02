@@ -6,16 +6,11 @@
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  
 }
 .sidebar {
   padding: 5px 10px;
-}
-.sidebar > h1 {
-  
-font-size: 20px;
-line-height: 52px;
-text-align: center;
-
 }
 .sidebar__link {
   padding-top: 10px;

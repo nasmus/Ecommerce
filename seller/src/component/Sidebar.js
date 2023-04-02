@@ -2,40 +2,42 @@ import React from 'react'
 import "../css/Sidebar.css"
 import SidebarRow from './SidebarRow'
 import { NavLink } from 'react-router-dom';
-
+import AddCardIcon from '@mui/icons-material/AddCard';
 
 function Sidebar() {
     return (
         <div className="sidebar">
-            <NavLink className="sidebar__link" to="/">
-                <SidebarRow title="Dashboard" />
+            <h1>my app</h1>
+            <NavLink  to="/">
+                <SidebarRow Icon={AddCardIcon} title="Dashboard" />
             </NavLink>
-            <NavLink className="sidebar__link" to="/upload">
-                <SidebarRow title="Upload" />
+            <NavLink  to="/page">
+                <SidebarRow title="Page" />
             </NavLink>
-            <NavLink className="sidebar__link" to="/products">
+            <NavLink to="/products">
                 <SidebarRow  title="Products" />
             </NavLink>
 
-            <NavLink className="sidebar__link" to="/order">
+            <NavLink to="/order">
                 <SidebarRow title="Order" />
             </NavLink>
 
-            <NavLink className="sidebar__link" to="/works">
+            <NavLink to="/works">
                 <SidebarRow title="Statistics" />
             </NavLink>
-            <NavLink className="sidebar__link" to="/portfolio">
+            <NavLink to="/portfolio">
                 <SidebarRow title="Reviews" />
             </NavLink>
-            <NavLink className="sidebar__link" to="/email">
+            <NavLink to="/email">
                 <SidebarRow title="Transactions" />
             </NavLink>
-            <NavLink className="sidebar__link" to="/email">
+            <NavLink to="/email">
                 <SidebarRow title="sellers" />
             </NavLink>
-            <NavLink className="sidebar__link" to="/email">
+            <NavLink to="/email">
                 <SidebarRow title="Log Out" />
             </NavLink>
+            
   
             
         </div>
