@@ -7,12 +7,11 @@ import { NavLink } from 'react-router-dom';
 function Sidebar() {
     return (
         <div className="sidebar">
-            <h1>my app</h1>
             <NavLink className="sidebar__link" to="/">
                 <SidebarRow title="Dashboard" />
             </NavLink>
-            <NavLink className="sidebar__link" to="/page">
-                <SidebarRow title="Page" />
+            <NavLink className="sidebar__link" to="/upload">
+                <SidebarRow title="Upload" />
             </NavLink>
             <NavLink className="sidebar__link" to="/products">
                 <SidebarRow  title="Products" />

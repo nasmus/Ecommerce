@@ -13,7 +13,7 @@ productCreateRouter.post(
 
         const product = new Product({
             name:name,
-            slug:slug,
+            slug:name,
             image,
             brand,
             category,

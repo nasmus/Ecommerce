@@ -23,9 +23,17 @@ export const isAuth = (req, res, next) => {
 };
 
 export const isAdmin = (req, res, next) => {
-  if(req.user && req.user.isAdmin){
+  if( req.user && req.user.isAdmin && req.user.role === 'admin'){
     next()
   } else {
     res.status(401).send({message:"invalid admin token"})
+  }
+}
+
+export const isSeller = (req,res,next) => {
+  if(req.user && req.user.role === 'seller'){
+    next()
+  } else {
+    res.status(401).send({message:"invalid seller token"})
   }
 }

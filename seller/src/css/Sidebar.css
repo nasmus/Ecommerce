@@ -6,34 +6,26 @@
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #37474F;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 .sidebar {
   padding: 5px 10px;
 }
 .sidebar > h1 {
-  background-color: #263238;
+  
 font-size: 20px;
 line-height: 52px;
 text-align: center;
-color: #fff;
+
 }
 .sidebar__link {
-  border-top:1px solid #455A64;
   padding-top: 10px;
   text-decoration: none;
   display: block;
   font-size: 14px;
-  color: #CFD8DC;
   background: none;
 }
 
 .sidebar__link :hover {
   text-decoration: none;
   display: block;
-  color: #fff;
 }
