@@ -8,8 +8,8 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <h1>my app</h1>
-            <NavLink  to="/">
-                <SidebarRow Icon={AddCardIcon} title="Dashboard" />
+            <NavLink to="/upload">
+                <SidebarRow Icon={AddCardIcon} title="Product Add" />
             </NavLink>
             <NavLink  to="/page">
                 <SidebarRow title="Page" />

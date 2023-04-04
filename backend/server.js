@@ -26,7 +26,8 @@ app.use('/api/orders', orderRouter);
 app.use('/api/seller', sellerRouter);
 app.use('/api/product', productCreateRouter);
 app.use('/api/allproduct', productCreateRouter);
-app.use('/api/delete', deleteProduct)
+app.use('/api/delete', deleteProduct);
+app.use('/api/edit', productCreateRouter);
 
 mongoose.set("strictQuery", false);
 

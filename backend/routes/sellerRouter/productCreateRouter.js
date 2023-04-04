@@ -1,7 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Product from '../../models/productModel.js';
-import { isAuth } from '../../utils.js';
+import { isAuth, isSeller } from '../../utils.js';
 
 const productCreateRouter = express.Router()
 
@@ -45,6 +45,31 @@ productCreateRouter.get(
         } else {
             res.status(404).send({message: "Product Not Found"});
         }
+    })
+)
+
+productCreateRouter.put(
+    '/:id',
+    isAuth,
+    isSeller,
+    expressAsyncHandler( async(req,res) => {
+        try{
+            const product = await Product.findById(req.params.id);
+            if(product){
+                product.name = req.body.name || product.name;
+                product.category = req.body.category || product.category;
+                product.description = req.body.description || product.description;
+                product.price = req.body.price || product.price;
+                product.countInStock = req.body.countInStock || product.countInStock;
+                const updateProduct = await product.save();
+                res.status(201).send({message:"Product updated successfull", product:updateProduct})
+            } else {
+                res.status(401).send({message:"product not found"})
+            }
+        } catch(err){
+            res.status(401).send(err)
+        }
+        
     })
 )
 

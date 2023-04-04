@@ -1,12 +1,13 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
+import Sidebar from '../component/Sidebar'
 
 function ProductUploadScreen() {
   return (
     <div>
-    <Container>
+    <Sidebar />
         <h1>Product upload page</h1>
-    <div className="ec-shop-rightside col-lg-9 col-md-12">
+            <div className="ec-shop-rightside col-lg-9 col-md-12">
                     <div className="ec-vendor-dashboard-card">
                         <div className="ec-vendor-card-body">
                             <div className="row">
@@ -78,9 +79,7 @@ function ProductUploadScreen() {
                         </div>
                     </div>
                 </div>
-    
-        </Container>
-    </div>
+            </div>
   )
 }
 

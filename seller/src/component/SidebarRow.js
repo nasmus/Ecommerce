@@ -6,7 +6,7 @@ function SidebarRow({Icon,title}) {
     return (
         <div className="sidebarRow">
             {Icon && <Icon />}
-            <p> <span>{title}</span> </p> 
+            <p> <span> <strong>{title}</strong> </span> </p> 
                      
         </div>
     )
