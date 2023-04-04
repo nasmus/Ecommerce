@@ -57,6 +57,7 @@ productCreateRouter.put(
             const product = await Product.findById(req.params.id);
             if(product){
                 product.name = req.body.name || product.name;
+                product.slug = product.name;
                 product.category = req.body.category || product.category;
                 product.description = req.body.description || product.description;
                 product.price = req.body.price || product.price;
