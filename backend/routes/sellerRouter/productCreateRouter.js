@@ -5,6 +5,7 @@ import { isAuth, isSeller } from '../../utils.js';
 
 const productCreateRouter = express.Router()
 
+
 productCreateRouter.post(
     '/create',
     isAuth,
@@ -39,7 +40,8 @@ productCreateRouter.get(
     '/:id',
     isAuth,
     expressAsyncHandler( async(req,res) => {
-        const data = await Product.findOne({createdBy:req.params.createdBy});
+        const data = await Product.find({createdBy:req.params.id});
+        
         if(data){
             res.send(data);
         } else {
