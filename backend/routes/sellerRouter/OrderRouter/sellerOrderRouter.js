@@ -30,4 +30,28 @@ sellerOrderRouter.get(
     })
 )
 
+sellerOrderRouter.put(
+    '/changestatus',
+    isAuth,
+    isSeller,
+    expressAsyncHandler( async(req,res) => {
+        try{
+            const userId = req.user._id;
+            const newStatusCode = req.body.isDelivered;
+            const product = await Order.findOneAndUpdate('isDelivered').where({"orderItems.seller": userId});
+            if(product){
+                product.isDelivered = newStatusCode;
+                await product.save()
+                res.send(product);
+            } else {
+                res.status(401).send({message:"not updated"})
+            }
+        } catch(err) {
+            res.status(404).send(err);
+        }
+        
+        
+    })
+)
+
 export default sellerOrderRouter;
