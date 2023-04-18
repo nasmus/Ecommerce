@@ -15,6 +15,7 @@ sellerOrderRouter.get(
         res.send(order);
     })
 )
+
 sellerOrderRouter.get(
     '/orderaddress',
     isAuth,
@@ -53,5 +54,27 @@ sellerOrderRouter.put(
         
     })
 )
+
+sellerOrderRouter.get(
+    '/summary',
+    isAuth,
+    isSeller,
+    expressAsyncHandler( async(req,res) => {
+        const userId = req.user._id;
+
+        const allOrderPrice = await Order.aggregate([
+            
+            {
+                $group: {
+                    _id:null,
+                    numOrders: {$sum:1},
+                    totalSales: {$sum:`$orderItems.price`},
+                },
+            },
+        ])
+        res.send(allOrderPrice);
+    } )
+)
+
 
 export default sellerOrderRouter;

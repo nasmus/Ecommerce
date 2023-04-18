@@ -40,7 +40,7 @@ productCreateRouter.get(
     '/:id',
     isAuth,
     expressAsyncHandler( async(req,res) => {
-        const data = await Product.find({createdBy:req.params.id});
+        const data = await Product.find({createdBy:req.user._id});
         
         if(data){
             res.send(data);

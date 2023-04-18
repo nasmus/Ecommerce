@@ -1,0 +1,21 @@
+.dashBoard{
+    padding-left: 255px;
+    padding-right: 5px;
+}
+.Order_information {
+    display: flex;
+}
+.Order_card_1{
+    display: flex;
+    height:100px;
+    width: 300px;
+    margin: 20px;
+    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.Order_card_1 > h1 {
+    text-align: center;
+    margin: auto;
+}

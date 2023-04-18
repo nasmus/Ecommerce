@@ -1,13 +1,16 @@
 import React from 'react'
 import "../css/Sidebar.css"
 import SidebarRow from './SidebarRow'
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import AddCardIcon from '@mui/icons-material/AddCard';
 
 function Sidebar() {
     return (
         <div className="sidebar">
+            <Link to='/dashboard'>
             <h1>my app</h1>
+            </Link>
+            
             <NavLink to="/upload">
                 <SidebarRow Icon={AddCardIcon} title="Product Add" />
             </NavLink>
