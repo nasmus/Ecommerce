@@ -29,7 +29,7 @@ app.use('/api/product', productCreateRouter);
 app.use('/api/allproduct', productCreateRouter);
 app.use('/api/delete', deleteProduct);
 app.use('/api/edit', productCreateRouter);
-// seller ouder api
+// seller order api
 app.use('/api/order', sellerOrderRouter);
 
 mongoose.set("strictQuery", false);

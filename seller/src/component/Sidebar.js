@@ -3,12 +3,13 @@ import "../css/Sidebar.css"
 import SidebarRow from './SidebarRow'
 import { NavLink,Link } from 'react-router-dom';
 import AddCardIcon from '@mui/icons-material/AddCard';
+import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
 
 function Sidebar() {
     return (
         <div className="sidebar">
             <Link to='/dashboard'>
-            <h1>my app</h1>
+            <h2>Dash Board</h2>
             </Link>
             
             <NavLink to="/upload">
@@ -21,8 +22,8 @@ function Sidebar() {
                 <SidebarRow  title="Products" />
             </NavLink>
 
-            <NavLink to="/order">
-                <SidebarRow title="Order" />
+            <NavLink to="/allorder">
+                <SidebarRow Icon={FolderSpecialIcon} title="Order" />
             </NavLink>
 
             <NavLink to="/works">

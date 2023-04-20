@@ -3,6 +3,7 @@ import './App.css';
 import LogInScreen from './screen/LogInScreen';
 import SellerDeshBoard from './screen/SellerDashBoard';
 import ProductUploadScreen from './screen/ProductUploadScreen';
+import AllOrder from './screen/AllOrder';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
           <Route path='/' element={ <LogInScreen /> } />
           <Route path='/dashboard' element={ <SellerDeshBoard /> } />
           <Route path='/upload' element={<ProductUploadScreen />} />
+          <Route path='/products' element={<ProductUploadScreen />} />
+          <Route path='/allorder' element={<AllOrder />} />
         </Routes>
     </div>
     </BrowserRouter>

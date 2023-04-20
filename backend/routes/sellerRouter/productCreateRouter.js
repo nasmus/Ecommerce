@@ -10,7 +10,7 @@ productCreateRouter.post(
     '/create',
     isAuth,
     expressAsyncHandler( async(req,res) => {
-        const {name,slug,image,brand,category,description,price,countInStock,createdBy,rating,numReviews} = req.body;
+        const {name,image,brand,category,description,price,countInStock,createdBy,rating,numReviews} = req.body;
 
         const product = new Product({
             name:name,
