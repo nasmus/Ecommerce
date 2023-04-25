@@ -23,6 +23,7 @@ sellerOrderRouter.get(
     expressAsyncHandler( async(req,res) => {
         const userId = req.user._id;
         const orderAddress = await Order.distinct("shippingAddress").where({"orderItems.seller": userId})
+        //const orderAddress = await Order.find({"orderItems.seller":userId})
         if(orderAddress){
             res.status(200).send(orderAddress)
         } else {
@@ -63,12 +64,14 @@ sellerOrderRouter.get(
         const userId = req.user._id;
 
         const allOrderPrice = await Order.aggregate([
-            
+            {
+                $match:{"orderItems.seller":userId}
+            },
             {
                 $group: {
                     _id:null,
                     numOrders: {$sum:1},
-                    totalSales: {$sum:`$orderItems.price`},
+                    totalSales: {$sum:`$price`},
                 },
             },
         ])

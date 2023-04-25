@@ -68,7 +68,7 @@ function AllOrder() {
                 </tr>
             </thead>
             <tbody>
-                {order[orderItems].map((ord) => (
+                {order.map((ord) => (
                     <tr key={ord._id} >
                     <td>{ord._id}</td>
                     <td>{ord.name}</td>
