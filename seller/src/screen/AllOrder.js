@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import Sidebar from '../component/Sidebar'
 import '../css/AllOrder.css'
 import { Button } from '@mui/material'
@@ -10,26 +10,26 @@ import { getError } from '../utils';
 const reducer = (state, action) => {
     switch(action.type) {
         case "FETCH_REQUEST":
-            return {...state, loading:true}
+            return {...state,loading:true}
         case "FETCH_SUCCESS":
-            return {...state, order:action.payload, loading:false }
+            return {...state, orders:action.payload,loading:false }
         case "FETCH_FAIL":
-            return {...state, loading:false, error:action.payload}
+            return {...state, error:action.payload,loading:false}
         default:
             return state;
     }
-
 }
 
 function AllOrder() {
     const {state} = useContext(Store);
     const {userInfo} = state;
+    //const [orders,setOrders] = useState([]);
     const Id = localStorage.getItem('userInfo._id');
-    const [{error,loading,order}, dispatch] = useReducer(reducer, {
-        loading:true,
-        error:'',
-        order:[]
-    })
+    const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
+        loading: true,
+        error: '',
+        orders:[]
+      });
 
     useEffect(() => {
         const fatchData = async () => {
@@ -41,13 +41,14 @@ function AllOrder() {
                 );
                 dispatch({type:"FETCH_SUCCESS",payload:data})
 
-            } catch (error) {
+            } catch (error) { 
                 dispatch({type:"FETCH_FAIL",payload:getError(error)})
             }
         }
-        fatchData()
-        console.log(order)
+        fatchData()    
+        
     },[userInfo])
+
 
   return (
     <div>
@@ -60,27 +61,31 @@ function AllOrder() {
                 <th>Id</th>
                 <th>image</th>
                 <th>name</th>
-                <th>category</th>
-                <th>status</th>
+                <th>quantity</th>
                 <th>price</th>
-                <th>Change Status</th>
-                <th>Edit Product</th>
+                <th></th>
+                
                 </tr>
             </thead>
-            <tbody>
-                {order.map((ord) => (
-                    <tr key={ord._id} >
-                    <td>{ord._id}</td>
-                    <td>{ord.name}</td>
-                    <td>pro.</td>
-                    <td>@mdo</td>
-                    <td>shoes</td>
-                    <td>pro</td>
-                    <th><Button variant="contained">Change Status</Button></th>
-                    <th><Button variant="contained" color="success">Edit Product</Button></th>
-                </tr>
+            <tbody> 
+                {orders.map((order)=>(
+                    <>
+                        {order.orderItems.map((item) => {
+                            console.log("order items:",item)
+                            return(
+                        <tr key={item._id} >
+                            <td>{item._id}</td>
+                            <td><img src={item.image} /></td>
+                            <td>{item.name}</td>
+                            <td>{item.quantity}</td>
+                            <td>{item.price}</td>
+                            <td>pro</td>
+                            <td><Button variant="contained" color="success">Edit Product</Button></td>
+                        </tr>
+                            )
+                        })}
+                    </>
                 ))}
-                 
             </tbody>
             </Table>
         </div>

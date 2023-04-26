@@ -12,7 +12,12 @@ sellerOrderRouter.get(
     expressAsyncHandler( async(req,res) => {
         const userId = req.user._id;
         const order = await Order.find({"orderItems.seller": userId},{_id:0,orderItems:{$elemMatch:{"orderItems.seller":userId}}});
-        res.send(order);
+        if(order){
+            res.status(200).send(order)
+        }
+        else {
+            res.status(404).send({message:"Data Not Found"})
+        }
     })
 )
 

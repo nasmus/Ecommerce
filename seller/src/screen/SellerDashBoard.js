@@ -70,37 +70,37 @@ function SellerDashBoard() {
         <h2>Product List</h2>
         
         <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>image</th>
-          <th>name</th>
-          <th>category</th>
-          <th>status</th>
-          <th>price</th>
-          <th>Change Status</th>
-          <th>Edit Product</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          product.map((pro) => (
-          <tr key={pro._id} >
-            <td>{pro._id}</td>
-            <td>Mark</td>
-            <td>{pro.name}</td>
-            <td>@mdo</td>
-            <td>shoes</td>
-            <td>{pro.price}</td>
-            <th><Button variant="contained">Change Status</Button></th>
-            <th><Button variant="contained" color="success">Edit Product</Button></th>
-          </tr> 
-          ))
-        }
-        
-      </tbody>
-    </Table>
-        </div>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>image</th>
+              <th>name</th>
+              <th>category</th>
+              <th>status</th>
+              <th>price</th>
+              <th>Change Status</th>
+              <th>Edit Product</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              product.map((pro) => (
+              <tr key={pro._id} >
+                <td>{pro._id}</td>
+                <td>Mark</td>
+                <td>{pro.name}</td>
+                <td>@mdo</td>
+                <td>shoes</td>
+                <td>{pro.price}</td>
+                <th><Button variant="contained">Change Status</Button></th>
+                <th><Button variant="contained" color="success">Edit Product</Button></th>
+              </tr> 
+              ))
+            }
+            
+          </tbody>
+        </Table>
+      </div>
     </div>
   )
 }

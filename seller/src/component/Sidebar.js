@@ -3,7 +3,8 @@ import "../css/Sidebar.css"
 import SidebarRow from './SidebarRow'
 import { NavLink,Link } from 'react-router-dom';
 import AddCardIcon from '@mui/icons-material/AddCard';
-import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
+import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 function Sidebar() {
     return (
@@ -15,15 +16,15 @@ function Sidebar() {
             <NavLink to="/upload">
                 <SidebarRow Icon={AddCardIcon} title="Product Add" />
             </NavLink>
-            <NavLink  to="/page">
-                <SidebarRow title="Page" />
+            <NavLink  to="/productlist">
+                <SidebarRow Icon={AlignHorizontalLeftIcon} title="Product List" />
             </NavLink>
             <NavLink to="/products">
                 <SidebarRow  title="Products" />
             </NavLink>
 
             <NavLink to="/allorder">
-                <SidebarRow Icon={FolderSpecialIcon} title="Order" />
+                <SidebarRow Icon={AssignmentIcon} title="Order" />
             </NavLink>
 
             <NavLink to="/works">
