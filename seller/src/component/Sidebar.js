@@ -5,6 +5,7 @@ import { NavLink,Link } from 'react-router-dom';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function Sidebar() {
     return (
@@ -24,7 +25,7 @@ function Sidebar() {
             </NavLink>
 
             <NavLink to="/allorder">
-                <SidebarRow Icon={AssignmentIcon} title="Order" />
+                <SidebarRow Icon={ShoppingCartIcon} title="Order" />
             </NavLink>
 
             <NavLink to="/works">
