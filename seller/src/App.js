@@ -5,6 +5,7 @@ import SellerDeshBoard from './screen/SellerDashBoard';
 import ProductUploadScreen from './screen/ProductUploadScreen';
 import AllOrder from './screen/AllOrder';
 import ProductListScreen from './screen/ProductListScreen';
+import EditProductScreen from './screen/EditProductScreen';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/products' element={<ProductUploadScreen />} />
           <Route path='/productlist' element={<ProductListScreen />} />
           <Route path='/allorder' element={<AllOrder />} />
+          <Route path='/productdetails/:id' element={<EditProductScreen />} />
         </Routes>
     </div>
     </BrowserRouter>

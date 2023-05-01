@@ -1,4 +1,4 @@
-import  express  from "express";
+import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from '../../../models/orderModel.js';
 import { isAuth, isSeller } from "../../../utils.js";
@@ -83,6 +83,5 @@ sellerOrderRouter.get(
         res.send(allOrderPrice);
     } )
 )
-
 
 export default sellerOrderRouter;

@@ -9,6 +9,7 @@ import sellerRouter from './routes/sellerRouter/sellerRouter.js'
 import productCreateRouter from './routes/sellerRouter/productCreateRouter.js';
 import deleteProduct from './routes/sellerRouter/deleteProduct.js';
 import sellerOrderRouter from './routes/sellerRouter/OrderRouter/sellerOrderRouter.js'
+import sellerProductRouter from './routes/sellerRouter/ProductRouter/sellerProductRouter.js';
 
 
 const app = express();
@@ -23,14 +24,18 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
+
 //seller api
 app.use('/api/seller', sellerRouter);
 app.use('/api/product', productCreateRouter);
 app.use('/api/allproduct', productCreateRouter);
 app.use('/api/delete', deleteProduct);
 app.use('/api/edit', productCreateRouter);
+app.use('/app', productCreateRouter);
 // seller order api
 app.use('/api/order', sellerOrderRouter);
+app.use('/api/productdetails',sellerProductRouter);
+
 
 mongoose.set("strictQuery", false);
 

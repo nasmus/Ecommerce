@@ -12,16 +12,16 @@ function SellerDashBoard() {
         <div className='dashBoard'>
           <div className='Order_information'>
             <div className='Order_card_1'>
-              <h4>Total Product</h4>
+              <h4>Total Product / Day</h4>
             </div>
             <div className='Order_card_1'>
-              <h4>Total Orders</h4>
+              <h4>Total Orders / Day</h4>
             </div>
             <div className='Order_card_1'>
-              <h4>Total Earning</h4>
+              <h4>Total Earning / Day</h4>
             </div>
             <div className='Order_card_1'>
-              <h4>Total Selles</h4>
+              <h4>Total Selles / Day</h4>
             </div>
           </div>
           <div className='dashBoard__productList'>
