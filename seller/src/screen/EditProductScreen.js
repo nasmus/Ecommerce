@@ -4,6 +4,7 @@ import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import { getError } from '../utils'
 import { Button } from '@mui/material'
+import Sidebar from '../component/Sidebar'
 
 const reducer = (state,action) => {
     switch(action.type){
@@ -48,6 +49,7 @@ function EditProductScreen() {
 
   return (
     <div>
+        <Sidebar />
         <h1>This is product details page</h1>
         <div>
             <h3>{product.name}</h3>

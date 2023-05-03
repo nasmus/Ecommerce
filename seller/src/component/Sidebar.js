@@ -4,8 +4,8 @@ import SidebarRow from './SidebarRow'
 import { NavLink,Link } from 'react-router-dom';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 
 function Sidebar() {
     return (
@@ -15,7 +15,7 @@ function Sidebar() {
             </Link>
             
             <NavLink to="/upload">
-                <SidebarRow Icon={AddCardIcon} title="Product Add" />
+                <SidebarRow Icon={DownloadForOfflineIcon} title="Product Add" />
             </NavLink>
             <NavLink  to="/productlist">
                 <SidebarRow Icon={AlignHorizontalLeftIcon} title="Product List" />

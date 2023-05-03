@@ -5,13 +5,16 @@ const productSchema = new mongoose.Schema(
         name: { type: String, required: true, unique:true },
         slug: { type: String, required: true, unique: true },
         image: { type: String, requiree:true },
+        // image:[
+        //     {img: { type:String, required:true}}
+        // ],
         brand: { type: String, required:true },
-        category: { type:String, required:true },
+        category: { type:String },
         description: { type:String, required:true },
         price: { type:Number, required:true },
         countInStock: { type:Number, required:true },
-        rating: { type:Number, required: true},
-        numReviews: { type:Number, required:true },
+        rating: { type:Number},
+        numReviews: { type:Number},
         createdBy: {
             type: mongoose.Schema.Types.ObjectId, ref:'User',
             required:true

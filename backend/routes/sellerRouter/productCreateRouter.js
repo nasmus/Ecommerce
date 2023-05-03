@@ -2,15 +2,31 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Product from '../../models/productModel.js';
 import { isAuth, isSeller } from '../../utils.js';
+import path from 'path';
+import multer from 'multer';
 
 const productCreateRouter = express.Router()
+
+ const storage = multer.diskStorage({
+    destination: './uploads/images',
+    filename: function (req, file, cb) {
+      cb(
+        null,
+        file.fieldname + '-' + Date.now() + path.extname(file.originalname)
+      );
+    },
+  });
+
+  const upload = multer({ storage: storage });
 
 
 productCreateRouter.post(
     '/create',
+    upload.single('image'),
     isAuth,
     expressAsyncHandler( async(req,res) => {
-        const {name,image,brand,category,description,price,countInStock,createdBy,rating,numReviews} = req.body;
+        const {name,brand,category,description,price,countInStock,createdBy,rating,numReviews} = req.body;
+        const image = req.file.filename;
 
         const product = new Product({
             name:name,
