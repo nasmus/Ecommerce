@@ -99,10 +99,6 @@ function EditProductScreen() {
     }
   }
   
-
-  
-  
-  
   return (
     
     <div>

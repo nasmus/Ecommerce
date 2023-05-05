@@ -13,14 +13,12 @@
   padding: 5px 10px;
 }
 .sidebar__link {
-  padding-top: 10px;
   text-decoration: none;
   display: block;
-  font-size: 14px;
   background: none;
 }
 
-.sidebar__link :hover {
+.dashboard {
   text-decoration: none;
-  display: block;
+  
 }

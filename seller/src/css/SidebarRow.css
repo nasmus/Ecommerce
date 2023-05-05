@@ -1,7 +1,7 @@
 .sidebarRow {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding-left: 20px;
     cursor: pointer;
   }
   .sidebarRow:hover {
