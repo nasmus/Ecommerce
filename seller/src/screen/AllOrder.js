@@ -6,6 +6,7 @@ import Table from 'react-bootstrap/Table';
 import { Store } from '../Store';
 import axios from 'axios';
 import { getError } from '../utils';
+import { useNavigate } from 'react-router-dom';
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -23,6 +24,7 @@ const reducer = (state, action) => {
 function AllOrder() {
     const {state} = useContext(Store);
     const {userInfo} = state;
+    const navigate = useNavigate();
     //const [orders,setOrders] = useState([]);
     const Id = localStorage.getItem('userInfo._id');
     const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
@@ -80,7 +82,14 @@ function AllOrder() {
                             <td>{item.quantity}</td>
                             <td>{item.price}</td>
                             <td>pro</td>
-                            <td><Button variant="contained" color="success">Edit Product</Button></td>
+                            <td><Button 
+                            variant="contained" 
+                            color="success"
+                            onClick={() => {
+                                navigate(`/orderdetails/${item._id}`)
+                            }}
+
+                            >Order Details</Button></td>
                         </tr>
                             )
                         })}

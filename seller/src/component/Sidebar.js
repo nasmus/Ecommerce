@@ -6,6 +6,7 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import AddToHomeScreenIcon from '@mui/icons-material/AddToHomeScreen';
 
 function Sidebar() {
     return (
@@ -21,7 +22,7 @@ function Sidebar() {
                 <SidebarRow Icon={AlignHorizontalLeftIcon} title="Product List" />
             </NavLink>
             <NavLink to="/products">
-                <SidebarRow  title="Products" />
+                <SidebarRow  Icon={AddToHomeScreenIcon} title="Products" />
             </NavLink>
 
             <NavLink to="/allorder">

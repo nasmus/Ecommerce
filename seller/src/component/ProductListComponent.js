@@ -59,7 +59,6 @@ function ProductListComponent() {
               <th>price</th>
               <th>rating</th>
               <th>NOR</th>
-              <th>Change Status</th>
               <th>Edit Product</th>
             </tr>
           </thead>
@@ -74,14 +73,13 @@ function ProductListComponent() {
                 <td>{pro.price}</td>
                 <td>{pro.rating}</td>
                 <th>{pro.numReviews}</th>
-                <th><Button variant="contained">Change Status</Button></th>
                 <th><Button 
                   variant="contained" 
                   color="success"
                   onClick={() => {
                     navigate(`/productdetails/${pro._id}`);
                   }}
-                >Edit Product</Button></th>
+                >Product Details</Button></th>
               </tr> 
               ))
             }

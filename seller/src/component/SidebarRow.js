@@ -1,6 +1,5 @@
 import React from 'react'
 import "../css/SidebarRow.css"
-import AddIcon from '@mui/icons-material/Add';
 
 function SidebarRow({Icon,title}) {
     return (
