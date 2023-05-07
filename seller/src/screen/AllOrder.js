@@ -7,6 +7,7 @@ import { Store } from '../Store';
 import axios from 'axios';
 import { getError } from '../utils';
 import { useNavigate } from 'react-router-dom';
+import OrderDetails from './OrderDetails';
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -65,15 +66,12 @@ function AllOrder() {
                 <th>name</th>
                 <th>quantity</th>
                 <th>price</th>
-                <th></th>
-                
                 </tr>
             </thead>
             <tbody> 
                 {orders.map((order)=>(
                     <>
                         {order.orderItems.map((item) => {
-                            console.log("order items:",item)
                             return(
                         <tr key={item._id} >
                             <td>{item._id}</td>
@@ -82,14 +80,18 @@ function AllOrder() {
                             <td>{item.quantity}</td>
                             <td>{item.price}</td>
                             <td>pro</td>
-                            <td><Button 
+                            
+                            <Button 
                             variant="contained" 
                             color="success"
                             onClick={() => {
-                                navigate(`/orderdetails/${item._id}`)
+                                navigate(`/orderdetails/${order._id}`)
+                                
                             }}
-
-                            >Order Details</Button></td>
+                            
+                            >Order Details</Button>
+                            
+                            
                         </tr>
                             )
                         })}

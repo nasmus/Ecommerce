@@ -18,5 +18,4 @@ sellerProductRouter.get(
         }
     })
 )
-
 export default sellerProductRouter;

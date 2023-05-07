@@ -11,7 +11,8 @@ sellerOrderRouter.get(
     isSeller,
     expressAsyncHandler( async(req,res) => {
         const userId = req.user._id;
-        const order = await Order.find({"orderItems.seller": userId},{_id:0,orderItems:{$elemMatch:{"orderItems.seller":userId}}});
+        const order = await Order.find({"orderItems.seller": userId},{"orderItems":{$elemMatch:{"orderItems.seller":userId}}});
+        //const order = await Order.find({"orderItems.seller":userId},{"orderItems": 1});
         if(order){
             res.status(200).send(order)
         }
@@ -58,6 +59,20 @@ sellerOrderRouter.put(
         }
         
         
+    })
+)
+
+sellerOrderRouter.get(
+    '/orderdetails/:id',
+    isAuth,
+    isSeller,
+    expressAsyncHandler( async(req,res) => {
+        const orderDetails = await Order.findById(req.params.id);
+        if(orderDetails){
+            res.send(orderDetails);
+        } else {
+            res.send({message:"product not found"})
+        }
     })
 )
 
