@@ -4,7 +4,7 @@ import { Store } from '../Store'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { getError } from '../utils'
-import Table from 'react-bootstrap/esm/Table'
+import Table from 'react-bootstrap/Table';
 
 const reducer = (state,action) => {
   switch(action.type){
@@ -59,15 +59,37 @@ function OrderDetails() {
             <li class="list-group-item">{orderDetail.shippingAddress && orderDetail.shippingAddress.city}</li>
             <li class="list-group-item">{orderDetail.shippingAddress && orderDetail.shippingAddress.distric}</li>
           </ul>
-          {orderDetail.orderItems && orderDetail.orderItems.map((item) => {
+          
+        </div>
+        <div>
+        <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Queantity</th>
+            <th>Image</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        
+      
+        {orderDetail.orderItems && orderDetail.orderItems.map((item) => {
             if(item.seller === userInfo._id){
               return(
-                <h1>{item.slug}</h1>
+                <tbody>
+                  <tr>
+                    <td>{item._id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.image}</td>
+                    <td>{item.price}</td>
+                  </tr>
+                </tbody>
               )
             }
           })}
-        </div>
-        <div>
+          </Table>
         </div>
     </div>
   )

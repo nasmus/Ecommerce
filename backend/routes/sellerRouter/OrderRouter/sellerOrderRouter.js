@@ -76,14 +76,16 @@ sellerOrderRouter.get(
     })
 )
 
+//seller order summery
 sellerOrderRouter.get(
-    '/summary',
+    '/order',
     isAuth,
     isSeller,
     expressAsyncHandler( async(req,res) => {
         const userId = req.user._id;
 
         const allOrderPrice = await Order.aggregate([
+            { $unwind: "$orderItems" },
             {
                 $match:{"orderItems.seller":userId}
             },

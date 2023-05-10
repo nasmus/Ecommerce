@@ -35,6 +35,12 @@ app.use('/app', productCreateRouter);
 // seller order api
 app.use('/api/order', sellerOrderRouter);
 app.use('/api/productdetails',sellerProductRouter);
+// seller order summery
+app.use('/api/summary/',sellerOrderRouter);
+// seller product count
+app.use('/api/count',sellerProductRouter);
+
+
 
 
 mongoose.set("strictQuery", false);

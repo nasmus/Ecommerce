@@ -66,6 +66,7 @@ productCreateRouter.get(
     })
 )
 
+
 productCreateRouter.put(
     '/:id',
     isAuth,
