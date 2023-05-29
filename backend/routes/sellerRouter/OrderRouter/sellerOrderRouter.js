@@ -78,26 +78,33 @@ sellerOrderRouter.get(
 
 //seller order summery
 sellerOrderRouter.get(
-    '/order',
+    '/order/:id',
     isAuth,
     isSeller,
     expressAsyncHandler( async(req,res) => {
-        const userId = req.user._id;
-
-        const allOrderPrice = await Order.aggregate([
-            { $unwind: "$orderItems" },
+        //const userId = req.user._id;
+        const userId = req.params.id;
+        const result = await Order.aggregate([
             {
-                $match:{"orderItems.seller":userId}
+                $match: {
+                  'orderItems.seller':userId
+                }
             },
             {
+                $unwind: '$orderItems'
+            },
+            {
+                $match: {
+                    'orderItems.seller':userId
+                }
+            },{
                 $group: {
-                    _id:null,
-                    numOrders: {$sum:1},
-                    totalSales: {$sum:`$price`},
-                },
-            },
+                  _id: null,
+                  totalOrderPrice: {$sum:{$multiply:['$orderItems.quantity','$orderItems.price']}}
+                }
+            }
         ])
-        res.send(allOrderPrice);
+        res.status(200).send(result)
     } )
 )
 

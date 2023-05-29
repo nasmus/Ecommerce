@@ -24,13 +24,14 @@ sellerProductRouter.get(
     isSeller,
     expressAsyncHandler( async(req,res) => {
         //const data = await Product.find({createdBy:req.user._id}).count();
-        const userId = req.user._id;
-        const countproduct = await Product.count({createdBy:userId})
-        if(countproduct){
-            res.send(countproduct);
-        } else {
-            res.status(404).send({message: "Product Not Found"});
-        }
+        const userId = req.params._id;
+        const orderCount = await Product.countDocuments({ 'createdBy': userId });
+        res.json({ count: orderCount });
+        // if(countproduct){
+        //     res.send(countproduct);
+        // } else {
+        //     res.status(404).send({message: "Product Not Found"});
+        // }
     })
 )
 export default sellerProductRouter;

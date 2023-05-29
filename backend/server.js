@@ -36,7 +36,7 @@ app.use('/app', productCreateRouter);
 app.use('/api/order', sellerOrderRouter);
 app.use('/api/productdetails',sellerProductRouter);
 // seller order summery
-app.use('/api/summary/',sellerOrderRouter);
+app.use('/api/summary',sellerOrderRouter);
 // seller product count
 app.use('/api/count',sellerProductRouter);
 
