@@ -23,7 +23,7 @@ function OrderDetails() {
   const {state} = useContext(Store);
   const {userInfo} = state;
   const params = useParams();
-  const {id: productId} = params;
+  const {id: orderId} = params;
   const [{eorro,loading,orderDetail},dispatch] = useReducer(reducer,{
     error:'',
     loading:true,
@@ -35,7 +35,7 @@ function OrderDetails() {
         dispatch({type:"FETCH_REQUEST"});
         try{
             const {data} = await axios.get(
-                `/api/order/orderdetails/${productId}`,
+                `/api/order/orderdetails/${orderId}`,
                 { headers: { Authorization: `Bearer ${userInfo.token}` } }
             );
             dispatch({type:"FETCH_SUCCESS",payload:data})
@@ -45,7 +45,7 @@ function OrderDetails() {
         }
     }
     fatchData()    
-},[userInfo,productId])
+},[userInfo,orderId])
 
   return (
     <div style={{paddingLeft:"255px"}}>

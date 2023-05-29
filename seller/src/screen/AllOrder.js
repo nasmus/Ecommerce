@@ -27,7 +27,6 @@ function AllOrder() {
     const {userInfo} = state;
     const navigate = useNavigate();
     //const [orders,setOrders] = useState([]);
-    const Id = localStorage.getItem('userInfo._id');
     const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
         loading: true,
         error: '',
@@ -72,6 +71,7 @@ function AllOrder() {
                 {orders.map((order)=>(
                     <>
                         {order.orderItems.map((item) => {
+                            if(item.seller === userInfo._id)
                             return(
                         <tr key={item._id} >
                             <td>{item._id}</td>
