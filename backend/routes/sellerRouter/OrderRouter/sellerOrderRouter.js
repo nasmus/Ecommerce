@@ -2,6 +2,8 @@ import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from '../../../models/orderModel.js';
 import { isAuth, isSeller } from "../../../utils.js";
+import * as mongoose from 'mongoose';
+const ObjectId = mongoose.Types.ObjectId;
 
 const sellerOrderRouter = express.Router();
 
@@ -87,24 +89,22 @@ sellerOrderRouter.get(
         const result = await Order.aggregate([
             {
                 $match: {
-                  'orderItems.seller':userId
+                  'orderItems.seller':ObjectId(userId)
                 }
             },
             {
                 $unwind: '$orderItems'
             },
             {
-                $match: {
-                    'orderItems.seller':userId
-                }
-            },{
                 $group: {
-                  _id: null,
-                  totalOrderPrice: {$sum:{$multiply:['$orderItems.quantity','$orderItems.price']}}
+                  _id: '$orderItems.seller',
+                  totalOrderPrice: {$sum:{$multiply:['$orderItems.quantity','$orderItems.price']}},
+                  quentity:{$sum: '$orderItems.quantity'}
                 }
-            }
+            },
+            
         ])
-        res.status(200).send(result)
+          res.status(200).send(result)
     } )
 )
 
