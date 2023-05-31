@@ -75,7 +75,7 @@ function AllOrder() {
                             return(
                         <tr key={item._id} >
                             <td>{item._id}</td>
-                            <td><img src={item.image} /></td>
+                            <td><img src={item.image} alt='product_image' /></td>
                             <td>{item.name}</td>
                             <td>{item.quantity}</td>
                             <td>{item.price *item.quantity}</td>

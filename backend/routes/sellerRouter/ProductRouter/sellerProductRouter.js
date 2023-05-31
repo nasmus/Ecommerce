@@ -18,15 +18,14 @@ sellerProductRouter.get(
         }
     })
 )
+// seller Product Count
 sellerProductRouter.get(
     '/product/:id',
     isAuth,
     isSeller,
     expressAsyncHandler( async(req,res) => {
-        //const data = await Product.find({createdBy:req.user._id}).count();
         const userId = req.params.id; 
         const orderCount = await Product.countDocuments({ 'createdBy': userId });
-        
         if(orderCount){
             res.json(orderCount);
         } else {
