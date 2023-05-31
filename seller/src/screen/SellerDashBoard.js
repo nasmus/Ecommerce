@@ -116,7 +116,7 @@ function SellerDashBoard() {
               }
             </div>
             <div className='Order_card_1'>
-              <h4>Total Earning</h4>
+              <h4>Total Selles</h4>
               {
                 totalOrderPrice.map((orderItems) => {
                   if(userInfo._id === orderItems._id)
@@ -128,7 +128,7 @@ function SellerDashBoard() {
               
             </div>
             <div className='Order_card_1'>
-              <h4>Cancle Order</h4>
+              <h4>Total Revenue</h4>
             </div>
           </div>
           <div className='dashBoard__productList'>
