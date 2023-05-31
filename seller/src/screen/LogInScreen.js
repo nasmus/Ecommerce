@@ -25,7 +25,7 @@ function LogInScreen() {
                 email,
                 password
             })
-            console.log(data);
+            
             ctxDispatch({type:'USER_SIGNIN', payload: data});
             localStorage.setItem('userInfo', JSON.stringify(data));
             navigate('/dashboard');

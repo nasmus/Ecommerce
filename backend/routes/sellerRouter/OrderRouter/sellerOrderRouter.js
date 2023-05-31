@@ -13,8 +13,8 @@ sellerOrderRouter.get(
     isSeller,
     expressAsyncHandler( async(req,res) => {
         const userId = req.user._id;
-        const order = await Order.find({"orderItems.seller": userId},{"orderItems":{$elemMatch:{"orderItems.seller":userId}}});
-        //const order = await Order.find({"orderItems.seller":userId},{"orderItems": 1});
+        //const order = await Order.find({"orderItems.seller": userId},{"orderItems":{$elemMatch:{"orderItems.seller":userId}}});
+        const order = await Order.find({"orderItems.seller":userId},{"orderItems.$": 1});
         if(order){
             res.status(200).send(order)
         }
