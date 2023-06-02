@@ -105,7 +105,7 @@ function SellerDashBoard() {
               <h1>{productCount}</h1>
             </div>
             <div className='Order_card_1'>
-              <h4>Total Orders</h4>
+              <h4>Product Orders</h4>
               {
                 totalOrder.map((item,index) => {
                   if(userInfo._id === item._id)

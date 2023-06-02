@@ -10,7 +10,7 @@ function ProductListScreen() {
   return (
     <div>
         <Sidebar />
-        <h1>List Of Proudct</h1>
+        
         <div className='productListScreen'>
         <ProductListComponent />
         

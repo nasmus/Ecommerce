@@ -56,7 +56,6 @@ function AllOrder() {
     <div>
         <Sidebar />
         <div className='allOrder'>
-            <h1>All Order And Order Details</h1>
             <Table striped bordered hover>
             <thead>
                 <tr>

@@ -6,6 +6,11 @@ import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import AddToHomeScreenIcon from '@mui/icons-material/AddToHomeScreen';
+import PersonIcon from '@mui/icons-material/Person';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import PaidIcon from '@mui/icons-material/Paid';
 
 function Sidebar() {
     return (
@@ -29,19 +34,19 @@ function Sidebar() {
             </Link>
 
             <Link className="sidebar__link" to="/works">
-                <SidebarRow title="Statistics" />
+                <SidebarRow Icon={BarChartIcon} title="Statistics" />
             </Link>
             <Link className="sidebar__link" to="/portfolio">
-                <SidebarRow title="Reviews" />
+                <SidebarRow Icon={RateReviewIcon} title="Reviews" />
             </Link>
             <Link className="sidebar__link" to="/email">
-                <SidebarRow title="Transactions" />
+                <SidebarRow Icon={PaidIcon} title="Transactions" />
             </Link>
             <Link className="sidebar__link" to="/email">
-                <SidebarRow title="sellers" />
+                <SidebarRow Icon={PersonIcon} title="Proifle" />
             </Link>
             <Link className="sidebar__link" to="/email">
-                <SidebarRow title="Log Out" />
+                <SidebarRow Icon={ExitToAppIcon} title="Log Out" />
             </Link>
             
   

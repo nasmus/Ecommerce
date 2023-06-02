@@ -7,6 +7,7 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const sellerOrderRouter = express.Router();
 
+// all order Items for seller
 sellerOrderRouter.get(
     '/allorder',
     isAuth,
@@ -24,6 +25,7 @@ sellerOrderRouter.get(
     })
 )
 
+//order address for order user
 sellerOrderRouter.get(
     '/orderaddress',
     isAuth,
@@ -40,6 +42,7 @@ sellerOrderRouter.get(
     })
 )
 
+// product atatus update
 sellerOrderRouter.put(
     '/changestatus',
     isAuth,
@@ -64,6 +67,8 @@ sellerOrderRouter.put(
     })
 )
 
+// order details page for spacrfic order
+
 sellerOrderRouter.get(
     '/orderdetails/:id',
     isAuth,
@@ -71,7 +76,7 @@ sellerOrderRouter.get(
     expressAsyncHandler( async(req,res) => {
         const orderDetails = await Order.findById(req.params.id);
         if(orderDetails){
-            res.send(orderDetails);
+            res.send(orderDetails); 
         } else {
             res.send({message:"product not found"})
         }
@@ -84,7 +89,6 @@ sellerOrderRouter.get(
     isAuth,
     isSeller,
     expressAsyncHandler( async(req,res) => {
-        //const userId = req.user._id;
         const userId = req.params.id;
         const result = await Order.aggregate([
             {
