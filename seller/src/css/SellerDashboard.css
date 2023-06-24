@@ -11,11 +11,16 @@
     width: 300px;
     margin: 20px;
     background-color: #fff;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    
 }
-.Order_card_1 > h1 {
-    text-align: center;
-    margin: auto;
+
+.right .MuiSvgIcon-root {
+    font-size: xx-large;
+}
+.left > p {
+    font-size: 14px;
 }

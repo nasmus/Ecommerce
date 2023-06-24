@@ -62,7 +62,7 @@ function AllOrder() {
                 <th>Id</th>
                 <th>image</th>
                 <th>name</th>
-                <th>quantity</th>
+                <th>Product</th>
                 <th>price</th>
                 </tr>
             </thead>
@@ -78,7 +78,14 @@ function AllOrder() {
                             <td>{item.name}</td>
                             <td>{item.quantity}</td>
                             <td>{item.price *item.quantity}</td>
-                            <td>pro</td>
+                            <td>
+                                <select name="cars" id="cars">
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </td>
                             
                             <Button 
                             variant="contained" 
@@ -93,8 +100,10 @@ function AllOrder() {
                             
                         </tr>
                             )
+                            
                         })}
                     </>
+                    
                 ))}
             </tbody>
             </Table>

@@ -4,6 +4,10 @@ import '../css/SellerDashboard.css';
 import ProductListComponent from '../component/ProductListComponent';
 import axios from 'axios';
 import { Store } from '../Store';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import AddAlertIcon from '@mui/icons-material/AddAlert';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import WalletIcon from '@mui/icons-material/Wallet';
 
 const reducer =(state,action) => {
   switch(action.type){
@@ -100,12 +104,18 @@ function SellerDashBoard() {
         <div className='dashBoard'>
           <div className='Order_information'>
             <div className='Order_card_1'>
-              <h4>Total Product</h4>
-              <br />
-              <h1>{productCount}</h1>
+              <div className='left'>
+                <h1>{productCount}</h1>
+                <p>Total Product</p>
+              </div>
+              <div className='right'>
+                <ProductionQuantityLimitsIcon />
+              </div>
+              
+              
             </div>
             <div className='Order_card_1'>
-              <h4>Product Orders</h4>
+              <div className='left'>
               {
                 totalOrder.map((item,index) => {
                   if(userInfo._id === item._id)
@@ -114,21 +124,40 @@ function SellerDashBoard() {
                   )
                 })
               }
-            </div>
-            <div className='Order_card_1'>
-              <h4>Total Selles</h4>
-              {
-                totalOrderPrice.map((orderItems) => {
-                  if(userInfo._id === orderItems._id)
-                  return(
-                    <h1>{orderItems.totalOrderPrice}</h1>
-                  )
-                })
-              }
+              <p>Product Orders</p>
+              </div>
+              <div className='right'> 
+                <AddAlertIcon />
+              </div>
+              
               
             </div>
             <div className='Order_card_1'>
-              <h4>Total Revenue</h4>
+              <div className='left'>
+                {
+                  totalOrderPrice.map((orderItems) => {
+                    if(userInfo._id === orderItems._id)
+                    return(
+                      <h1>{orderItems.totalOrderPrice}</h1>
+                    )
+                  })
+                }
+                <p>total selles</p>
+              </div>
+              <div className='right'>
+                <AccountBalanceIcon />
+              </div>
+              
+              
+            </div>
+            <div className='Order_card_1'>
+              <div className='left'>
+                <h1>1500</h1>
+                <p>Total Revenue</p>
+              </div>
+              <div className='right'>
+                <WalletIcon />
+              </div>
             </div>
           </div>
           <div className='dashBoard__productList'>
