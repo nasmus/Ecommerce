@@ -1,16 +1,24 @@
 .sidebar {
-  z-index: 1000;
+  z-index: 1;
   position: fixed;
   left: 250px;
-  width: 250px;
+  width: 200px;
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-color: rgb(29, 30, 55);
+  border-radius: 0px 5px 0px 0px;
+  
 }
-.sidebar {
-  padding: 5px 10px;
+.dashboard > h2 {
+  padding: 20px 20px;
+  color: #b2aeae;
 }
+
+.dashboard > h2:hover{
+  color: #fff;
+}
+
 .sidebar__link {
   text-decoration: none;
   display: block;

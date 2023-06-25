@@ -8,6 +8,7 @@ import ProductListScreen from './screen/ProductListScreen';
 import DetailsProductScreen from './screen/DetailsProductScreen';
 import EditProductScreen from './screen/EditProductScreen';
 import OrderDetails from './screen/OrderDetails';
+import Transection from './screen/Transection';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/productdetails/:id' element={<DetailsProductScreen />} />
           <Route path='/editproduct/:id' element={<EditProductScreen />} />
           <Route path='/orderdetails/:id' element={<OrderDetails />} />
+          <Route path='/transection' element={ <Transection /> } />
         </Routes>
     </div>
     </BrowserRouter>

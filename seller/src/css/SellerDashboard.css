@@ -1,5 +1,5 @@
 .dashBoard{
-    padding-left: 255px;
+    margin-left: 250px;
     padding-right: 5px;
 }
 .Order_information {
@@ -15,7 +15,7 @@
     align-items: center;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-    
+    color: blueviolet;
 }
 
 .right .MuiSvgIcon-root {
@@ -23,4 +23,15 @@
 }
 .left > p {
     font-size: 14px;
+}
+
+.product_and_order_section {
+    display: flex;
+    width: 100%;
+}
+.product{
+    width: 50%;
+}
+.order {
+    width: 50%;
 }

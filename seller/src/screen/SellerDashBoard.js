@@ -160,9 +160,13 @@ function SellerDashBoard() {
               </div>
             </div>
           </div>
-          <div className='dashBoard__productList'>
-            <h3 style={{margin:'20px'}} >List Of Letest Product</h3>
-            <ProductListComponent />
+          <div className='product_and_order_section'>
+            <div className='product'>
+                <ProductListComponent />
+            </div>
+            <div className='order'>
+
+            </div>
           </div>
 
       </div>

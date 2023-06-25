@@ -16,7 +16,7 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <Link className='dashboard' to='/dashboard'>
-                <h2>Dash Board</h2>
+                <h2>Seller Board</h2>
             </Link>
             
             <Link className="sidebar__link" to="/upload">
@@ -39,7 +39,7 @@ function Sidebar() {
             <Link className="sidebar__link" to="/portfolio">
                 <SidebarRow Icon={RateReviewIcon} title="Reviews" />
             </Link>
-            <Link className="sidebar__link" to="/email">
+            <Link className="sidebar__link" to="/transection">
                 <SidebarRow Icon={PaidIcon} title="Transactions" />
             </Link>
             <Link className="sidebar__link" to="/email">
