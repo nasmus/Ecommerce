@@ -11,12 +11,13 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PaidIcon from '@mui/icons-material/Paid';
+import AppsIcon from '@mui/icons-material/Apps';
 
 function Sidebar() {
     return (
         <div className="sidebar">
             <Link className='dashboard' to='/dashboard'>
-                <h2>Seller Board</h2>
+                <AppsIcon /><h2> DashBoard</h2>
             </Link>
             
             <Link className="sidebar__link" to="/upload">

@@ -9,6 +9,8 @@ import AddAlertIcon from '@mui/icons-material/AddAlert';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import WalletIcon from '@mui/icons-material/Wallet';
 
+
+
 const reducer =(state,action) => {
   switch(action.type){
     case 'FETCH_REQUEST':
@@ -165,7 +167,7 @@ function SellerDashBoard() {
                 <ProductListComponent />
             </div>
             <div className='order'>
-
+          
             </div>
           </div>
 
