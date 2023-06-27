@@ -8,6 +8,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AddAlertIcon from '@mui/icons-material/AddAlert';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import WalletIcon from '@mui/icons-material/Wallet';
+import AreacChart from '../component/AreacChart';
 
 
 
@@ -164,10 +165,13 @@ function SellerDashBoard() {
           </div>
           <div className='product_and_order_section'>
             <div className='product'>
-                <ProductListComponent />
+              <AreacChart />
+              <h4>Monthly Selles</h4>
             </div>
             <div className='order'>
-          
+              <div className=''>
+
+              </div>
             </div>
           </div>
 

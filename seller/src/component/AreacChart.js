@@ -4,51 +4,82 @@ import {AreaChart,XAxis,YAxis,CartesianGrid,Tooltip,Area} from 'recharts'
 export default function AreacChart() {
     const data = [
         {
-          "name": "Page A",
+          "name": "Jan",
           "uv": 4000,
           "pv": 2400,
           "amt": 2400
         },
         {
-          "name": "Page B",
+          "name": "Feb",
           "uv": 3000,
           "pv": 1398,
           "amt": 2210
         },
         {
-          "name": "Page C",
+          "name": "Mer",
           "uv": 2000,
           "pv": 9800,
           "amt": 2290
         },
         {
-          "name": "Page D",
+          "name": "Apr",
           "uv": 2780,
           "pv": 3908,
           "amt": 2000
         },
         {
-          "name": "Page E",
+          "name": "May",
           "uv": 1890,
           "pv": 4800,
           "amt": 2181
         },
         {
-          "name": "Page F",
+          "name": "Jun",
           "uv": 2390,
           "pv": 3800,
           "amt": 2500
         },
         {
-          "name": "Page G",
+          "name": "Jul",
+          "uv": 3490,
+          "pv": 12000,
+          "amt": 2100
+        },
+        {
+          "name": "Aug",
           "uv": 3490,
           "pv": 4300,
           "amt": 2100
+        },
+        {
+          "name": "Sep",
+          "uv": 3490,
+          "pv": 4300,
+          "amt": 2100
+        },
+        {
+          "name": "Ouc",
+          "uv": 4000,
+          "pv": 2400,
+          "amt": 2400
+        },
+        {
+          "name": "Nov",
+          "uv": 1890,
+          "pv": 4800,
+          "amt": 2181
+        },
+        {
+          "name": "Dec",
+          "uv": 2780,
+          "pv": 3908,
+          "amt": 2000
         }
+        
       ]
   return (
     <div className='areaChart'>
-        <AreaChart width={730} height={250} data={data}
+        <AreaChart width={650} height={280} data={data}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
         <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -66,6 +97,7 @@ export default function AreacChart() {
         <Tooltip />
         <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
         <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+
         </AreaChart>
     </div>
   )

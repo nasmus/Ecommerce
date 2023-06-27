@@ -26,12 +26,13 @@
 }
 
 .product_and_order_section {
+    margin-top: 20px;
     display: flex;
     width: 100%;
 }
 .product{
-    width: 50%;
+    width: 65%;
 }
 .order {
-    width: 50%;
+    width: 35%;
 }
