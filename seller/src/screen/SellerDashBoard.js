@@ -156,7 +156,7 @@ function SellerDashBoard() {
             <div className='Order_card_1'>
               <div className='left'>
                 <h1>1500</h1>
-                <p>Total Revenue</p>
+                <p>available balance</p>
               </div>
               <div className='right'>
                 <WalletIcon />
