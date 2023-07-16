@@ -37,8 +37,11 @@ app.use('/api/order', sellerOrderRouter);
 app.use('/api/productdetails',sellerProductRouter);
 // seller order summery
 app.use('/api/summary',sellerOrderRouter);
+//seller order status update
+app.use('/api/order/status',sellerOrderRouter);
 // seller product count
 app.use('/api/count',sellerProductRouter);
+
 
 
 

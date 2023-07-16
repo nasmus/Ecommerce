@@ -55,7 +55,7 @@ function AllOrder() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Id</th>
+              <th>Product Id</th>
               <th>Oreder status</th>
               <th>Quentity</th>
               <th>price</th>
