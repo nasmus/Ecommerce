@@ -6,7 +6,7 @@ import path from 'path';
 import multer from 'multer';
 
 const productCreateRouter = express.Router()
-
+//display image upload
  const storage = multer.diskStorage({
     destination: './uploads/images',
     filename: function (req, file, cb) {
@@ -19,7 +19,7 @@ const productCreateRouter = express.Router()
 
   const upload = multer({ storage: storage });
 
-
+//single product upload
 productCreateRouter.post(
     '/create',
     upload.single('image'),
@@ -66,6 +66,7 @@ productCreateRouter.get(
     })
 )
 
+// product update by id
 
 productCreateRouter.put(
     '/:id',

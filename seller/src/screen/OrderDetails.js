@@ -24,7 +24,7 @@ function OrderDetails() {
   const { userInfo } = state;
   const params = useParams();
   const { id: orderId } = params;
-  const [orderStatus, setOrderStatus] = useState('');
+  const [orderStatus, setOrderStatus] = useState("");
   const [{ eorro, loading, orderDetail }, dispatch] = useReducer(reducer, {
     error: "",
     loading: true,
@@ -45,6 +45,31 @@ function OrderDetails() {
     };
     fatchData();
   }, [userInfo, orderId]);
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    
+    try{
+      await axios.put(
+        `/api/order/status/${orderId}`,
+        {
+          orderStatus,
+        },
+        {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+    } catch(error){
+      console.log(error)
+    }
+  };
+
+  useEffect(() => {
+    const fatchDataApi = async () => {
+      
+    };
+    fatchDataApi();
+  }, [orderId, userInfo.token]);
 
   return (
     <div style={{ paddingLeft: "255px" }}>
@@ -102,18 +127,21 @@ function OrderDetails() {
               })}
           </Table>
         </div>
+
         <div className="right">
-          <select
-            name="rderStatus"
-            id="status"
-            value={orderStatus}
-            onChange={(e) => setOrderStatus(e.target.value)}
-          >
-            <option value="Panding">Panding</option>
-            <option value="cancel">cancel</option>
-            <option value="shipped">shipped</option>
-          </select>
-          <button>submit</button>
+          <form onSubmit={handleSubmit}>
+            <select
+              name="rderStatus"
+              id="status"
+              value={orderStatus}
+              onChange={(e) => setOrderStatus(e.target.value)}
+            >
+              <option value="Panding">Panding</option>
+              <option value="cancel">cancel</option>
+              <option value="shipped">shipped</option>
+            </select>
+            <button type="submit" >submit</button>
+          </form>
         </div>
       </div>
     </div>

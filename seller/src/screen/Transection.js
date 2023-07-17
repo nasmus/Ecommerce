@@ -1,12 +1,12 @@
-import React from 'react'
-import Sidebar from '../component/Sidebar'
+import React from "react";
+import Sidebar from "../component/Sidebar";
 
 function Transection() {
   return (
-    <div className='transection'>
-        <Sidebar />
+    <div className="transection">
+      <Sidebar />
     </div>
-  )
+  );
 }
 
-export default Transection
+export default Transection;

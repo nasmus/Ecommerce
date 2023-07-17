@@ -15,7 +15,6 @@ function ProductUploadScreen() {
 
      const handleSubmit = async (e) => {
         e.preventDefault();
-
         const form = new FormData();
         form.append('name',name);
         form.append('description',description);
@@ -38,7 +37,7 @@ function ProductUploadScreen() {
     <div>
     <Sidebar />
         <div style={{paddingLeft:'250px'}}>
-        <div className="ec-vendor-upload-detail">
+        <div className="ec-vendor-upload-detail"> 
             <form onSubmit={handleSubmit} className="row g-3">
                 <label>
                     Image:
