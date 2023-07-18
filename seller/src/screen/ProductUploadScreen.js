@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Sidebar from '../component/Sidebar'
 import axios from 'axios';
 import { Store } from '../Store';
@@ -12,7 +12,12 @@ function ProductUploadScreen() {
      const [brand, setBrand] = useState();
      const [description, setDescription] = useState('');
      const [countInStock, setCountInStock] = useState('');
+     const [multipleImage, setMultipleImage] = useState([]);
 
+     const handleFileChange = (event) => {
+        const files = Array.from(event.target.files);
+        setMultipleImage(files);
+      };
      const handleSubmit = async (e) => {
         e.preventDefault();
         const form = new FormData();
@@ -22,6 +27,9 @@ function ProductUploadScreen() {
         form.append('price',price);
         form.append('brand',brand);
         form.append('countInStock', countInStock);
+        multipleImage.forEach((file) => {
+            form.append('images', file);
+          });
 
         try{
             await axios.post(`/api/product/create`, form,{ headers: { Authorization: `Bearer ${userInfo.token}` } });
@@ -74,6 +82,11 @@ function ProductUploadScreen() {
                         <textarea className="form-control" value={description} onChange={(e)=> setDescription(e.target.value)}
                             rows="4"></textarea>
                 </div>
+
+                <input type="file" accept="image/*" onChange={handleFileChange} />
+                <input type="file" accept="image/*" onChange={handleFileChange} />
+                <input type="file" accept="image/*" onChange={handleFileChange} />
+                <input type="file" accept="image/*" onChange={handleFileChange} />
                                         
                 <div className="col-md-12">
                     <button type="submit" className="btn btn-primary">Submit</button>

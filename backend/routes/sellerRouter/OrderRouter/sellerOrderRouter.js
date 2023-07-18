@@ -37,7 +37,6 @@ sellerOrderRouter.get(
     const orderAddress = await Order.distinct("shippingAddress").where({
       "orderItems.seller": userId,
     });
-    //const orderAddress = await Order.find({"orderItems.seller":userId})
     if (orderAddress) {
       res.status(200).send(orderAddress);
     } else {
@@ -112,7 +111,11 @@ sellerOrderRouter.get(
         },
       },
     ]);
+    // const result1 = result.find((item) => {
+    //   return(item._id == userId)
+    // })
     res.status(200).send(result);
+    
   })
 );
 

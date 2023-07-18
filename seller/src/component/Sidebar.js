@@ -43,15 +43,12 @@ function Sidebar() {
             <Link className="sidebar__link" to="/transection">
                 <SidebarRow Icon={PaidIcon} title="Transactions" />
             </Link>
-            <Link className="sidebar__link" to="/email">
+            <Link className="sidebar__link" to="/profile">
                 <SidebarRow Icon={PersonIcon} title="Proifle" />
             </Link>
-            <Link className="sidebar__link" to="/email">
+            <Link className="sidebar__link" to="/logout">
                 <SidebarRow Icon={ExitToAppIcon} title="Log Out" />
             </Link>
-            
-  
-            
         </div>
     )
 }

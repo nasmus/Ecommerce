@@ -9,6 +9,7 @@ import DetailsProductScreen from './screen/DetailsProductScreen';
 import EditProductScreen from './screen/EditProductScreen';
 import OrderDetails from './screen/OrderDetails';
 import Transection from './screen/Transection';
+import Profile from './screen/Profile';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/editproduct/:id' element={<EditProductScreen />} />
           <Route path='/orderdetails/:id' element={<OrderDetails />} />
           <Route path='/transection' element={ <Transection /> } />
+          <Route path='/profile' element={ <Profile /> } />
         </Routes>
     </div>
     </BrowserRouter>
