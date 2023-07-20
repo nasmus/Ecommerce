@@ -1,4 +1,29 @@
 .allOrder {
     padding-left: 255px;
     padding-right: 5px;
+    padding-top: 40px;
+}
+.allOrder > table {
+    width: 90%;
+}
+.allOrder > table >thead {
+    color: rgb(65, 114, 212);
+    box-shadow: 0 6px 16px rgba(0,0,0,.12); 
+    
+}
+.head > th {
+    padding: 10px;
+}
+.cancel{
+    background-color: rgb(224, 118, 118);
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+}
+.shipped{
+    background-color: rgb(147, 189, 147);
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+}
+table > tr > td {
+    padding: 10px;
 }

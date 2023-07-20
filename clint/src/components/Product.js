@@ -41,7 +41,7 @@ function Product(props) {
               <img className="main-image"
                 src={product.image} alt={product.name} />
             </Link>
-              <span className="percentage">20%</span>
+              <span className="percentage">Prime</span>
             </div>
           </div>
               <div className="ec-pro-content">

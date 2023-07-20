@@ -4,7 +4,7 @@ import { Store } from "../Store";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getError } from "../utils";
-import Table from "react-bootstrap/Table";
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -98,7 +98,7 @@ function OrderDetails() {
       </div>
       <div className="order_details">
         <div className="left">
-          <Table striped bordered hover>
+          <table striped bordered hover>
             <thead>
               <tr>
                 <th>Id</th>
@@ -125,7 +125,7 @@ function OrderDetails() {
                   );
                 }
               })}
-          </Table>
+          </table>
         </div>
 
         <div className="right">

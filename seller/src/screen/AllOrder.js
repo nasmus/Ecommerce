@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import Sidebar from "../component/Sidebar";
 import "../css/AllOrder.css";
 import { Button } from "@mui/material";
-import Table from "react-bootstrap/Table";
 import { Store } from "../Store";
 import axios from "axios";
 import { getError } from "../utils";
@@ -52,9 +51,9 @@ function AllOrder() {
     <div>
       <Sidebar />
       <div className="allOrder">
-        <Table striped bordered hover>
+        <table>
           <thead>
-            <tr>
+            <tr className="head">
               <th>Product Id</th>
               <th>Oreder status</th>
               <th>Quentity</th>
@@ -62,15 +61,15 @@ function AllOrder() {
               <th>Order Details</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="body" >
             {orders.map((order) => (
               <>
                 {order.orderItems.map((item) => {
                   if (item.seller === userInfo._id)
                     return (
-                      <tr key={item._id}>
+                      <tr className="element" key={item._id}>
                         <td>{item._id}</td>
-                        <td>{item.orderStatus}</td>
+                        <td className={item.orderStatus}>{item.orderStatus}</td>
                         <td>{item.quantity}</td>
                         <td>{item.price * item.quantity}</td>
 
@@ -89,7 +88,7 @@ function AllOrder() {
               </>
             ))}
           </tbody>
-        </Table>
+        </table>
       </div>
     </div>
   );
