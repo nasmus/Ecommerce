@@ -7,7 +7,7 @@ import { Store } from "../Store";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import AddAlertIcon from "@mui/icons-material/AddAlert";
 import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
-import WalletIcon from "@mui/icons-material/Wallet";
+import BatchPredictionIcon from '@mui/icons-material/BatchPrediction';
 import AreacChart from "../component/AreacChart";
 
 const reducer = (state, action) => {
@@ -134,11 +134,11 @@ function SellerDashBoard() {
           </div>
           <div className="Order_card_1">
             <div className="left">
-              <h1>1500</h1>
-              <p>available balance</p>
+              <h1>5</h1>
+              <p>Panding Order</p>
             </div>
             <div className="right">
-              <WalletIcon />
+              <BatchPredictionIcon />
             </div>
           </div>
         </div>

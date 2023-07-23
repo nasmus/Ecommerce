@@ -57,7 +57,7 @@ function AllOrder() {
               <th>Product Id</th>
               <th>Oreder status</th>
               <th>Quentity</th>
-              <th>price</th>
+              <th>Payment</th>
               <th>Order Details</th>
             </tr>
           </thead>
@@ -71,8 +71,7 @@ function AllOrder() {
                         <td>{item._id}</td>
                         <td className={item.orderStatus}>{item.orderStatus}</td>
                         <td>{item.quantity}</td>
-                        <td>{item.price * item.quantity}</td>
-
+                        <td>Cash On Delevary</td>
                         <Button
                           variant="contained"
                           color="success"

@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getError } from "../utils";
 
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -46,10 +45,10 @@ function OrderDetails() {
     fatchData();
   }, [userInfo, orderId]);
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try{
+
+    try {
       await axios.put(
         `/api/order/status/${orderId}`,
         {
@@ -59,15 +58,13 @@ function OrderDetails() {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
-    } catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    const fatchDataApi = async () => {
-      
-    };
+    const fatchDataApi = async () => {};
     fatchDataApi();
   }, [orderId, userInfo.token]);
 
@@ -77,6 +74,7 @@ function OrderDetails() {
       <div>
         <h1>address</h1>
         <ul class="list-group list-group-light">
+          <li> user ID:{orderDetail.user}</li>
           <li class="list-group-item">
             {orderDetail.shippingAddress &&
               orderDetail.shippingAddress.fullName}
@@ -118,7 +116,9 @@ function OrderDetails() {
                         <td>{item._id}</td>
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
-                        <td>{item.image}</td>
+                        <td>
+                          <img src={item.image} />
+                        </td>
                         <td>{item.price * item.quantity}</td>
                       </tr>
                     </tbody>
@@ -140,7 +140,7 @@ function OrderDetails() {
               <option value="cancel">cancel</option>
               <option value="shipped">shipped</option>
             </select>
-            <button type="submit" >submit</button>
+            <button type="submit">submit</button>
           </form>
         </div>
       </div>

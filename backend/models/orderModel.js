@@ -13,7 +13,7 @@ const orderSchema = new mongoose.Schema(
         isPaid: { type: Boolean, default: false },
         paidAt: { type: Date },
         deliveredAt: { type: Date },
-        orderStatus: {type:String, required: true, default:'processing'},
+        orderStatus: {type:String, required: true, default:'Panding'},
         seller: {
           type:mongoose.Schema.Types.ObjectId,
           ref:"Product",

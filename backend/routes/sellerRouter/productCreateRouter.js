@@ -24,9 +24,11 @@ const upload = multer({ storage: storage });
 //single product upload
 productCreateRouter.post(
   "/create",
-  upload.single('image'),
+  upload.single("image"),
+  upload.array('images',5),
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    //const images = req.files;
     const {
       name,
       brand,
@@ -39,7 +41,7 @@ productCreateRouter.post(
       numReviews,
     } = req.body;
     const image = req.file.filename;
-    
+
     const product = new Product({
       name: name,
       slug: name,
@@ -52,6 +54,7 @@ productCreateRouter.post(
       rating,
       numReviews,
       createdBy: req.user._id,
+      
     });
     product.save((error, product) => {
       if (error) {
@@ -95,12 +98,10 @@ productCreateRouter.put(
         product.price = req.body.price || product.price;
         product.countInStock = req.body.countInStock || product.countInStock;
         const updateProduct = await product.save();
-        res
-          .status(201)
-          .send({
-            message: "Product updated successfull",
-            product: updateProduct,
-          });
+        res.status(201).send({
+          message: "Product updated successfull",
+          product: updateProduct,
+        });
       } else {
         res.status(401).send({ message: "product not found" });
       }
