@@ -23,9 +23,7 @@ function ProductUploadScreen() {
     form.append("price", price);
     form.append("brand", brand);
     form.append("countInStock", countInStock);
-    multipleImage.forEach((images) => {
-      form.append("images", images);
-    });
+    form.append("images", multipleImage);
 
     try {
       await axios.post(`/api/product/create`, form, {
@@ -122,7 +120,7 @@ function ProductUploadScreen() {
                 rows="4"
               ></textarea>
             </div>
-
+            
             <div className="col-md-12">
               <button type="submit" className="btn btn-primary">
                 Submit

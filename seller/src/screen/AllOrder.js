@@ -61,7 +61,7 @@ function AllOrder() {
               <th>Order Details</th>
             </tr>
           </thead>
-          <tbody className="body" >
+          <tbody className="body">
             {orders.map((order) => (
               <>
                 {order.orderItems.map((item) => {

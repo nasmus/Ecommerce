@@ -5,6 +5,7 @@ import { isAuth, isSeller } from "../../utils.js";
 import path from "path";
 import multer from "multer";
 
+
 const productCreateRouter = express.Router();
 
 //display image upload
@@ -21,14 +22,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
+
+
 //single product upload
 productCreateRouter.post(
   "/create",
   upload.single("image"),
-  upload.array('images',5),
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    //const images = req.files;
+
     const {
       name,
       brand,
