@@ -1,0 +1,10 @@
+.Link_style{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    
+}
+.Link_style:hover{
+    color: rgb(213, 141, 8);
+}
