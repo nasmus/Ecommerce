@@ -20,12 +20,15 @@ function LeftSideBar() {
     fatchCategories();
   }, []);
   return (
-    <div className="ec-shop-leftside col-lg-2 ">
+    <div
+      style={{ backgroundColor: "#edf5f0" }}
+      className="ec-shop-leftside col-lg-2 "
+    >
       <ul>
         {Categories.map((category) => (
           <Link className="Link_style" to={`/search?category=${category}`}>
             <li key={category}>
-                <span className="items"> {category}</span>
+              <span className="items"> {category}</span>
             </li>
           </Link>
         ))}
