@@ -10,7 +10,10 @@ import productCreateRouter from './routes/sellerRouter/productCreateRouter.js';
 import deleteProduct from './routes/sellerRouter/deleteProduct.js';
 import sellerOrderRouter from './routes/sellerRouter/OrderRouter/sellerOrderRouter.js'
 import sellerProductRouter from './routes/sellerRouter/ProductRouter/sellerProductRouter.js';
-
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 dotenv.config();
@@ -41,6 +44,9 @@ app.use('/api/summary',sellerOrderRouter);
 app.use('/api/order/status',sellerOrderRouter);
 // seller product count
 app.use('/api/count',sellerProductRouter);
+
+// image access in server
+app.use(express.static(path.join(__dirname, 'uploads')));
 
 
 mongoose.set("strictQuery", false);

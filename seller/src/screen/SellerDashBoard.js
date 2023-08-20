@@ -40,6 +40,7 @@ function SellerDashBoard() {
   const { userInfo } = state;
   const [{ error, productCount, totalOrder, totalOrderPrice }, dispatch] =
     useReducer(reducer, {
+      
       loading: true,
       error: "",
       productCount: null,
