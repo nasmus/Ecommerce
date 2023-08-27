@@ -12,6 +12,7 @@ import sellerOrderRouter from './routes/sellerRouter/OrderRouter/sellerOrderRout
 import sellerProductRouter from './routes/sellerRouter/ProductRouter/sellerProductRouter.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import adminLogInRouter from './routes/AdminRouter/AdimnLogin/adminLogInRouter.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -47,6 +48,11 @@ app.use('/api/count',sellerProductRouter);
 
 // image access in server
 app.use(express.static(path.join(__dirname, 'uploads')));
+
+
+// Admin Router
+
+app.use('/api/admin/login', adminLogInRouter)
 
 
 mongoose.set("strictQuery", false);

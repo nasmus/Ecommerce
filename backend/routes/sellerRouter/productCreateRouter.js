@@ -4,6 +4,9 @@ import Product from "../../models/productModel.js";
 import { isAuth, isSeller } from "../../utils.js";
 import path from "path";
 import multer from "multer";
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 const productCreateRouter = express.Router();
@@ -56,7 +59,6 @@ productCreateRouter.post(
       rating,
       numReviews,
       createdBy: req.user._id,
-      
     });
     product.save((error, product) => {
       if (error) {

@@ -1,0 +1,30 @@
+import express, { Router }  from "express";
+import expressAsyncHandler from "express-async-handler";
+import User from "../../../models/userModel.js"
+import bcrypt from 'bcryptjs';
+import { generateToken } from "../../../utils.js";
+
+const adminLogInRouter = express.Router();
+
+adminLogInRouter.post(
+    'post',
+    expressAsyncHandler( async(req,res) => {
+        const user = await User.findOne({email:req.body.email})
+        if(user && user.isAdmin === true && user.role === 'admin'){
+            if(bcrypt.compareSync(req.body.password, user.password)){
+                res.send({
+                    _id:user_id,
+                    name:user.name,
+                    email:user.email,
+                    phone:user.phone,
+                    isAdmin:user.isAdmin,
+                    role:user.role,
+                    token: generateToken(user.toObject()),
+                })
+            }
+        }
+        res.status(401).send({message:'invalid email or password'});
+    })
+)
+
+export default adminLogInRouter;
