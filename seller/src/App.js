@@ -9,7 +9,7 @@ import DetailsProductScreen from './screen/DetailsProductScreen';
 import EditProductScreen from './screen/EditProductScreen';
 import OrderDetails from './screen/OrderDetails';
 import Transection from './screen/Transection';
-import Profile from './screen/Profile';
+import Profile from './screen/Profile'; 
 
 function App() {
   return (

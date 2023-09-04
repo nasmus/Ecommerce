@@ -39,20 +39,17 @@ app.use('/app', productCreateRouter);
 // seller order api
 app.use('/api/order', sellerOrderRouter);
 app.use('/api/productdetails',sellerProductRouter);
-// seller order summery
-app.use('/api/summary',sellerOrderRouter);
-//seller order status update
-app.use('/api/order/status',sellerOrderRouter);
-// seller product count
-app.use('/api/count',sellerProductRouter);
 
-// image access in server
-app.use(express.static(path.join(__dirname, 'uploads')));
+app.use('/api/summary',sellerOrderRouter);// seller order summery
+app.use('/api/order/status',sellerOrderRouter);//seller order status update
+app.use('/api/count',sellerProductRouter); //seller product count
+
+app.use(express.static(path.join(__dirname, 'uploads'))); //image access from server
 
 
 // Admin Router
 
-app.use('/api/admin/login', adminLogInRouter)
+app.use('/api/admin', adminLogInRouter) //login router
 
 
 mongoose.set("strictQuery", false);
