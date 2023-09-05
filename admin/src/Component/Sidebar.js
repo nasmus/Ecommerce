@@ -21,7 +21,7 @@ function Sidebar() {
             </Link>
             
             <Link className="sidebar__link" to="/upload">
-                <SidebarRow Icon={DownloadForOfflineIcon} title="Product Add" />
+                <SidebarRow Icon={DownloadForOfflineIcon} title="Store List" />
             </Link>
             <Link className="sidebar__link" to="/productlist">
                 <SidebarRow Icon={AlignHorizontalLeftIcon} title="Product List" />
@@ -31,7 +31,7 @@ function Sidebar() {
             </Link>
 
             <Link className="sidebar__link" to="/allorder">
-                <SidebarRow Icon={ShoppingCartIcon} title="Order" />
+                <SidebarRow Icon={ShoppingCartIcon} title="Order List" />
             </Link>
 
             <Link className="sidebar__link" to="/works">

@@ -10,6 +10,7 @@ import productCreateRouter from './routes/sellerRouter/productCreateRouter.js';
 import deleteProduct from './routes/sellerRouter/deleteProduct.js';
 import sellerOrderRouter from './routes/sellerRouter/OrderRouter/sellerOrderRouter.js'
 import sellerProductRouter from './routes/sellerRouter/ProductRouter/sellerProductRouter.js';
+import adminDashboardApi from './routes/AdminRouter/AdminApi/adminDashboardApi.js'
 import path from 'path';
 import { fileURLToPath } from 'url';
 import adminLogInRouter from './routes/AdminRouter/AdimnLogin/adminLogInRouter.js';
@@ -50,6 +51,7 @@ app.use(express.static(path.join(__dirname, 'uploads'))); //image access from se
 // Admin Router
 
 app.use('/api/admin', adminLogInRouter) //login router
+app.use('/api/admin/storelist', adminDashboardApi) // seller count from dashboard
 
 
 mongoose.set("strictQuery", false);
