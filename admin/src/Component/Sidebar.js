@@ -20,7 +20,7 @@ function Sidebar() {
                 <AppsIcon /><h2> DashBoard</h2>
             </Link>
             
-            <Link className="sidebar__link" to="/upload">
+            <Link className="sidebar__link" to="/sellerlist">
                 <SidebarRow Icon={DownloadForOfflineIcon} title="Store List" />
             </Link>
             <Link className="sidebar__link" to="/productlist">
