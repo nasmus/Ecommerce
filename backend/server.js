@@ -14,6 +14,7 @@ import adminDashboardApi from './routes/AdminRouter/AdminApi/adminDashboardApi.j
 import path from 'path';
 import { fileURLToPath } from 'url';
 import adminLogInRouter from './routes/AdminRouter/AdimnLogin/adminLogInRouter.js';
+import productListApi from './routes/AdminRouter/AdminApi/ProductListApi.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -52,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'uploads'))); //image access from se
 
 app.use('/api/admin', adminLogInRouter) //login router
 app.use('/api/admin/storelist', adminDashboardApi) // seller count from dashboard
-
+app.use('/api/admin/productlist', productListApi) // seller all product 
 
 mongoose.set("strictQuery", false);
 
