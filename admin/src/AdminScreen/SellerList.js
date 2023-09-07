@@ -10,7 +10,7 @@ function SellerList() {
   useEffect(() => {
     const fatchData = async () => {
       const { data } = await axios.get(`/api/admin/storelist/sellerList`, {
-        headers: { Authorization: `Bearer ${userInfo.token}` },
+        headers: { Authorization: `Bearer ${userInfo.token}` }
       });
       setSellerList(data);
     };

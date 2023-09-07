@@ -30,7 +30,7 @@ function Sidebar() {
                 <SidebarRow  Icon={AddToHomeScreenIcon} title="Products" />
             </Link>
 
-            <Link className="sidebar__link" to="/allorder">
+            <Link className="sidebar__link" to="/orderlist">
                 <SidebarRow Icon={ShoppingCartIcon} title="Order List" />
             </Link>
 
