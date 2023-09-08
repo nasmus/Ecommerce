@@ -23,4 +23,18 @@ adminDashboardApi.get(
   })
 );
 
+adminDashboardApi.get(
+  '/userlist',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler( async(req,res) =>{
+    const allUserList = await User.find({ role: 'user'})
+    if(allUserList){
+      res.status(200).send(allUserList)
+    } else{
+      res.status(404).send({message:"user not found"})
+    }
+  })
+)
+
 export default adminDashboardApi;

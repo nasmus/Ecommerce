@@ -56,6 +56,7 @@ app.use('/api/admin', adminLogInRouter) //login router
 app.use('/api/admin/storelist', adminDashboardApi) // seller count from dashboard
 app.use('/api/admin/productlist', productListApi) // seller all product 
 app.use('/api/admin/orderlist', orderList) // seller all order list and information
+app.use('/api/admin/alluser',adminDashboardApi) // all customer list who is sign up in this website
 
 mongoose.set("strictQuery", false);
 
