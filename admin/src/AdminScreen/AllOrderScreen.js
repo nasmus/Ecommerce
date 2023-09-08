@@ -25,7 +25,6 @@ function AllOrderScreen() {
   return (
     <div>
       <Sidebar />
-      {console.log(allOrder)}
       <div>
         <table>
           <tr>

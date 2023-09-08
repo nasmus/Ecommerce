@@ -26,8 +26,8 @@ function Sidebar() {
             <Link className="sidebar__link" to="/productlist">
                 <SidebarRow Icon={AlignHorizontalLeftIcon} title="Product List" />
             </Link>
-            <Link className="sidebar__link" to="/products">
-                <SidebarRow  Icon={AddToHomeScreenIcon} title="Products" />
+            <Link className="sidebar__link" to="/alluserlist">
+                <SidebarRow  Icon={AddToHomeScreenIcon} title="User List" />
             </Link>
 
             <Link className="sidebar__link" to="/orderlist">

@@ -5,6 +5,7 @@ import AdminDashboard from './AdminScreen/AdminDashboard';
 import SellerList from './AdminScreen/SellerList';
 import AdminProductList from './AdminScreen/AdminProductList';
 import AllOrderScreen from './AdminScreen/AllOrderScreen';
+import AllUserListScreen from './AdminScreen/AllUserListScreen';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/sellerlist' element={ <SellerList /> } />
         <Route path='/productlist' element={ <AdminProductList /> } />
         <Route path='/orderlist' element={ <AllOrderScreen /> } />
+        <Route path='/alluserlist' element={ <AllUserListScreen /> } />
       </Routes>
     </div>
     </BrowserRouter>
