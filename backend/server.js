@@ -50,6 +50,9 @@ app.use('/api/count',sellerProductRouter); //seller product count
 app.use(express.static(path.join(__dirname, 'uploads'))); //image access from server
 
 
+// image show from clint
+app.use('/images', express.static('uploads/images'));
+
 // Admin Router
 
 app.use('/api/admin', adminLogInRouter) //login router

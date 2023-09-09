@@ -89,7 +89,7 @@ function ProductScreen() {
           <Col md={6}>
             <img
               className='img-large'
-              src={product.image}
+              src={`/images/${product.image}`}
               alt={product.name}
             />
           </Col>
