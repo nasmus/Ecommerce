@@ -5,7 +5,6 @@ import Order from "../../../models/orderModel.js";
 import Product from "../../../models/productModel.js";
 import { isAuth, isAdmin } from "../../../utils.js";
 import * as mongoose from "mongoose";
-import orderList from "./orderList.js";
 const ObjectId = mongoose.Types.ObjectId;
 
 const adminDashboardApi = express.Router();
