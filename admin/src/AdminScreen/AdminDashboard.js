@@ -7,7 +7,8 @@ import axios from 'axios'
 function AdminDashboard() {
   const {state} = useContext(Store);
   const {userInfo} = state;
-  const [countOrder, setCountOrder] = useState();
+  const [countOrder, setCountOrder] = useState([]);
+  const [countProduct, setCountProduct] = useState([])
 
   useEffect(() => {
     const fatchData = async() =>{
@@ -20,6 +21,18 @@ function AdminDashboard() {
     
   },[userInfo.token])
 
+  useEffect(() => {
+    const fatchData = async() =>{
+      const adminAllProductCount = await axios.get(`/api/admin/product/product_count`,{
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+      })
+      if(adminAllProductCount){
+        setCountProduct(adminAllProductCount.data)
+      }
+    }
+    fatchData()
+  })
+
   return (
     <div>
         <Sidebar />
@@ -28,7 +41,7 @@ function AdminDashboard() {
         }
         <div style={{display:'flex',justifyContent:"center",alignItems:'center'}} >
           <h1> Total Order {countOrder}</h1>
-          
+          <h1>total product {countProduct}</h1>
         </div>
     </div>
   )
