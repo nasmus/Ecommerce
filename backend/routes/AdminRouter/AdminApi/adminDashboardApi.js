@@ -2,6 +2,7 @@ import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import User from "../../../models/userModel.js";
 import Order from "../../../models/orderModel.js";
+import Product from "../../../models/productModel.js";
 import { isAuth, isAdmin } from "../../../utils.js";
 import * as mongoose from "mongoose";
 import orderList from "./orderList.js";
@@ -49,6 +50,20 @@ adminDashboardApi.get(
       res.json(countOrder)
     } else{
       res.send({message:"order not found"})
+    }
+  })
+)
+
+adminDashboardApi.get(
+  '/product_count',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler( async(req,res) => {
+    const countProudct = await Product.countDocuments({})
+    if(countProudct){
+      res.status(200).json(countProudct)
+    } else{
+      res.status(404).send({message:"product not found"})
     }
   })
 )
