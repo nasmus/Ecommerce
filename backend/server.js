@@ -60,6 +60,7 @@ app.use('/api/admin/storelist', adminDashboardApi) // seller count from dashboar
 app.use('/api/admin/productlist', productListApi) // seller all product 
 app.use('/api/admin/orderlist', orderList) // seller all order list and information
 app.use('/api/admin/alluser',adminDashboardApi) // all customer list who is sign up in this website
+app.use('/api/admin/order',adminDashboardApi) // admin order count in dashboard
 
 mongoose.set("strictQuery", false);
 
