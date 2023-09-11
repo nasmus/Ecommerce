@@ -67,4 +67,25 @@ adminDashboardApi.get(
   })
 )
 
+adminDashboardApi.get(
+  '/total_selles',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler( async(req,res) =>{
+    const totalSelles = await Order.aggregate([
+      {
+        $group:{
+          _id:null,
+          totalSelles:{ $sum:'$itemsPrice'}
+        }
+      }
+    ])
+    if(totalSelles){
+      res.json(totalSelles)
+    } else {
+      res.status(404).send({message:"selles is not started"})
+    }
+  })
+)
+
 export default adminDashboardApi;
