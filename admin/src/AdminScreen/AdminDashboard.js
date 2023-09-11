@@ -8,7 +8,8 @@ function AdminDashboard() {
   const {state} = useContext(Store);
   const {userInfo} = state;
   const [countOrder, setCountOrder] = useState([]);
-  const [countProduct, setCountProduct] = useState([])
+  const [countProduct, setCountProduct] = useState([]);
+  const [totalSelles, setTotalSelles] = useState([]);
 
   useEffect(() => {
     const fatchData = async() =>{
@@ -33,15 +34,31 @@ function AdminDashboard() {
     fatchData()
   })
 
+  useEffect(() => {
+    const fatchData= async() => {
+      const adminTotalSelles = await axios.get(`/api/admin/selles/total_selles`,{
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+      })
+      if(adminTotalSelles){
+        setTotalSelles(adminTotalSelles.data)
+      } else {
+        
+      }
+    }
+    fatchData()
+  }, [userInfo.token])
+
   return (
     <div>
         <Sidebar />
-        {
-          console.log(countOrder)
-        }
         <div style={{display:'flex',justifyContent:"center",alignItems:'center'}} >
           <h1> Total Order {countOrder}</h1>
           <h1>total product {countProduct}</h1>
+          {
+            totalSelles.map((item)=>(
+              <h1>total selles{item.totalSelles}</h1>
+            ))
+          }
         </div>
     </div>
   )
