@@ -8,3 +8,15 @@
 .Link_style:hover{
     color: rgb(213, 141, 8);
 }
+.sidebar>ul{
+    margin-top: 15px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-left: 0px;
+}
+.sidebar> ul li {
+    padding: 4px 4px;
+    font-weight: 400;
+}
+
