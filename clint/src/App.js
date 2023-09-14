@@ -32,7 +32,7 @@ function App() {
   return (
     <BrowserRouter>
     
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column main_section">
       <ToastContainer position='bottom-center' limit={1} />
       <header>
         <Header isVisible={isVisible} handleClick={handleClick} />

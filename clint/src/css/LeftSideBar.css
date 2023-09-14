@@ -11,12 +11,13 @@
 .sidebar>ul{
     margin-top: 15px;
     margin-right: 5px;
-    border: 1px solid black;
     border-radius: 15px;
-    padding-left: 0px;
+    padding-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 }
 .sidebar> ul li {
     padding: 4px 4px;
-    font-weight: 400;
-}
+    font-weight: 200; 
+};
+
 
