@@ -43,9 +43,9 @@ function HomeScreen(props) {
   },[])
   return (
     <Container style={{display:'flex', width:'100%', margin:'auto'}} >
-      {
+      {/* {
         (props.isVisible) ? <LeftSideBar /> : <div></div>
-      }
+      } */}
       
         
         <div className="products">

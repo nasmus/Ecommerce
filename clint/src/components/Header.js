@@ -7,6 +7,7 @@ import logo from "../css/logo.png";
 import { Button } from "@mui/material";
 import DensitySmallIcon from "@mui/icons-material/DensitySmall";
 import SearchBox from "./SearchBox";
+import SocialHeader from "./SocialHeader";
 
 function Header({ handleClick }) {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -20,16 +21,17 @@ function Header({ handleClick }) {
   };
   return (
     <div>
+      <SocialHeader />
       <div className="ec-header-bottom d-none d-lg-block">
         <div className="container position-relative">
           <div className="row">
             <div className="ec-flex">
               <div className="align-self-center">
                 <div className="navbar_button">
-                  <Button onClick={handleClick}>
+                  {/* <Button onClick={handleClick}>
                     {" "}
                     <DensitySmallIcon />{" "}
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
 
@@ -115,6 +117,107 @@ function Header({ handleClick }) {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="ec-header-bottom d-lg-none">
+        <div class="container position-relative">
+          <div class="row ">
+            <div class="col">
+              <div class="header-logo">
+                <Link to="/">
+                  <img style={{ width: "260px" }} src={logo} alt="Site Logo" />
+                </Link>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="header-search">
+                <form class="ec-btn-group-form" action="#">
+                  <input
+                    class="form-control ec-search-bar"
+                    placeholder="Search products..."
+                    type="text"
+                  />
+                  <button class="submit" type="submit">
+                    <i class="fi-rr-search"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Header Main Categori */}
+      <div className="header_category">
+        <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-md-12 align-self-center">
+                        <div class="ec-main-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li class="dropdown position-static"><a href="javascript:void(0)">Categories</a>
+                                    
+                                </li>
+                                <li class="dropdown"><a href="javascript:void(0)">Products</a>
+                                    
+                                </li>
+                                <li class="dropdown"><a href="javascript:void(0)">Pages</a>
+                                    
+                                </li>
+                                <li class="dropdown"><span class="main-label-note-new" data-toggle="tooltip"
+                                        title="NEW"></span><a href="javascript:void(0)">Others</a>
+                                    <ul class="sub-menu">
+                                        <li class="dropdown position-static"><a href="javascript:void(0)">Mail
+                                                Confirmation
+                                                <i class="ecicon eci-angle-right"></i></a>
+                                            
+                                        </li>
+                                        <li class="dropdown position-static"><a href="javascript:void(0)">Mail Reset
+                                                password
+                                                <i class="ecicon eci-angle-right"></i></a>
+                                            
+                                        </li>
+                                        <li class="dropdown position-static"><a href="javascript:void(0)">Mail
+                                                Promotional
+                                                <i class="ecicon eci-angle-right"></i></a>
+                                            
+                                        </li>
+                                        <li class="dropdown position-static">
+                                            <span class="label-note-hot"></span>
+                                            <a href="javascript:void(0)">Vendor account pages
+                                                <i class="ecicon eci-angle-right"></i></a>
+                                            
+                                        </li>
+                                        <li class="dropdown position-static">
+                                            <span class="label-note-trending"></span>
+                                            <a href="javascript:void(0)">User account pages
+                                                <i class="ecicon eci-angle-right"></i></a>
+                                            
+                                        </li>
+                                        <li class="dropdown position-static"><a href="javascript:void(0)">Construction
+                                                pages
+                                                <i class="ecicon eci-angle-right"></i></a>
+                                            
+                                        </li>
+                                        <li class="dropdown position-static">
+                                            <span class="label-note-new"></span>
+                                            
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="javascript:void(0)">Blog</a>
+                                    
+                                </li>
+                                <li class="dropdown"><a href="javascript:void(0)">Elements</a>
+                                    
+                                </li>
+                                <li><a href="offer.html">Hot Offers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>

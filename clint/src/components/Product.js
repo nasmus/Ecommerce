@@ -30,14 +30,16 @@ function Product(props) {
   };
 
   return (
-    <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+    <>
+    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
       <div className="ec-product-inner">
         <div className="ec-pro-image-outer">
           <div className="ec-pro-image">
             <Link to={`/product/${product.slug}`} className="image">
               <img
                 className="main-image"
-                src={`/images/${product.image}`}
+                // src={`/images/${product.image}`}
+                src={product.image}
                 alt={product.name}
               />
             </Link>
@@ -87,6 +89,7 @@ function Product(props) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
