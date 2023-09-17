@@ -28,7 +28,7 @@ function Product(props) {
       payload: { ...item, quantity },
     });
   };
-
+ 
   return (
     <>
     <div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">

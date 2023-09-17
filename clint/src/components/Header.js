@@ -150,74 +150,88 @@ function Header({ handleClick }) {
       {/* Header Main Categori */}
       <div className="header_category">
         <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-            <div class="container position-relative">
-                <div class="row">
-                    <div class="col-md-12 align-self-center">
-                        <div class="ec-main-menu">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li class="dropdown position-static"><a href="javascript:void(0)">Categories</a>
-                                    
-                                </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Products</a>
-                                    
-                                </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                    
-                                </li>
-                                <li class="dropdown"><span class="main-label-note-new" data-toggle="tooltip"
-                                        title="NEW"></span><a href="javascript:void(0)">Others</a>
-                                    <ul class="sub-menu">
-                                        <li class="dropdown position-static"><a href="javascript:void(0)">Mail
-                                                Confirmation
-                                                <i class="ecicon eci-angle-right"></i></a>
-                                            
-                                        </li>
-                                        <li class="dropdown position-static"><a href="javascript:void(0)">Mail Reset
-                                                password
-                                                <i class="ecicon eci-angle-right"></i></a>
-                                            
-                                        </li>
-                                        <li class="dropdown position-static"><a href="javascript:void(0)">Mail
-                                                Promotional
-                                                <i class="ecicon eci-angle-right"></i></a>
-                                            
-                                        </li>
-                                        <li class="dropdown position-static">
-                                            <span class="label-note-hot"></span>
-                                            <a href="javascript:void(0)">Vendor account pages
-                                                <i class="ecicon eci-angle-right"></i></a>
-                                            
-                                        </li>
-                                        <li class="dropdown position-static">
-                                            <span class="label-note-trending"></span>
-                                            <a href="javascript:void(0)">User account pages
-                                                <i class="ecicon eci-angle-right"></i></a>
-                                            
-                                        </li>
-                                        <li class="dropdown position-static"><a href="javascript:void(0)">Construction
-                                                pages
-                                                <i class="ecicon eci-angle-right"></i></a>
-                                            
-                                        </li>
-                                        <li class="dropdown position-static">
-                                            <span class="label-note-new"></span>
-                                            
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Blog</a>
-                                    
-                                </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Elements</a>
-                                    
-                                </li>
-                                <li><a href="offer.html">Hot Offers</a></li>
-                            </ul>
-                        </div>
-                    </div>
+          <div class="container position-relative">
+            <div class="row">
+              <div class="col-md-12 align-self-center">
+                <div class="ec-main-menu">
+                  <ul>
+                    <li>
+                      <a href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown position-static">
+                      <a href="javascript:void(0)">Categories</a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)">Products</a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)">Pages</a>
+                    </li>
+                    <li class="dropdown">
+                      <span
+                        class="main-label-note-new"
+                        data-toggle="tooltip"
+                        title="NEW"
+                      ></span>
+                      <a href="javascript:void(0)">Others</a>
+                      <ul class="sub-menu">
+                        <li class="dropdown position-static">
+                          <a href="javascript:void(0)">
+                            Mail Confirmation
+                            <i class="ecicon eci-angle-right"></i>
+                          </a>
+                        </li>
+                        <li class="dropdown position-static">
+                          <a href="javascript:void(0)">
+                            Mail Reset password
+                            <i class="ecicon eci-angle-right"></i>
+                          </a>
+                        </li>
+                        <li class="dropdown position-static">
+                          <a href="javascript:void(0)">
+                            Mail Promotional
+                            <i class="ecicon eci-angle-right"></i>
+                          </a>
+                        </li>
+                        <li class="dropdown position-static">
+                          <span class="label-note-hot"></span>
+                          <a href="javascript:void(0)">
+                            Vendor account pages
+                            <i class="ecicon eci-angle-right"></i>
+                          </a>
+                        </li>
+                        <li class="dropdown position-static">
+                          <span class="label-note-trending"></span>
+                          <a href="javascript:void(0)">
+                            User account pages
+                            <i class="ecicon eci-angle-right"></i>
+                          </a>
+                        </li>
+                        <li class="dropdown position-static">
+                          <a href="javascript:void(0)">
+                            Construction pages
+                            <i class="ecicon eci-angle-right"></i>
+                          </a>
+                        </li>
+                        <li class="dropdown position-static">
+                          <span class="label-note-new"></span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)">Blog</a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)">Elements</a>
+                    </li>
+                    <li>
+                      <a href="offer.html">Hot Offers</a>
+                    </li>
+                  </ul>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
