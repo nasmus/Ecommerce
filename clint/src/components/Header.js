@@ -174,49 +174,7 @@ function Header({ handleClick }) {
                         title="NEW"
                       ></span>
                       <a href="javascript:void(0)">Others</a>
-                      <ul class="sub-menu">
-                        <li class="dropdown position-static">
-                          <a href="javascript:void(0)">
-                            Mail Confirmation
-                            <i class="ecicon eci-angle-right"></i>
-                          </a>
-                        </li>
-                        <li class="dropdown position-static">
-                          <a href="javascript:void(0)">
-                            Mail Reset password
-                            <i class="ecicon eci-angle-right"></i>
-                          </a>
-                        </li>
-                        <li class="dropdown position-static">
-                          <a href="javascript:void(0)">
-                            Mail Promotional
-                            <i class="ecicon eci-angle-right"></i>
-                          </a>
-                        </li>
-                        <li class="dropdown position-static">
-                          <span class="label-note-hot"></span>
-                          <a href="javascript:void(0)">
-                            Vendor account pages
-                            <i class="ecicon eci-angle-right"></i>
-                          </a>
-                        </li>
-                        <li class="dropdown position-static">
-                          <span class="label-note-trending"></span>
-                          <a href="javascript:void(0)">
-                            User account pages
-                            <i class="ecicon eci-angle-right"></i>
-                          </a>
-                        </li>
-                        <li class="dropdown position-static">
-                          <a href="javascript:void(0)">
-                            Construction pages
-                            <i class="ecicon eci-angle-right"></i>
-                          </a>
-                        </li>
-                        <li class="dropdown position-static">
-                          <span class="label-note-new"></span>
-                        </li>
-                      </ul>
+                      
                     </li>
                     <li class="dropdown">
                       <a href="javascript:void(0)">Blog</a>
@@ -234,6 +192,7 @@ function Header({ handleClick }) {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

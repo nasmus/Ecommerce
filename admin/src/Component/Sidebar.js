@@ -12,6 +12,7 @@ import RateReviewIcon from '@mui/icons-material/RateReview';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PaidIcon from '@mui/icons-material/Paid';
 import AppsIcon from '@mui/icons-material/Apps';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 
 function Sidebar() {
     return (
@@ -33,10 +34,14 @@ function Sidebar() {
             <Link className="sidebar__link" to="/orderlist">
                 <SidebarRow Icon={ShoppingCartIcon} title="Order List" />
             </Link>
+            <Link className="sidebar__link" to="/category">
+                <SidebarRow Icon={AccountTreeIcon} title="Category" />
+            </Link>
 
             <Link className="sidebar__link" to="/works">
                 <SidebarRow Icon={BarChartIcon} title="Statistics" />
             </Link>
+            
             <Link className="sidebar__link" to="/portfolio">
                 <SidebarRow Icon={RateReviewIcon} title="Reviews" />
             </Link>

@@ -16,6 +16,7 @@ import { fileURLToPath } from 'url';
 import adminLogInRouter from './routes/AdminRouter/AdimnLogin/adminLogInRouter.js';
 import productListApi from './routes/AdminRouter/AdminApi/ProductListApi.js';
 import orderList from './routes/AdminRouter/AdminApi/orderList.js';
+import categoryApi from './routes/AdminRouter/Category/categoryApi.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -62,7 +63,11 @@ app.use('/api/admin/orderlist', orderList) // seller all order list and informat
 app.use('/api/admin/alluser',adminDashboardApi) // all customer list who is sign up in this website
 app.use('/api/admin/order',adminDashboardApi) // admin order count in dashboard
 app.use('/api/admin/product',adminDashboardApi) // admin all seller product count 
-app.use('/api/admin/selles', adminDashboardApi);
+app.use('/api/admin/selles', adminDashboardApi); // admin all seller list
+
+// admin category
+
+app.use('/api/admin', categoryApi) // admin category create
 
 mongoose.set("strictQuery", false);
 
