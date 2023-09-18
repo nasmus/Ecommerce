@@ -54,6 +54,9 @@ function Sidebar() {
             <Link className="sidebar__link" to="/logout">
                 <SidebarRow Icon={ExitToAppIcon} title="Log Out" />
             </Link>
+            <Link className="sidebar__link" to="/logout">
+                <SidebarRow Icon={ExitToAppIcon} title="Log Out" />
+            </Link>
         </div>
     )
 }
