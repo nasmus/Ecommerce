@@ -7,17 +7,16 @@ const caregorySchema =  new mongoose.Schema({
     },
     slug: {
         type:String,
-        required:true,
+        required:false,
         unique:true
     },
     type: {
         type:String
     },
-    categoryImage: {type:String},
     parentId: {
         type:String
     }
 },{ timestamps:true })
-const Category = mongoose.model("Category", caregorySchema);
+const Category = mongoose.model('Category', caregorySchema);
 export default Category;
 

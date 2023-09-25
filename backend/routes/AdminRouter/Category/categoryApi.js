@@ -63,18 +63,15 @@ categoryApi.post(
     expressAsyncHandler( async(req,res) => {
         const categoryObj = {
             name: req.body.name,
-            slug: `${slugify(req.body.name)}-${shortId.generate()}`
-        }
-        if(req.file){
-            categoryObj.categoryImage = process.env.API + '/public/' + req.file.filename;
+            slug:  req.body.name,//`${slugify(req.body.name)}-${shortId.generate()}`
         }
     
         if(req.body.parentId){
             categoryObj.parentId = req.body.parentId;
         }
     
-        const cat = new Category(categoryObj);
-        cat.save((error,category) => {
+        const category = new Category(categoryObj);
+        category.save((error,category) => {
             if(error){
                 return res.status(400).json({error})
             }

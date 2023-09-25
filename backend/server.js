@@ -17,6 +17,7 @@ import adminLogInRouter from './routes/AdminRouter/AdimnLogin/adminLogInRouter.j
 import productListApi from './routes/AdminRouter/AdminApi/ProductListApi.js';
 import orderList from './routes/AdminRouter/AdminApi/orderList.js';
 import categoryApi from './routes/AdminRouter/Category/categoryApi.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -68,6 +69,7 @@ app.use('/api/admin/selles', adminDashboardApi); // admin all seller list
 // admin category
 
 app.use('/api/admin', categoryApi) // admin category create
+app.use('/api/admin/category', categoryApi)
 
 mongoose.set("strictQuery", false);
 
