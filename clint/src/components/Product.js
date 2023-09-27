@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
+import '../css/Product.css';
+//import Card from "react-bootstrap/Card";
 import Rating from "./Rating";
 import { Store } from "../Store";
 import axios from "axios";
@@ -28,14 +29,11 @@ function Product(props) {
       payload: { ...item, quantity },
     });
   };
- 
+
   return (
     <>
-    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
-      <div className="ec-product-inner">
-        <div className="ec-pro-image-outer">
-          <div className="ec-pro-image">
-            <Link to={`/product/${product.slug}`} className="image">
+      <div className="product-card">
+        <Link to={`/product/${product.slug}`} >
               <img
                 className="main-image"
                 // src={`/images/${product.image}`}
@@ -43,52 +41,34 @@ function Product(props) {
                 alt={product.name}
               />
             </Link>
-            <span className="percentage">Prime</span>
-          </div>
-        </div>
-        <div className="ec-pro-content">
-          <h5 className="ec-pro-title">
-            <Link to={`/product/${product.slug}`}>{product.name}</Link>
-          </h5>
-          <div className="ec-pro-rating">
-            <span>
-              {" "}
-              <Rating
-                rating={product.rating}
-                numReviews={product.numReviews}
-              />{" "}
-            </span>
-          </div>
-          <span className="ec-price">
-            <span className="new-price">${product.price}</span>
-          </span>
-          <div className="ec-pro-option">
-            <div className="ec-pro-size">
-              <span className="ec-pro-opt-label">Button</span>
-              {product.countInStock === 0 ? (
-                <Button
-                  variant="contained"
-                  size="small"
-                  endIcon={<AddShoppingCartIcon />}
-                  disabled
-                >
-                  Out Of Stock
-                </Button>
-              ) : (
-                <Button
-                  onClick={() => addToCartHandeler(product)}
-                  variant="contained"
-                  size="small"
-                  endIcon={<AddShoppingCartIcon />}
-                >
-                  Add To Cart
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
+        <Link className="product-card_link" to={`/product/${product.slug}`}>
+          <p>{product.name}</p>
+        </Link>
+        <span>
+          <Rating rating={product.rating} numReviews={product.numReviews} />
+        </span>
+        <p>${product.price}</p>
+        {product.countInStock === 0 ? (
+          <Button
+            variant="contained"
+            size="small"
+            endIcon={<AddShoppingCartIcon />}
+            disabled
+          >
+            Out Of Stock
+          </Button>
+        ) : (
+          <Button
+            onClick={() => addToCartHandeler(product)}
+            variant="contained"
+            size="small"
+            endIcon={<AddShoppingCartIcon />}
+          >
+            Add To Cart
+          </Button>
+        )}
       </div>
-    </div>
+
     </>
   );
 }

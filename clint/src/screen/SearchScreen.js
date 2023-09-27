@@ -3,6 +3,7 @@ import React, { useEffect, useReducer, useState } from 'react'
 import {Link, useNavigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { getError } from '../utils';
+import '../css/Product.css';
 import Rating from '../components/Rating';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
@@ -245,15 +246,11 @@ export default function SearchScreen() {
                 )}
   
                 
-                  <div className="shop-pro-content">
-                    <div className="shop-pro-inner">
-                        <div className="row">
+                  <div className="product-grid">
                             {products.map((product) => (
                                 <Product product={product} ></Product>
                               ))
                             }
-                        </div>
-                    </div>  
                   </div> 
                 
                 <div>
