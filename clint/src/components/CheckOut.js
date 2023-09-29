@@ -14,15 +14,15 @@ import {
 function CheckOut(props) {
   return (
     <Container>
-        {/* <div>
+        <div>
             <Row className='chekcout-steps' >
                 <Col className={props.step1 ? 'active' : ''} >Sign In</Col>
                 <Col className={props.step2 ? 'active' : ''} >Shipping</Col>
                 <Col className={props.step3 ? 'active' : ''} >payment</Col>
                 <Col className={props.step4 ? 'active' : ''} >Place Order</Col>
             </Row> 
-        </div> */}
-        <section className="vh-10" >
+        </div>
+        {/* <section className="vh-10" >
         <MDBContainer className="py-5 h-50">
           <MDBRow className="justify-content-center align-items-center h-50">
             <MDBCol size="12">
@@ -68,7 +68,7 @@ function CheckOut(props) {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-      </section>
+      </section> */}
     </Container>
   )
 }

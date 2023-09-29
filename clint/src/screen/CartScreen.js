@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MessageBox from "../components/MessageBox";
 import { Store } from "../Store";
 import axios from "axios";
+import '../css/CartScreen.css'
 import Container from "react-bootstrap/esm/Container";
 
 function CartScreen() {
@@ -39,6 +40,8 @@ function CartScreen() {
     <div>
       <Container>
         <h1>Shoping Cart</h1>
+
+
         <Row>
           <Col md={8}>
             {cartItems.length === 0 ? (
@@ -51,12 +54,12 @@ function CartScreen() {
                   <ListGroupItem key={item._id}>
                     <Row>
                       <Col md={4} className="cartScreen__image">
-                        <img
+                        <img style={{height:'50px'}}
                           src={item.image}
                           alt={item.name}
                           className="img-fluid rounded img-thumbnail"
                         ></img>{" "}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                        <Link style={{textDecoration:'none'}} to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>
                         <Button
@@ -110,7 +113,7 @@ function CartScreen() {
                     <div className="d-grid">
                       <Button
                         type="button"
-                        variant="warning"
+                        variant="primary"
                         onClick={checkOutHandler}
                         disabled={cartItems.length === 0}
                       >
