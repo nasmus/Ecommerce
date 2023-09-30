@@ -79,15 +79,36 @@ function ProductScreen() {
     img4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwgN8KhlR9OiO6gTR3u2e1nVXgaMy_BkyM-Q&usqp=CAU",
   });
 
-  const [activeImage, setActiveImage] = useState(images.img1);
+  const [activeImage, setActiveImage] = useState();
+  const [imageValue, setImageValue] = useState([]);
+  useEffect(() => {
+    if(product.multipleImage !== undefined ) {
+      setActiveImage(product.multipleImage[0]);
+      setImageValue(product.multipleImage)
+    }
+  }, [product.multipleImage]);
+  //console.log(imageValue)
 
   return (
     <div>
       <div className="product_section">
         <div className="images">
-          <img className="main_image" src={activeImage} alt="" />
+          <img className="main_image" src={`/images/${activeImage}`} alt="" />
           <div className="grid_viev_product">
-            <img
+            {
+              imageValue.length>0 ? imageValue.map((image, index) => {
+                console.log(image)
+                return (
+                  
+                  <img
+                  src={`/images/${image}`}
+                    alt=""
+                    onClick={() => setActiveImage(image)}
+                  />
+                );
+              }) : ''
+            }
+            {/* <img
               src={images.img1}
               alt=""
               onClick={() => setActiveImage(images.img1)}
@@ -106,7 +127,7 @@ function ProductScreen() {
               src={images.img4}
               alt=""
               onClick={() => setActiveImage(images.img4)}
-            />
+            /> */}
           </div>
         </div>
         <div className="product_content">

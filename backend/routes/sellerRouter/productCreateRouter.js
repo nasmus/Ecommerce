@@ -32,7 +32,7 @@ const multipleUpload = multer({ storage: storage })
 productCreateRouter.post(
   "/create",
   //upload.single("image"),
-  multipleUpload.array('multipleImage', 9999),
+  multipleUpload.array('multipleImage', 5),
   isAuth,
   expressAsyncHandler(async (req, res) => {
 

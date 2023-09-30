@@ -1,0 +1,12 @@
+.image_grid{
+    display: flex;
+}
+
+.image > img {
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    padding: 5px;
+    border: 2px dotted #748756;
+    border-radius: 10px;
+}

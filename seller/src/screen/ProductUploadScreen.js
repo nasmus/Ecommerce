@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-
 import Sidebar from "../component/Sidebar";
 import axios from "axios";
+import '../css/ProductUploadScreen.css'
 import { Store } from "../Store";
 
 function ProductUploadScreen() {
@@ -29,20 +29,19 @@ function ProductUploadScreen() {
     form.append("price", price);
     form.append("brand", brand);
     form.append("countInStock", countInStock);
-    if(multipleImage){
+    if (multipleImage) {
       multipleImage.forEach((image, index) => {
-        form.append('multipleImage', image);
+        form.append("multipleImage", image);
       });
-    } else{
-      console.log("problem")
+    } else {
+      console.log("problem");
     }
-    
 
     try {
-      const upload = await axios.post(`/api/product/create`, form , {
+      const upload = await axios.post(`/api/product/create`, form, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
-      console.log(upload)
+      console.log(upload);
       alert("product upload successfully");
     } catch (error) {
       alert(error);
@@ -53,8 +52,20 @@ function ProductUploadScreen() {
     <div>
       <Sidebar />
       <div style={{ paddingLeft: "250px" }}>
+        <div className="image_grid">
+          {multipleImage.map((images, index) => (
+            <div className="image" key={index}>
+              <img src={URL.createObjectURL(images)} alt="" />
+            </div>
+          ))}
+        </div>
         <div className="ec-vendor-upload-detail">
-          <form onSubmit={handleSubmit} method="post" encType="multipart/form-data" className="row g-3">
+          <form
+            onSubmit={handleSubmit}
+            method="post"
+            encType="multipart/form-data"
+            className="row g-3"
+          >
             {/* <label>
               Image:
               <input
@@ -73,7 +84,6 @@ function ProductUploadScreen() {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            
 
             <div className="col-md-6">
               <label>
@@ -117,7 +127,6 @@ function ProductUploadScreen() {
               ></textarea>
             </div>
 
-            
             <div>
               <label>Upload multiple images:</label>
               <input
@@ -128,18 +137,13 @@ function ProductUploadScreen() {
                 onChange={handleMultipleImageChange}
               />
             </div>
-            {/* {multipleImage.map((images, index) => (
-              <div key={index}>
-                <img src={URL.createObjectURL(images)} alt="" />
-              </div>
-            ))} */}
+
             <div className="col-md-12">
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
             </div>
           </form>
-
         </div>
       </div>
     </div>
