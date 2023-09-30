@@ -6,6 +6,8 @@ node_modules
 assets
 /.pnp
 .pnp.js
+/backend/uploads
+
 
 # testing
 /coverage

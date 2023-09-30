@@ -22,15 +22,17 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
 
+//const upload = multer({ storage: storage });
+const multipleUpload = multer({ storage: storage })
 
 
 
 //single product upload
 productCreateRouter.post(
   "/create",
-  upload.single("image"),
+  //upload.single("image"),
+  multipleUpload.array('multipleImage', 9999),
   isAuth,
   expressAsyncHandler(async (req, res) => {
 
@@ -41,16 +43,17 @@ productCreateRouter.post(
       description,
       price,
       countInStock,
-      createdBy,
       rating,
       numReviews,
     } = req.body;
-    const image = req.file.filename;
+    //const image = req.file.filename;
+    const multipleImage = req.files.map((file) => file.filename);
+    
 
     const product = new Product({
       name: name,
       slug: name,
-      image,
+      //image,
       brand,
       category,
       description,
@@ -59,10 +62,11 @@ productCreateRouter.post(
       rating,
       numReviews,
       createdBy: req.user._id,
+      multipleImage
     });
     product.save((error, product) => {
       if (error) {
-        res.status(400).send({ message: "product is not create" });
+        res.status(400).send({ message: error });
       }
       if (product) {
         res.status(200).send({ message: "product is create successfully" });
