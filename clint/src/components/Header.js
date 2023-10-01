@@ -27,12 +27,7 @@ function Header({ handleClick }) {
           <div className="row">
             <div className="ec-flex">
               <div className="align-self-center">
-                <div className="navbar_button">
-                  {/* <Button onClick={handleClick}>
-                    {" "}
-                    <DensitySmallIcon />{" "}
-                  </Button> */}
-                </div>
+                
               </div>
 
               <div className="align-self-center">
@@ -124,7 +119,7 @@ function Header({ handleClick }) {
           <div class="row ">
             <div class="col">
               <div class="header-logo">
-                <Link to="/">
+                <Link style={{display:'flex',justifyContent:'center '}} to="/">
                   <img style={{ width: "260px" }} src={logo} alt="Site Logo" />
                 </Link>
               </div>
