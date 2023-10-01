@@ -97,6 +97,11 @@ function Header({ handleClick }) {
                       style={{ background: "red" }}
                       className="ec-header-count cart-count-lable"
                     >
+                      <span
+                        className="main-label-note-new"
+                        data-toggle="tooltip"
+                        title="NEW"
+                      ></span>
                       {cart.cartItems.length > 0 && (
                         <span>
                           {" "}
@@ -114,6 +119,11 @@ function Header({ handleClick }) {
           </div>
         </div>
       </div>
+
+
+                  {/* mobile manue bar */}
+
+
       <div class="ec-header-bottom d-lg-none">
         <div class="container position-relative">
           <div class="row ">
@@ -168,8 +178,7 @@ function Header({ handleClick }) {
                         data-toggle="tooltip"
                         title="NEW"
                       ></span>
-                      <a href="javascript:void(0)">Others</a>
-                      
+                      <Link href="javascript:void(0)">Others</Link>
                     </li>
                     <li class="dropdown">
                       <a href="javascript:void(0)">Blog</a>

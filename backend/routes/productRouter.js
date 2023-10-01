@@ -9,6 +9,8 @@ productRouter.get('/', async(req,res) => {
     res.send(products);
 })
 
+
+
 const PAGE_SIZE =12;
 
 productRouter.get('/search', expressAsyncHandler (async(req,res) => {
@@ -22,8 +24,7 @@ productRouter.get('/search', expressAsyncHandler (async(req,res) => {
     const searchQuery = query.query || '';
 
     const queryFilter = 
-    searchQuery && searchQuery !== 'all'
-    ? {
+    searchQuery && searchQuery !== 'all' ? {
         name: {
             $regex: searchQuery,
             $options:'i'
