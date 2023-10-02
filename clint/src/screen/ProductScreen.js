@@ -16,6 +16,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { getError } from "../utils";
 import { Store } from "../Store";
+import Product from "../components/Product";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -36,6 +37,8 @@ function ProductScreen() {
     error: "",
     loading: true,
   });
+
+  const [randomProducts, setRandomProducts] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
@@ -52,6 +55,16 @@ function ProductScreen() {
     };
     fatchData();
   }, [slug]);
+
+  useEffect(() => {
+    const fatchData = async () => {
+      const randomData = await axios.get(`/api/random/product_suggest`);
+      if (randomData.data !== "") {
+        setRandomProducts(randomData.data);
+      }
+    };
+    fatchData();
+  }, []);
 
   // bring data from react context api
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -75,9 +88,9 @@ function ProductScreen() {
   const [activeImage, setActiveImage] = useState();
   const [imageValue, setImageValue] = useState([]);
   useEffect(() => {
-    if(product.multipleImage !== undefined ) {
+    if (product.multipleImage !== undefined) {
       setActiveImage(product.multipleImage[0]);
-      setImageValue(product.multipleImage)
+      setImageValue(product.multipleImage);
     }
   }, [product.multipleImage]);
   //console.log(imageValue)
@@ -88,19 +101,17 @@ function ProductScreen() {
         <div className="images">
           <img className="main_image" src={`/images/${activeImage}`} alt="" />
           <div className="grid_viev_product">
-            {
-              imageValue.length>0 ? imageValue.map((image, index) => {
-                console.log(image)
-                return (
-                  
-                  <img
-                  src={`/images/${image}`}
-                    alt=""
-                    onClick={() => setActiveImage(image)}
-                  />
-                );
-              }) : ''
-            }
+            {imageValue.length > 0
+              ? imageValue.map((image, index) => {
+                  return (
+                    <img
+                      src={`/images/${image}`}
+                      alt=""
+                      onClick={() => setActiveImage(image)}
+                    />
+                  );
+                })
+              : ""}
           </div>
         </div>
         <div className="product_content">
@@ -111,8 +122,8 @@ function ProductScreen() {
           </p>
           <h5>${product.price}</h5>
           <h4>Product Features</h4>
-          <ul >
-            <li style={{listStyleType:'square'}}>100 M Water Resistance</li>
+          <ul>
+            <li style={{ listStyleType: "square" }}>100 M Water Resistance</li>
             <li>
               Solar Powered - Solar panel features rechargable battery with
               approximately 6
@@ -132,6 +143,14 @@ function ProductScreen() {
               </ListGroup.Item>
             )}
           </div>
+        </div>
+      </div>
+      <div className="product_suggest">
+        <h2>Product Related To This Item</h2>
+        <div className="product-grid2">
+          {randomProducts.map((product) => {
+            return <Product product={product}></Product>;
+          })}
         </div>
       </div>
     </div>
