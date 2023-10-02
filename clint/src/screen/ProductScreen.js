@@ -72,13 +72,6 @@ function ProductScreen() {
     navigate("/cart");
   };
 
-  const [images, setImage] = useState({
-    img1: "https://cdna.lystit.com/photos/stadiumgoods/476dd48d/nike-100-whitewhite-Air-Force-1-Low-slam-Jam.jpeg",
-    img2: "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F01%2Fnike-air-force-1-low-coffee-dd5227-234-release-tw.jpg?w=960&cbr=1&q=90&fit=max",
-    img3: "https://cdn.shopify.com/s/files/1/2358/2817/products/air-force-1-shadow-pistachio-frost-199178.png?v=1638812560",
-    img4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwgN8KhlR9OiO6gTR3u2e1nVXgaMy_BkyM-Q&usqp=CAU",
-  });
-
   const [activeImage, setActiveImage] = useState();
   const [imageValue, setImageValue] = useState([]);
   useEffect(() => {
@@ -108,38 +101,18 @@ function ProductScreen() {
                 );
               }) : ''
             }
-            {/* <img
-              src={images.img1}
-              alt=""
-              onClick={() => setActiveImage(images.img1)}
-            />
-            <img
-              src={images.img2}
-              alt=""
-              onClick={() => setActiveImage(images.img2)}
-            />
-            <img
-              src={images.img3}
-              alt=""
-              onClick={() => setActiveImage(images.img3)}
-            />
-            <img
-              src={images.img4}
-              alt=""
-              onClick={() => setActiveImage(images.img4)}
-            /> */}
           </div>
         </div>
         <div className="product_content">
-          <h1>Product name</h1>
+          <h1>{product.name}</h1>
           <p>
             <Rating rating={product.rating} numReviews={product.numReviews} /> 7
-            reviews | 25 sold
+            reviews | {product.countInStock} Stock
           </p>
-          <h5>$645</h5>
+          <h5>${product.price}</h5>
           <h4>Product Features</h4>
-          <ul>
-            <li>100 M Water Resistance</li>
+          <ul >
+            <li style={{listStyleType:'square'}}>100 M Water Resistance</li>
             <li>
               Solar Powered - Solar panel features rechargable battery with
               approximately 6

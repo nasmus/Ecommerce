@@ -17,6 +17,8 @@ import adminLogInRouter from './routes/AdminRouter/AdimnLogin/adminLogInRouter.j
 import productListApi from './routes/AdminRouter/AdminApi/ProductListApi.js';
 import orderList from './routes/AdminRouter/AdminApi/orderList.js';
 import categoryApi from './routes/AdminRouter/Category/categoryApi.js';
+import randomProductApi from './routes/userRouter/randomProductApi.js';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,6 +36,7 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
+app.use('/api/random', randomProductApi);
 
 
 //seller api
