@@ -153,7 +153,7 @@ function Header({ handleClick }) {
         </div>
       </div>
       {/* Header Main Categori */}
-      <div className="header_category">
+      <div style={{marginBottom:'15px',marginTop:'15px'}} className="header_category">
         <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
           <div class="container position-relative">
             <div class="row">
