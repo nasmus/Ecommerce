@@ -64,11 +64,12 @@ categoryApi.post(
         const categoryObj = {
             name: req.body.name,
             slug:  req.body.name,//`${slugify(req.body.name)}-${shortId.generate()}`
+            parentId: req.body.parentId
         }
     
-        if(req.body.parentId){
-            categoryObj.parentId = req.body.parentId;
-        }
+        // if(req.body.parentId){
+        //     categoryObj.parentId = req.body.parentId;
+        // }
     
         const category = new Category(categoryObj);
         category.save((error,category) => {

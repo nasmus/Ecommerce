@@ -11,7 +11,7 @@ function CreateCategory() {
   const { state } = useContext(Store);
   const { userInfo } = state;
   const [categories, setCategoryList] = useState([]);
-  const [parentCategoryId, setParentCategoryId] = useState("");
+  const [parentId, setParentId] = useState('');
   const [name, setName] = useState("");
 
   useEffect(() => {
@@ -28,12 +28,12 @@ function CreateCategory() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const form = new FormData();
-    // form.append("name", name);
-    // form.append('parentId',parentCategoryId);
+    //  const form = new FormData();
+    //  form.append("name", name);
+    //  form.append('parentId',parentCategoryId);
 
     try {
-      await axios.post(`/api/admin/category/addcategory`, {name,parentCategoryId}, {
+      await axios.post(`/api/admin/category/addcategory`, {name,parentId}, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
       alert("product upload successfully");
@@ -96,8 +96,8 @@ function CreateCategory() {
           />
 
           <select
-            value={parentCategoryId}
-            onChange={(e) => setParentCategoryId(e.target.value)}
+            value={parentId}
+            onChange={(e) => setParentId(e.target.value)}
           >
             <option>select Category</option>
             {createCategoryList().map((option) => (
