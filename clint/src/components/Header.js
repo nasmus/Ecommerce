@@ -153,7 +153,7 @@ function Header({ handleClick }) {
         </div>
       </div>
       {/* Header Main Categori */}
-      <div style={{marginBottom:'15px',marginTop:'15px'}} className="header_category">
+      <div style={{marginBottom:'10px',marginTop:'10px'}} className="header_category">
         <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
           <div class="container position-relative">
             <div class="row">
@@ -173,11 +173,6 @@ function Header({ handleClick }) {
                       <a href="javascript:void(0)">Pages</a>
                     </li>
                     <li class="dropdown">
-                      <span
-                        class="main-label-note-new"
-                        data-toggle="tooltip"
-                        title="NEW"
-                      ></span>
                       <Link href="javascript:void(0)">Others</Link>
                     </li>
                     <li class="dropdown">
