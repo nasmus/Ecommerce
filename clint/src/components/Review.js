@@ -4,11 +4,11 @@ import { Rating } from '@mui/material';
 
 function Review() {
   return (
-    <div className=' m-24 '>
+    <div className=' m-24 sm:m-4 '>
         <h2 className='pb-4 pl-16 text-neutral-500 ' >Top Reviews In Bangladesh</h2>
         <div className='flex pl-20 items-center '>
             <AccountCircleIcon />
-            <p className=' pl-4 ' >nasmus shahadat</p>
+            <p className=' pl-2 font-medium text-yellow-700 ' >nasmus shahadat</p>
         </div>
         <div className='pl-20 pt-2' >
             <Rating />

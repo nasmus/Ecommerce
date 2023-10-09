@@ -18,6 +18,7 @@ import productListApi from './routes/AdminRouter/AdminApi/ProductListApi.js';
 import orderList from './routes/AdminRouter/AdminApi/orderList.js';
 import categoryApi from './routes/AdminRouter/Category/categoryApi.js';
 import randomProductApi from './routes/userRouter/randomProductApi.js';
+import productRating from './routes/userRouter/productRating.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -37,6 +38,7 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/random', randomProductApi);
+app.use('api/rating', productRating);
 
 
 //seller api
