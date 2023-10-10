@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Store } from "../Store";
-import TextField from "@mui/material/TextField";
 import Sidebar from "../Component/Sidebar";
-import { Button } from "@mui/material";
 import {useNavigate } from "react-router-dom";
 
 function CreateCategory() {
@@ -59,16 +57,16 @@ function CreateCategory() {
             parentId: item.parentId,
             type: item.type,
           });
-          if (item.children.length > 0) {
-            for (let element of item.children) {
-              options.push({
-                value: element._id,
-                name: element.name,
-                parentId: element.parentId,
-                type: element.type,
-              });
-            }
-          }
+          // if (item.children.length > 0) {
+          //   for (let element of item.children) {
+          //     options.push({
+          //       value: element._id,
+          //       name: element.name,
+          //       parentId: element.parentId,
+          //       type: element.type,
+          //     });
+          //   }
+          // }
         }
       }
     }

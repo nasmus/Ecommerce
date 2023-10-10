@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import {Link} from 'react-router-dom'
 import "../css/Navbar.css";
+import CloseIcon from '@mui/icons-material/Close';
 
 function SocialHeader() {
   const sidebarData = [
@@ -51,12 +52,15 @@ function SocialHeader() {
           </Link>
         </div>
       </div>
+
+        {/*navbar for mobile responsive */}
+
       <div className="navbar">
       <div className={sidebar ? 'nav-manu active' : 'nav-manu'}>
         <ul className="nav-manu-items" onClick={showSidebar}>
           <li className="navbar-toggle">
               <Link to='#' className="menu-bars">
-              <i className="fi-rr-user"></i>
+                <CloseIcon />
               </Link>
           </li>
           {
