@@ -78,7 +78,7 @@ app.use('/api/admin/selles', adminDashboardApi); // admin all seller list
 // admin category
 
 app.use('/api/admin', categoryApi) // admin category create
-app.use('/api/admin/category', categoryApi)
+app.use('/api/admin/category', categoryApi) // admin category view
 
 mongoose.set("strictQuery", false);
 

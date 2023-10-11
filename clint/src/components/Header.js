@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { Store } from "../Store";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
 import logo from "../css/logo.png";
-import { Button } from "@mui/material";
-import DensitySmallIcon from "@mui/icons-material/DensitySmall";
 import SearchBox from "./SearchBox";
 import SocialHeader from "./SocialHeader";
 
 function Header({ handleClick }) {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
+  const [category, setCategory] = useState([]);
 
   const signOutHandler = () => {
     ctxDispatch({ type: "USER_SIGNOUT" });
@@ -19,6 +19,15 @@ function Header({ handleClick }) {
     localStorage.removeItem("shippingAddress");
     localStorage.removeItem("paymentMethod");
   };
+
+  useEffect(() => {
+    const fatchData = async () => {
+      const categoryData = await axios.get("api/category/get_all_category");
+      setCategory(categoryData.data.categoryList);
+    };
+    fatchData();
+  }, []);
+
   return (
     <div>
       <SocialHeader />
@@ -26,9 +35,7 @@ function Header({ handleClick }) {
         <div className="container position-relative">
           <div className="row">
             <div className="ec-flex">
-              <div className="align-self-center">
-                
-              </div>
+              <div className="align-self-center"></div>
 
               <div className="align-self-center">
                 <div className="header-logo">
@@ -120,16 +127,17 @@ function Header({ handleClick }) {
         </div>
       </div>
 
-
-                  {/* mobile manue bar */}
-
+      {/* mobile manue bar */}
 
       <div class="ec-header-bottom d-lg-none">
         <div class="container position-relative">
           <div class="row ">
             <div class="col">
               <div class="header-logo">
-                <Link style={{display:'flex',justifyContent:'center '}} to="/">
+                <Link
+                  style={{ display: "flex", justifyContent: "center " }}
+                  to="/"
+                >
                   <img style={{ width: "260px" }} src={logo} alt="Site Logo" />
                 </Link>
               </div>
@@ -153,37 +161,32 @@ function Header({ handleClick }) {
         </div>
       </div>
       {/* Header Main Categori */}
-      <div style={{marginBottom:'10px',marginTop:'10px'}} className="header_category">
+      <div
+        style={{ marginBottom: "10px", marginTop: "10px" }}
+        className="header_category"
+      >
         <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
           <div class="container position-relative">
             <div class="row">
               <div class="col-md-12 align-self-center">
                 <div class="ec-main-menu">
                   <ul>
-                    <li>
-                      <a href="index.html">Home</a>
-                    </li>
-                    <li class="dropdown position-static">
-                      <a href="javascript:void(0)">Categories</a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="javascript:void(0)">Products</a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="javascript:void(0)">Pages</a>
-                    </li>
-                    <li class="dropdown">
-                      <Link href="javascript:void(0)">Others</Link>
-                    </li>
-                    <li class="dropdown">
-                      <a href="javascript:void(0)">Blog</a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="javascript:void(0)">Elements</a>
-                    </li>
-                    <li>
-                      <a href="offer.html">Hot Offers</a>
-                    </li>
+                    {category.map((item, index) => {
+                      return (
+                        <li key={index} class="dropdown position-static">
+                          <a href={item.name}>{item.name}</a>
+                          {item.children.map((element, index) => {
+                            return (
+                              <ul className="sub-menu">
+                                <li>
+                                  <a href={element.name}>{element.name}</a>
+                                </li>
+                              </ul>
+                            );
+                          })}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
@@ -191,7 +194,6 @@ function Header({ handleClick }) {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
