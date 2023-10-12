@@ -36,8 +36,8 @@ function Product(props) {
         <Link to={`/product/${product.slug}`} >
               <img
                 className="main-image"
-                // src={`/images/${product.image}`}
-                src={product.image}
+                src={`/images/${product.image}`}
+                //src={product.image}
                 alt={product.name}
               />
             </Link>

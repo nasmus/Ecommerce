@@ -53,7 +53,7 @@ productCreateRouter.post(
     const product = new Product({
       name: name,
       slug: name,
-      //image,
+      image:multipleImage[0],
       brand,
       category,
       description,

@@ -177,7 +177,7 @@ function Header({ handleClick }) {
                           <a href={item.name}>{item.name}</a>
                           {item.children.map((element, index) => {
                             return (
-                              <ul className="sub-menu">
+                              <ul style={{ width:'100px'}} className="sub-menu">
                                 <li>
                                   <a href={element.name}>{element.name}</a>
                                 </li>
