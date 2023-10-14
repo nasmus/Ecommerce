@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import Sidebar from "../component/Sidebar";
 import axios from "axios";
 import '../css/ProductUploadScreen.css'
@@ -9,7 +9,10 @@ function ProductUploadScreen() {
   const { userInfo } = state;
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  //const [image, setImage] = useState(null);
+  const [category, setCategory] = useState([]);
+  const [categoryId, setCategoryId] = useState('')
+  const [chieldCategory, setChieldCategory] = useState([])
+  const [chieldCategoryId, setChieldCategoryId] = useState('')
   const [brand, setBrand] = useState();
   const [description, setDescription] = useState("");
   const [countInStock, setCountInStock] = useState("");
@@ -20,14 +23,34 @@ function ProductUploadScreen() {
     setMultipleImages([...multipleImage, ...files]);
   };
 
+  useEffect(() => {
+    const fatchData = async () => {
+      const category = await axios.get(`api/seller/category/getcategory`, {
+        headers: { authorization: `Bearer ${userInfo.token}` },
+      });
+      setCategory(category.data);
+    };
+    fatchData();
+  }, [userInfo.token]);
+
+  useEffect(() => {
+    const fatchData = async() => {
+      const category = await axios.get(`api/seller/category/chield_category/${categoryId}`,{
+        headers:{ authorization: `Bearer ${userInfo.token}` }
+      })
+      setChieldCategory(category.data)
+    }
+    fatchData()
+  },[userInfo.token,categoryId])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData();
     form.append("name", name);
     form.append("description", description);
-    //form.append("image", image);
     form.append("price", price);
     form.append("brand", brand);
+    form.append("category", chieldCategoryId);
     form.append("countInStock", countInStock);
     if (multipleImage) {
       multipleImage.forEach((image, index) => {
@@ -66,14 +89,7 @@ function ProductUploadScreen() {
             encType="multipart/form-data"
             className="row g-3"
           >
-            {/* <label>
-              Image:
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImage(e.target.files[0])}
-              />
-            </label> */}
+
             <div className="col-md-6">
               <label>Product name</label>
               <input
@@ -117,6 +133,41 @@ function ProductUploadScreen() {
                 onChange={(e) => setBrand(e.target.value)}
               />
             </div>
+
+            <select
+            value={categoryId}
+            onChange={(e) => setCategoryId(e.target.value)}
+          >
+            <option>select Category</option>
+            {category.map((option) =>{
+              if(option.parentId === undefined)
+              return(
+                (
+                  <option key={option.value} value={option._id}>
+                    {option.name}
+                  </option>
+                )
+              )
+            } )}
+          </select>
+
+          <select
+            value={chieldCategoryId}
+            onChange={(e) => setChieldCategoryId(e.target.value)}
+          >
+            <option>select Category</option>
+            {chieldCategory.map((option) =>{
+              return(
+                (
+                  <option key={option.value} value={option.value}>
+                    {option.name}
+                  </option>
+                )
+              )
+            } )}
+          </select>
+            {console.log("ghdfgh",chieldCategoryId)}
+
             <div className="col-md-12">
               <label>Full Detail</label>
               <textarea
@@ -126,7 +177,6 @@ function ProductUploadScreen() {
                 rows="4"
               ></textarea>
             </div>
-
             <div>
               <label>Upload multiple images:</label>
               <input

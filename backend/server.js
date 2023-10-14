@@ -20,6 +20,7 @@ import categoryApi from './routes/AdminRouter/Category/categoryApi.js';
 import randomProductApi from './routes/userRouter/randomProductApi.js';
 import productRating from './routes/userRouter/productRating.js';
 import getCategoryRouter from './routes/userRouter/Category/category.js';
+import categorySellerApi from './routes/sellerRouter/Category/categorySellerApi.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -57,6 +58,7 @@ app.use('/api/productdetails',sellerProductRouter);
 app.use('/api/summary',sellerOrderRouter);// seller order summery
 app.use('/api/order/status',sellerOrderRouter);//seller order status update
 app.use('/api/count',sellerProductRouter); //seller product count
+app.use('/api/seller/category', categorySellerApi) //send all category
 
 app.use(express.static(path.join(__dirname, 'uploads'))); //image access from server
 
