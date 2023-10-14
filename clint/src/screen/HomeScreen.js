@@ -7,6 +7,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import LeftSideBar from "../components/LeftSideBar";
 import Container from "react-bootstrap/Container";
+import BannerSidebar from "../components/BannerSidebar";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -49,6 +50,7 @@ function HomeScreen(props) {
       } */}
 
       <div className="products">
+        <BannerSidebar />
         {loading ? (
           <LoadingBox />
         ) : error ? (
