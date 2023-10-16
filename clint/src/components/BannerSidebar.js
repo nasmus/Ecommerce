@@ -49,22 +49,26 @@ function BannerSidebar() {
     <div  className="banner-slider">
       <div>
         <div className="image">
-          <img src={banners[currentIndex]} alt="Banner" />
+          <img 
+          src={banners[currentIndex]} 
+          alt={`Slide ${currentIndex + 1}`}
+            className={`slider-image ${currentIndex === currentIndex ? 'active' : ''}`}
+          />
         </div>
         
         <button onClick={previousBanner}>  <ArrowBackIosNewIcon /> </button>
         <button onClick={nextBanner}> <ArrowForwardIosIcon /> </button>
         
       </div>
-      <div className="dot-container">
-            {banners.map((_, index) => (
-            <div
-                key={index}
-                className={`dot ${index === setCurrentIndex ? 'Active' : ''}`}
-                onClick={() => handleDotClick(index)}
-            />
-            ))}
-        </div>
+      <div className="slider-dots">
+        {banners.map((_, index) => (
+          <div
+            key={index}
+            className={`slider-dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 }
