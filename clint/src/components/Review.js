@@ -12,7 +12,6 @@ function Review() {
         </div>
         <div className='pl-20 pt-2' >
             <Rating />
-            
         </div>
         <div className=' w-2/3 pl-20 mb-8 '>
             <p>

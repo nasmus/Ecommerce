@@ -129,11 +129,11 @@ function Header({ handleClick }) {
 
       {/* mobile manue bar */}
 
-      <div class="ec-header-bottom d-lg-none">
-        <div class="container position-relative">
-          <div class="row ">
-            <div class="col">
-              <div class="header-logo">
+      <div className="ec-header-bottom d-lg-none">
+        <div className="container position-relative">
+          <div className="row ">
+            <div className="col">
+              <div className="header-logo">
                 <Link
                   style={{ display: "flex", justifyContent: "center " }}
                   to="/"
@@ -165,21 +165,21 @@ function Header({ handleClick }) {
         style={{ marginBottom: "10px", marginTop: "10px" }}
         className="header_category"
       >
-        <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-          <div class="container position-relative">
-            <div class="row">
-              <div class="col-md-12 align-self-center">
-                <div class="ec-main-menu">
+        <div id="ec-main-menu-desk" className="d-none d-lg-block sticky-nav">
+          <div className="container position-relative">
+            <div className="row">
+              <div className="col-md-12 align-self-center">
+                <div className="ec-main-menu">
                   <ul>
                     {category.map((item, index) => {
                       return (
-                        <li key={index} class="dropdown position-static">
-                          <a href={item.name}>{item.name}</a>
+                        <li key={index} className="dropdown position-static">
+                          <Link to={item.name}>{item.name}</Link>
                           {item.children.map((element, index) => {
                             return (
-                              <ul style={{ width:'100px'}} className="sub-menu">
+                              <ul style={{ width:'20%'}} className="sub-menu">
                                 <li>
-                                  <a href={element.name}>{element.name}</a>
+                                  <Link to={element.name}>{element.name}</Link>
                                 </li>
                               </ul>
                             );

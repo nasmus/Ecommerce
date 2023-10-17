@@ -18,7 +18,6 @@ import ProfileScreen from "./screen/ProfileScreen";
 import SearchScreen from "./screen/SearchScreen";
 import Header from "./components/Header";
 import { useState } from "react";
-import BannerSidebar from "./components/BannerSidebar";
 
 function App() {
   // const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -37,9 +36,6 @@ function App() {
         <header>
           <Header isVisible={isVisible} handleClick={handleClick} />
         </header>
-        <bannder>
-          <BannerSidebar />
-        </bannder>
         <main>
           <Routes>
             <Route path="/product/:slug" element={<ProductScreen />} />

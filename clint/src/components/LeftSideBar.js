@@ -27,8 +27,7 @@ function LeftSideBar() {
       <ul >
         {Categories.map((category) => (
           <Link className="Link_style" to={`/search?category=${category}`}>
-            <li key={category}>
-              <AddCircleOutlineIcon />
+            <li key={category}>             
               <span className="items"> {category}</span>
             </li>
           </Link>

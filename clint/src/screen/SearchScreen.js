@@ -48,6 +48,10 @@ const prices = [
     name: "$501 to $999",
     value: "501-999",
   },
+  {
+    name: "$1000 to $2000",
+    value: "1000-2000",
+  },
 ];
 
 export const ratings = [
@@ -130,12 +134,12 @@ export default function SearchScreen() {
       <Container>
         <Row>
           <Col md={3}>
-            <h3>Department</h3>
-            <div>
+            {/* <h3>Department</h3>
+            <div  >
               <ul>
                 {categories.map((c) => (
                   <li key={c}>
-                    <Link
+                    <Link 
                       className={c === category ? "text-bold" : ""}
                       to={getFilterUrl({ category: c })}
                     >
@@ -152,12 +156,12 @@ export default function SearchScreen() {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div>
               <h3>Price</h3>
               <ul>
                 <li>
-                  <Link
+                  <Link style={{textDecoration:'none', color:"#ff6600"}}
                     className={"all" === price ? "text-bold" : ""}
                     to={getFilterUrl({ price: "all" })}
                   >
@@ -166,7 +170,7 @@ export default function SearchScreen() {
                 </li>
                 {prices.map((p) => (
                   <li key={p.value}>
-                    <Link
+                    <Link style={{textDecoration:'none',color:"#ff6600"}}
                       to={getFilterUrl({ price: p.value })}
                       className={p.value === price ? "text-bold" : ""}
                     >

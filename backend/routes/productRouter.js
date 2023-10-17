@@ -31,7 +31,7 @@ productRouter.get('/search', expressAsyncHandler (async(req,res) => {
         } 
     } : {};
 
-    const categoryFilter = category && category !== 'all' ? { category } : {};
+    const categoryFilter = category && category !== 'all' ? { category } && searchQuery !== 'all' : {};
     const ratingFilter =
       rating && rating !== 'all'
         ? {
