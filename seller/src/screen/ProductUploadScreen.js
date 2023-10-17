@@ -159,7 +159,7 @@ function ProductUploadScreen() {
             {chieldCategory.map((option) =>{
               return(
                 (
-                  <option key={option.value} value={option.value}>
+                  <option key={option.value} value={option._id}>
                     {option.name}
                   </option>
                 )
