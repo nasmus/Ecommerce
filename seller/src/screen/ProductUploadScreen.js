@@ -17,6 +17,7 @@ function ProductUploadScreen() {
   const [description, setDescription] = useState("");
   const [countInStock, setCountInStock] = useState("");
   const [multipleImage, setMultipleImages] = useState([]);
+  const [submitCategory, setSubmitCategory] = useState('')
 
   const handleMultipleImageChange = (e) => {
     const files = e.target.files;
@@ -43,6 +44,14 @@ function ProductUploadScreen() {
     fatchData()
   },[userInfo.token,categoryId])
 
+  useEffect(() => {
+    setSubmitCategory(categoryId)
+  },[categoryId])
+
+  useEffect(() => {
+    setSubmitCategory(chieldCategoryId)
+  },[chieldCategoryId])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData();
@@ -50,7 +59,7 @@ function ProductUploadScreen() {
     form.append("description", description);
     form.append("price", price);
     form.append("brand", brand);
-    form.append("category", chieldCategoryId);
+    form.append("category", submitCategory);
     form.append("countInStock", countInStock);
     if (multipleImage) {
       multipleImage.forEach((image, index) => {
@@ -153,6 +162,7 @@ function ProductUploadScreen() {
 
           <select
             value={chieldCategoryId}
+
             onChange={(e) => setChieldCategoryId(e.target.value)}
           >
             <option>select Category</option>
@@ -166,8 +176,8 @@ function ProductUploadScreen() {
               )
             } )}
           </select>
-            {console.log("ghdfgh",chieldCategoryId)}
-
+            
+            {console.log(submitCategory)}
             <div className="col-md-12">
               <label>Full Detail</label>
               <textarea
