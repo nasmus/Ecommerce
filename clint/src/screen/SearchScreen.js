@@ -130,8 +130,8 @@ export default function SearchScreen() {
     return `/search?query=${filterQuery}&category=${filterCategory}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
-    <div>
-      <Container>
+    <div className="m-2">
+      <>
         <Row>
           <Col md={3}>
             {/* <h3>Department</h3>
@@ -282,7 +282,7 @@ export default function SearchScreen() {
             )}
           </Col>
         </Row>
-      </Container>
+      </>
     </div>
   );
 }

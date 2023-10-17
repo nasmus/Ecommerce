@@ -18,6 +18,7 @@ import ProfileScreen from "./screen/ProfileScreen";
 import SearchScreen from "./screen/SearchScreen";
 import Header from "./components/Header";
 import { useState } from "react";
+import CategoryPage from "./screen/CategoryPage";
 
 function App() {
   // const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -50,6 +51,7 @@ function App() {
             <Route path="/shipping" element={<ShipingAddressScreen />} />
             <Route path="/order/:id" element={<OrderScreen />} />
             <Route path="/orderhistory" element={<OrederHistoryScreen />} />
+            <Route path="/category/:id" element={ <CategoryPage /> } />
           </Routes>
         </main>
         <footer className="text-center"></footer>

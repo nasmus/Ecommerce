@@ -174,12 +174,12 @@ function Header({ handleClick }) {
                     {category.map((item, index) => {
                       return (
                         <li key={index} className="dropdown position-static">
-                          <Link to={item.name}>{item.name}</Link>
+                          <Link to={`/category/${item._id}`}>{item.name}</Link>
                           {item.children.map((element, index) => {
                             return (
                               <ul style={{ width:'20%'}} className="sub-menu">
                                 <li>
-                                  <Link to={element.name}>{element.name}</Link>
+                                  <Link to={`/category/${element._id}`}>{element.name}</Link>
                                 </li>
                               </ul>
                             );

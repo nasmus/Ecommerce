@@ -1,6 +1,7 @@
 import express from 'express';
 import Category from '../../../models/category.js';
 import expressAsyncHandler from 'express-async-handler';
+import Product from '../../../models/productModel.js';
 
 const getCategoryRouter = express.Router();
 
@@ -37,6 +38,18 @@ getCategoryRouter.get(
         )
     })
     
+)
+
+getCategoryRouter.get(
+    '/:id',
+    expressAsyncHandler( async(req,res) => {
+        const categoryid = await Product.find({"category":req.params.id})
+        if(categoryid){
+            res.status(200).send(categoryid)
+        } else{
+            res.status(400).send({message:"product not found"})
+        }
+    })
 )
 
 export default getCategoryRouter;
