@@ -17,9 +17,12 @@
     align-items: center;
 }
 .main_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 30px;
     width: 90%;
-    height: 90%;
+    
 }
 .grid_viev_product{
     display: flex;

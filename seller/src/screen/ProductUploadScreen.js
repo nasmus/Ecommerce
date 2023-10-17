@@ -3,7 +3,6 @@ import Sidebar from "../component/Sidebar";
 import axios from "axios";
 import '../css/ProductUploadScreen.css'
 import { Store } from "../Store";
-
 function ProductUploadScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;

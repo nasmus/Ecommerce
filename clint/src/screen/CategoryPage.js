@@ -21,7 +21,7 @@ function CategoryPage() {
   return (
     <div>
       <div className="product_suggest">
-        <h2>Product Related To This Item</h2>
+        
         {console.log(categoryValue)}
         <div className="product-grid2">
           {categoryValue.map((product) => {

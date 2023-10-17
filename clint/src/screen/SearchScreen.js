@@ -161,7 +161,7 @@ export default function SearchScreen() {
               <h3>Price</h3>
               <ul>
                 <li>
-                  <Link style={{textDecoration:'none', color:"#ff6600"}}
+                  <Link style={{textDecoration:'none' }}
                     className={"all" === price ? "text-bold" : ""}
                     to={getFilterUrl({ price: "all" })}
                   >
@@ -170,7 +170,7 @@ export default function SearchScreen() {
                 </li>
                 {prices.map((p) => (
                   <li key={p.value}>
-                    <Link style={{textDecoration:'none',color:"#ff6600"}}
+                    <Link style={{textDecoration:'none'}}
                       to={getFilterUrl({ price: p.value })}
                       className={p.value === price ? "text-bold" : ""}
                     >
@@ -185,7 +185,7 @@ export default function SearchScreen() {
               <ul>
                 {ratings.map((r) => (
                   <li key={r.name}>
-                    <Link
+                    <Link style={{textDecoration:'none'}}
                       to={getFilterUrl({ rating: r.rating })}
                       className={
                         `${r.rating}` === `${rating}` ? "text-bold" : ""
@@ -197,6 +197,7 @@ export default function SearchScreen() {
                 ))}
                 <li>
                   <Link
+                  style={{textDecoration:'none'}}
                     to={getFilterUrl({ rating: "all" })}
                     className={rating === "all" ? "text-bold" : ""}
                   >

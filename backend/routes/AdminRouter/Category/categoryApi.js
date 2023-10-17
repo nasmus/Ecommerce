@@ -63,7 +63,7 @@ categoryApi.post(
     expressAsyncHandler( async(req,res) => {
         const categoryObj = {
             name: req.body.name,
-            slug:  req.body.name,//`${slugify(req.body.name)}-${shortId.generate()}`
+            slug: req.body.name,//`${slugify(req.body.name)}-${shortId.generate()}`
             parentId: req.body.parentId
         }
     
