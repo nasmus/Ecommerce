@@ -5,9 +5,8 @@ import logger from "use-reducer-logger";
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import LeftSideBar from "../components/LeftSideBar";
-import Container from "react-bootstrap/Container";
 import BannerSidebar from "../components/BannerSidebar";
+import TopRatedProduct from "./ProudctScreen/TopRatedProduct";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -55,12 +54,14 @@ function HomeScreen(props) {
           <LoadingBox />
         ) : error ? (
           <MessageBox>{error}</MessageBox>
-        ) : (
+        ) : (<>
+        <TopRatedProduct />
           <div className="product-grid">
             {products.map((product) => (
               <Product product={product}></Product>
             ))}
           </div>
+          </>
         )}
       </div>
     </div>

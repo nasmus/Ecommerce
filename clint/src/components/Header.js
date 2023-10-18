@@ -175,15 +175,16 @@ function Header({ handleClick }) {
                       return (
                         <li key={index} className="dropdown position-static">
                           <Link to={`/category/${item._id}`}>{item.name}</Link>
+                          <ul style={{width:"20%"}} className="sub-menu">
                           {item.children.map((element, index) => {
                             return (
-                              <ul style={{ width:'20%'}} className="sub-menu">
-                                <li>
+                                <li key={index}>
+                                  {console.log(element.name)}
                                   <Link to={`/category/${element._id}`}>{element.name}</Link>
                                 </li>
-                              </ul>
                             );
                           })}
+                          </ul>
                         </li>
                       );
                     })}
