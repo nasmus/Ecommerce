@@ -175,16 +175,22 @@ function Header({ handleClick }) {
                       return (
                         <li key={index} className="dropdown position-static">
                           <Link to={`/category/${item._id}`}>{item.name}</Link>
-                          <ul style={{width:"20%"}} className="sub-menu">
-                          {item.children.map((element, index) => {
-                            return (
-                                <li key={index}>
-                                  {console.log(element.name)}
-                                  <Link to={`/category/${element._id}`}>{element.name}</Link>
-                                </li>
-                            );
-                          })}
-                          </ul>
+                          {item.children.length > 0 ? (
+                            <ul style={{ width: "20%" }} className="sub-menu">
+                              {item.children.map((element, index) => {
+                                return (
+                                  <li key={index}>
+                                    {console.log(element.name)}
+                                    <Link to={`/category/${element._id}`}>
+                                      {element.name}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          ) : (
+                            ""
+                          )}
                         </li>
                       );
                     })}
