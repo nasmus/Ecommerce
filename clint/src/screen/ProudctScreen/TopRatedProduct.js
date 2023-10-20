@@ -18,7 +18,7 @@ function TopRatedProduct() {
 
   return (
     <div className=' mt-2 mb-2 '>
-        <h2>Top Rated Product</h2>
+        <h2 className=' m-2 ' >Top Rated Product</h2>
         <div className="product-grid">
             {displayProduct.map((product) => (
               <Product product={product}></Product>

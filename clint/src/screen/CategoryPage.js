@@ -3,11 +3,9 @@ import axios from "axios";
 import Product from "../components/Product";
 import { useParams } from "react-router-dom";
 
-
 function CategoryPage() {
   const [categoryValue, setCategoryValue] = useState([]);
   const param = useParams()
-
 
   useEffect(() => {
     const fatchData = async() => {
@@ -21,8 +19,6 @@ function CategoryPage() {
   return (
     <div>
       <div className="product_suggest">
-        
-        {console.log(categoryValue)}
         <div className="product-grid2">
           {categoryValue.map((product) => {
             return <Product product={product}></Product>;
