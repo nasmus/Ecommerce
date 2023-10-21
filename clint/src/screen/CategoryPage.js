@@ -18,13 +18,13 @@ function CategoryPage() {
   }, [param.id]);
   return (
     <div>
-      <div className="product_suggest">
+      
         <div className="product-grid2">
           {categoryValue.map((product) => {
             return <Product product={product}></Product>;
           })}
         </div>
-      </div>
+      
     </div>
   );
 }

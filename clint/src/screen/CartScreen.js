@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MessageBox from "../components/MessageBox";
 import { Store } from "../Store";
 import axios from "axios";
-import '../css/CartScreen.css'
+import "../css/CartScreen.css";
 import Container from "react-bootstrap/esm/Container";
 
 function CartScreen() {
@@ -39,9 +39,7 @@ function CartScreen() {
   return (
     <div>
       <Container>
-        <h1>Shoping Cart</h1>
-
-
+        <h1 className="mainScreen">Shoping Cart</h1>
         <Row>
           <Col md={8}>
             {cartItems.length === 0 ? (
@@ -52,52 +50,63 @@ function CartScreen() {
               <ListGroup>
                 {cartItems.map((item) => (
                   <ListGroupItem key={item._id}>
-                    <Row>
-                      <Col md={4} className="cartScreen__image">
-                        <img style={{height:'50px'}}
-                          src={item.image}
+                    <div className="cartScreen">
+                      <div className="cartScreen_image_cart">
+                        <img
+                          style={{ height: "50px" }}
+                          src={`/images/${item.image}`}
                           alt={item.name}
                           className="img-fluid rounded img-thumbnail"
-                        ></img>{" "}
-                        <Link style={{textDecoration:'none'}} to={`/product/${item.slug}`}>{item.name}</Link>
-                      </Col>
-                      <Col md={3}>
-                        <Button
-                          variant="light"
-                          onClick={() =>
-                            updateCartHandeler(item, item.quantity - 1)
-                          }
-                          disabled={item.quantity === 1}
+                        ></img>
+                        <Link
+                          className="cartScreen__image_link"
+                          to={`/product/${item.slug}`}
                         >
-                          <i className="fas fa-minus-circle"></i>
-                        </Button>
+                          {item.name}
+                        </Link>
+                      </div>
+                      <div className="cartScreen__button">
+                        <div className="cartScreen__button_left">
+                          <Button
+                            variant="light"
+                            onClick={() =>
+                              updateCartHandeler(item, item.quantity - 1)
+                            }
+                            disabled={item.quantity === 1}
+                          >
+                            <i className="fas fa-minus-circle"></i>
+                          </Button>
+                        </div>
+                        <div className="cartScreen__button_right">
+                          <Button
+                            variant="light"
+                            onClick={() =>
+                              updateCartHandeler(item, item.quantity + 1)
+                            }
+                            disabled={item.quantity === item.countInStock}
+                          >
+                            <i className="fas fa-plus-circle"> </i>
+                          </Button>
+                        </div>
+                      </div>
+                      <div className="cartScreen_span">
                         <span>{item.quantity}</span>
-                        <Button
-                          variant="light"
-                          onClick={() =>
-                            updateCartHandeler(item, item.quantity + 1)
-                          }
-                          disabled={item.quantity === item.countInStock}
-                        >
-                          <i className="fas fa-plus-circle"> </i>
-                        </Button>
-                      </Col>
-                      <Col>${item.price}</Col>
-                      <Col md={2}>
+                      </div>
+
+                      <div className="cartScreen__button_delete">
                         <Button
                           onClick={() => removeItemHandeler(item)}
                           variant="light"
                         >
                           <i className="fas fa-trash"></i>
                         </Button>
-                      </Col>
-                    </Row>
+                      </div>
+                    </div>
                   </ListGroupItem>
                 ))}
               </ListGroup>
             )}
           </Col>
-
           <Col md={4}>
             <Card>
               <Card.Body>
@@ -105,8 +114,14 @@ function CartScreen() {
                   <ListGroupItem>
                     <h3>
                       Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
-                      items) : $
-                      {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                      items) :{" "}
+                      <span className="cartScreen_span">
+                        $
+                        {cartItems.reduce(
+                          (a, c) => a + c.price * c.quantity,
+                          0
+                        )}
+                      </span>
                     </h3>
                   </ListGroupItem>
                   <ListGroupItem>

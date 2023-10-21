@@ -8,7 +8,7 @@ TopProductRouter.get(
   "/top_rating_product",
   expressAsyncHandler(async (req, res) => {
     const topRatingProduct = await Product.find({
-      $and: [{ numReviews: { $gt: 30 } }, { rating: { $gt: 4 } }],
+      $and: [{ numReviews: { $gt: 5 } }, { rating: { $gt: 3 } }],
     });
     if(topRatingProduct.length>0){
         res.status(200).send(topRatingProduct)

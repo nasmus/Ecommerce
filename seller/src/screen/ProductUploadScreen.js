@@ -148,7 +148,7 @@ function ProductUploadScreen() {
           >
             <option>select Category</option>
             {category.map((option) =>{
-              if(option.parentId === undefined)
+              if(option.parentId === "")
               return(
                 (
                   <option key={option.value} value={option._id}>
