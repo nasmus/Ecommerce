@@ -81,7 +81,7 @@ function PlaceOrderScreen() {
 
   return (
     <div className=''>
-        <CheckOut step1 step2 step3 step4 ></CheckOut>
+        {/* <CheckOut step1 step2 step3 step4 ></CheckOut> */}
         <Container>
             <h1 className='my-3' >Place Order</h1>
             <Row>
@@ -94,7 +94,7 @@ function PlaceOrderScreen() {
                                 <strong>Address:</strong> {cart.shippingAddress.address},
                                 {cart.shippingAddress.city},{cart.shippingAddress.distric}
                             </Card.Text>
-                            <Link to='/shipping' >Edit</Link>
+                            <Link className='no-underline' to='/shipping' >Edit</Link>
                         </Card.Body>
                     </Card>
 
@@ -104,7 +104,7 @@ function PlaceOrderScreen() {
                             <Card.Text>
                                 <strong>Method:</strong> {cart.paymentMethod}
                             </Card.Text>
-                            <Link to="/payment">Edit</Link>
+                            <Link className='no-underline' to="/payment">Edit</Link>
                         </Card.Body>
                     </Card>
 
@@ -117,11 +117,11 @@ function PlaceOrderScreen() {
                                     <Row className="align-items-center">
                                     <Col md={6}>
                                         <img
-                                        src={item.image}
+                                        src={`/images/${item.image}`}
                                         alt={item.name}
-                                        className="img-fluid rounded img-thumbnail"
+                                        className="h-20"
                                         ></img>{' '}
-                                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                                        <Link className='no-underline' to={`/product/${item.slug}`}>{item.name}</Link>
                                     </Col>
                                     <Col md={3}>
                                         <span>{item.quantity}</span>
@@ -131,9 +131,8 @@ function PlaceOrderScreen() {
                                 </ListGroup.Item>
                                 ))}
                             </ListGroup>
-                            <Link to="/cart">Edit</Link>
+                            <Link className='no-underline' to="/cart">Edit</Link>
                         </Card.Body>
-                        
                     </Card>
                 </Col>
                 <Col>

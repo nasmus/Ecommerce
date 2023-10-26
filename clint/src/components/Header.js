@@ -56,7 +56,7 @@ function Header({ handleClick }) {
                   <div className="ec-header-user dropdown">
                     {userInfo ? (
                       <NavDropdown
-                        title={<i className="fi-rr-user">{userInfo.name}</i>}
+                        title={<i className="fi-rr-user"><span className="font-serif font-normal " >{userInfo.name}</span></i>}
                         id="basic-nav-dropdown"
                       >
                         <LinkContainer to="/profile">

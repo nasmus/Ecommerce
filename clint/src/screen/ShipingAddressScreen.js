@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import "../css/ShippingAddress.css";
 function ShipingAddressScreen() {
-
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     userInfo,
-    cart: { shippingAddress,paymentMethod },
+    cart: { shippingAddress, paymentMethod },
   } = state;
   const navigate = useNavigate();
 
@@ -39,12 +38,11 @@ function ShipingAddressScreen() {
         distric,
       })
     );
-   // navigate("/payment");
+    // navigate("/payment");
 
-    ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
-    localStorage.setItem('paymentMethod', paymentMethodName);
-    navigate('/placeorder');
-
+    ctxDispatch({ type: "SAVE_PAYMENT_METHOD", payload: paymentMethodName });
+    localStorage.setItem("paymentMethod", paymentMethodName);
+    navigate("/placeorder");
   };
   const [fullName, setFullName] = useState(shippingAddress.fullName || "");
   const [address, setAddress] = useState(shippingAddress.address || "");
@@ -57,7 +55,7 @@ function ShipingAddressScreen() {
   // Payment method
 
   const [paymentMethodName, setPaymentMethod] = useState(
-    paymentMethod || 'Nagad'
+    paymentMethod || "Nagad"
   );
 
   // useEffect(() => {
@@ -66,13 +64,10 @@ function ShipingAddressScreen() {
   //   }
   // }, [shippingAddress, navigate]);
 
-  
-
-
   return (
     <form onSubmit={submitHandler} className="address">
       <div className="address__left">
-        <div  class="w-full max-w-lg">
+        <div class="w-full max-w-lg">
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
@@ -197,7 +192,6 @@ function ShipingAddressScreen() {
               </p>
             </div>
           </div>
-          
         </div>
         {/* this is form dev */}
       </div>
@@ -214,44 +208,47 @@ function ShipingAddressScreen() {
           </div>
         </div>
         <div className=" m-2">
-        <div className="flex items-center ">
-          <input
-            id="Nagad"
-            type="radio"
-            value="Nagad"
-            checked = { paymentMethodName === 'Nagad' }
-            onChange={(e) => setPaymentMethod(e.target.value)}
-            className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500  focus:ring-2"
-          />
-          <label
-            for="default-radio-1"
-            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Nagad
-          </label>
-        </div>
-        <div className="flex items-center">
-          <input
-            id="Bkash"
-            type="radio"
-            value="Bkash"
-            checked = { paymentMethodName === 'Bkash' }
-            onChange={(e) => setPaymentMethod(e.target.value)}
-            className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2 "
-          />
-          <label
-            for="default-radio-2"
-            className="ml-2 text-sm font-medium text-gray-900"
-          >
-            Bkash
-          </label>
-        </div>
+          <div className="flex items-center justify-items-center  ">
+            <input
+              id="Nagad"
+              type="radio"
+              value="Nagad"
+              checked={paymentMethodName === "Nagad"}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+              className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500  focus:ring-2"
+            />
+            <label
+              for="default-radio-1"
+              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Nagad
+            </label>
+          </div>
+          <div className="flex items-center">
+            <div>
+              <input
+                id="Bkash"
+                type="radio"
+                value="Bkash"
+                checked={paymentMethodName === "Bkash"}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2 "
+              />
+            </div>
+            <div>
+              <label
+                for="default-radio-2"
+                className="ml-2 text-sm font-medium text-gray-900"
+              >
+                Bkash
+              </label>
+            </div>
+          </div>
         </div>
         <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            Submit address
-          </button>
+          Submit address
+        </button>
       </div>
-      
     </form>
   );
 }

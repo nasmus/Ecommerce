@@ -55,7 +55,7 @@
 @media only screen and (max-width: 760px){
     .product_section {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
     }
     .grid_viev_product{
         display: flex;
