@@ -31,13 +31,14 @@ function RatingSubmit(props) {
       window.scrollTo({
         behavior: 'smooth',
       });
-      alert("successfull")
+      Alert("successfull")
 
   };
 
   return (
-    <div className="lg:w-2/3 m-3">
-      {console.log(props.product._id)}
+    <>
+    {
+      userInfo ? <div className="lg:w-2/3 m-3">
       <form onSubmit={submitHandle}>
         <div class="w-full mb-4 border-2 border-gray-200 rounded-lg bg-gray-50">
           <div class="px-4 py-2 bg-white rounded-t-lg ">
@@ -72,7 +73,10 @@ function RatingSubmit(props) {
           </div>
         </div>
       </form>
-    </div>
+    </div> : ''
+    }
+    
+    </>
   );
 }
 
