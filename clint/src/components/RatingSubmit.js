@@ -1,5 +1,5 @@
 import React from "react";
-import { Rating } from '@mui/material';
+import { Rating } from "@mui/material";
 
 function RatingSubmit() {
   return (
