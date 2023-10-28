@@ -39,10 +39,8 @@ function EditProductScreen() {
       updateProduct: [],
     });
   const [name, setName] = useState("");
-  const [slug, setSlug] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
-  const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState("");
   const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");

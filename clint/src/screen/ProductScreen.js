@@ -3,21 +3,14 @@ import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "../css/ProductScreen.css";
-import Row from "react-bootstrap/esm/Row";
-import Col from "react-bootstrap/esm/Col";
 import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
 import Rating from "../components/Rating";
-import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
-import Container from "react-bootstrap/esm/Container";
 import Button from "react-bootstrap/esm/Button";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
 import { getError } from "../utils";
 import { Store } from "../Store";
 import Product from "../components/Product";
 import Review from "../components/Review";
+import RatingSubmit from '../components/RatingSubmit';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -56,6 +49,10 @@ function ProductScreen() {
     };
     fatchData();
   }, [slug]);
+
+  window.scrollTo({
+    behavior: 'smooth',
+  });
 
   useEffect(() => {
     const fatchData = async () => {
@@ -154,6 +151,9 @@ function ProductScreen() {
           })}
         </div>
       </div>
+      <div>
+            <RatingSubmit product={product} />
+        </div>
       <div className="product_review">
           <Review />
       </div>

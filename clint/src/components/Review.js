@@ -1,14 +1,11 @@
 import React from 'react'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Rating } from '@mui/material';
-import RatingSubmit from './RatingSubmit';
+
 
 function Review() {
   return (
     <div className=' mt-5 sm:m-4 '>
-        <div>
-            <RatingSubmit />
-        </div>
         <h2 className='pb-4 pl-4 md:pl-4 font-sans text-neutral-500 ' >Top Reviews In Bangladesh</h2>
         <div className='flex pl-6 md:pl-10 items-center '>
             <AccountCircleIcon />
