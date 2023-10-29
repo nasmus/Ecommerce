@@ -1,9 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useReducer } from "react";
 import { Alert, Rating } from "@mui/material";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
 import axios from "axios";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'CREATE_SUCCESS':
+      return { ...state };
+    
+    default:
+      return state;
+  }
+};
 
 
 function RatingSubmit(props) {
@@ -12,6 +22,13 @@ function RatingSubmit(props) {
   const [comment, setComment] = useState("");
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
+
+  const [{ loading, error, product, loadingCreateReview }, dispatch] =
+    useReducer(reducer, {
+      product: [],
+      loading: true,
+      error: '',
+    });
 
   const submitHandle = async (e) => {
     e.preventDefault();
@@ -24,14 +41,19 @@ function RatingSubmit(props) {
         `/api/user_review/${props.product._id}/reviews`,
         { rating, comment, name: userInfo.name },
         { headers: { Authorization: `Bearer ${userInfo.token}` } }
+        
       );
+      dispatch({
+        type: 'CREATE_SUCCESS',
+      });
       props.product.reviews.unshift(data.review);
       props.product.numReviews = data.numReviews;
       props.product.rating = data.rating;
       window.scrollTo({
         behavior: 'smooth',
       });
-      Alert("successfull")
+      alert("successfull")
+      navigate('/')
 
   };
 
