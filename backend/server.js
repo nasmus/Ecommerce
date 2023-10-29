@@ -23,6 +23,7 @@ import getCategoryRouter from './routes/userRouter/Category/category.js';
 import categorySellerApi from './routes/sellerRouter/Category/categorySellerApi.js';
 import TopProductRouter from './routes/userRouter/ProductView/TopProductRouter.js';
 import review from './routes/userRouter/ProductReview/review.js';
+import productDelevaryStatus from './routes/userRouter/ProductReview/productDelevaryStatus.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -45,7 +46,8 @@ app.use('/api/random', randomProductApi);
 app.use('api/rating', productRating);
 app.use('/api/category', getCategoryRouter)
 app.use('/api/top_product', TopProductRouter) // 
-app.use('/api/user_review', review)
+app.use('/api/user_review', review) // product review api
+app.use('/api/delevary_status', productDelevaryStatus); //product delevary status
 
 //seller api
 app.use('/api/seller', sellerRouter);
