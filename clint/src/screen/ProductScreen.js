@@ -11,6 +11,8 @@ import { Store } from "../Store";
 import Product from "../components/Product";
 import Review from "../components/Review";
 import RatingSubmit from '../components/RatingSubmit';
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -91,10 +93,17 @@ function ProductScreen() {
       setImageValue(product.multipleImage);
     }
   }, [product.multipleImage]);
-  //console.log(imageValue)
 
   return (
-    <div>
+    
+
+
+    loading ? (
+      <LoadingBox />
+      ) : error ? (
+        <MessageBox>{error}</MessageBox>
+    ) : (
+      <div>
       <div className="product_section">
         <div className="images">
           <img className="main_image" src={`/images/${activeImage}`} alt="" />
@@ -155,84 +164,10 @@ function ProductScreen() {
             <RatingSubmit product={product} />
         </div>
       <div className="product_review">
-          <Review />
+           <Review product={product} /> 
       </div>
     </div>
-    // loading ? (
-    //   <LoadingBox />
-    //   ) : error ? (
-    //     <MessageBox>{error}</MessageBox>
-    // ) : (
-    //   <div className='product__container'>
-    //     <Container>
-    //     <Row>
-    //       <Col md={6}>
-    //         <img
-    //           className='img-large'
-    //           //src={`/images/${product.image}`}
-    //           src={product.image}
-    //           alt={product.name}
-    //         />
-    //       </Col>
-    //       <Col md={3}>
-    //         <ListGroup>
-    //           <ListGroup.Item>
-    //             <h1>{product.name}</h1>
-    //           </ListGroup.Item>
-    //           <ListGroupItem>
-    //             <Rating
-    //               rating = {product.rating}
-    //               numReviews = {product.numReviews}
-    //             />
-    //           </ListGroupItem>
-    //           <ListGroupItem>
-    //             Price: ${product.price}
-    //           </ListGroupItem>
-    //           <ListGroupItem>
-    //             Description : {product.description}
-    //           </ListGroupItem>
-    //         </ListGroup>
-    //       </Col>
-    //       <Col md={3}>
-    //         <Card>
-    //           <Card.Body>
-    //             <ListGroup varient='flush' >
-    //               <ListGroupItem>
-    //                 <Row>
-    //                   <Col>Price:</Col>
-    //                   <Col>${product.price}</Col>
-    //                 </Row>
-    //               </ListGroupItem>
-    //               <ListGroupItem>
-    //                 <Row>
-    //                   <Col>
-    //                     { product.countInStock > 0 ? (
-    //                       <Badge bd='success' >In Stock</Badge>
-    //                     ) : (
-    //                       <Badge bd="danger"> Out Of Stock</Badge>
-    //                     )}
-    //                   </Col>
-    //                 </Row>
-    //               </ListGroupItem>
-    // {
-    //   product.countInStock > 0 && (
-    //     <ListGroup.Item>
-    //       <div className='d-grid'>
-    //         <Button onClick={addToCartHandler} variant='primary' >
-    //           Add To Cart
-    //         </Button>
-    //       </div>
-    //     </ListGroup.Item>
-    //   )
-    // }
-    //             </ListGroup>
-    //           </Card.Body>
-    //         </Card>
-    //       </Col>
-    //     </Row>
-    //     </Container>
-    //   </div>
-    // )
+    )
   );
 }
 
