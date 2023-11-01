@@ -130,14 +130,8 @@ function ProductScreen() {
           <h5>${product.price}</h5>
           <h4>Product Features</h4>
           <ul>
-            <li style={{ listStyleType: "square" }}>100 M Water Resistance</li>
-            <li>
-              Solar Powered - Solar panel features rechargable battery with
-              approximately 6
-            </li>
-            <li>Day/Date Indicator at the 3 o'clock position</li>
-            <li>Stainless Steel Case / Canvas band</li>
-            <li>Mineral Glass</li>
+            <li style={{ listStyleType: "square" }}>{product.description}</li>
+            
           </ul>
           <div className="button">
             {product.countInStock > 0 && (
