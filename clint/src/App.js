@@ -19,6 +19,7 @@ import SearchScreen from "./screen/SearchScreen";
 import Header from "./components/Header";
 import { useState } from "react";
 import CategoryPage from "./screen/CategoryPage";
+import Footer from "./screen/FooterScreen/Footer";
 
 function App() {
   // const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -54,7 +55,9 @@ function App() {
             <Route path="/category/:id" element={ <CategoryPage /> } />
           </Routes>
         </main>
-        <footer className="text-center"></footer>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </BrowserRouter>
   );

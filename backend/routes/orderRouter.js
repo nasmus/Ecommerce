@@ -4,6 +4,7 @@ import Order from '../models/orderModel.js';
 import { isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
+
 orderRouter.post(
   '/',
   isAuth,
@@ -43,6 +44,6 @@ orderRouter.get(
     }
   })
 );
-
+ 
 
 export default orderRouter;

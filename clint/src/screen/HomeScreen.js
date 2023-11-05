@@ -7,6 +7,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import BannerSidebar from "../components/BannerSidebar";
 import TopRatedProduct from "./ProudctScreen/TopRatedProduct";
+import Footer from "./FooterScreen/Footer";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -61,6 +62,7 @@ function HomeScreen(props) {
               <Product product={product}></Product>
             ))}
           </div>
+          
           </>
         )}
       </div>
