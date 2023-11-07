@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import '../css/Product.css';
+import "../css/Product.css";
 import logger from "use-reducer-logger";
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
@@ -23,7 +23,7 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen(props) {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer((reducer), {
     products: [],
     loading: true,
     error: "",
@@ -55,14 +55,14 @@ function HomeScreen(props) {
           <LoadingBox />
         ) : error ? (
           <MessageBox>{error}</MessageBox>
-        ) : (<>
-        <TopRatedProduct />
-          <div className="product-grid">
-            {products.map((product) => (
-              <Product product={product}></Product>
-            ))}
-          </div>
-          
+        ) : (
+          <>
+            <TopRatedProduct />
+            <div className="product-grid">
+              {products.map((product) => (
+                <Product product={product}></Product>
+              ))}
+            </div>
           </>
         )}
       </div>

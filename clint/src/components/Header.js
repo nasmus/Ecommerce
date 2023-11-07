@@ -143,16 +143,16 @@ function Header({ handleClick }) {
               </div>
             </div>
 
-            <div class="col">
-              <div class="header-search">
-                <form class="ec-btn-group-form" action="#">
+            <div className="col">
+              <div className="header-search">
+                <form className="ec-btn-group-form" action="#">
                   <input
-                    class="form-control ec-search-bar"
+                    className="form-control ec-search-bar"
                     placeholder="Search products..."
                     type="text"
                   />
                   <button class="submit" type="submit">
-                    <i class="fi-rr-search"></i>
+                    <i className="fi-rr-search"></i>
                   </button>
                 </form>
               </div>
@@ -180,7 +180,6 @@ function Header({ handleClick }) {
                               {item.children.map((element, index) => {
                                 return (
                                   <li key={index}>
-                                    {console.log(element.name)}
                                     <Link to={`/category/${element._id}`}>
                                       {element.name}
                                     </Link>

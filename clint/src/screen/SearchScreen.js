@@ -12,7 +12,6 @@ import LinkContainer from "react-router-bootstrap/LinkContainer";
 import MessageBox from "../components/MessageBox";
 import LoadingBox from "../components/LoadingBox";
 import Product from "../components/Product";
-import Container from "react-bootstrap/esm/Container";
 
 
 const reducer = (state, action) => {

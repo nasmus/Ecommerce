@@ -10,7 +10,7 @@ import { getError } from "../utils";
 import { Store } from "../Store";
 import Product from "../components/Product";
 import Review from "../components/Review";
-import RatingSubmit from '../components/RatingSubmit';
+import RatingSubmit from "../components/RatingSubmit";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
@@ -53,7 +53,7 @@ function ProductScreen() {
   }, [slug]);
 
   window.scrollTo({
-    behavior: 'smooth',
+    behavior: "smooth",
   });
 
   useEffect(() => {
@@ -69,6 +69,7 @@ function ProductScreen() {
   // bring data from react context api
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
+  const userinfo = localStorage.getItem("userInfo");
 
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
@@ -94,16 +95,12 @@ function ProductScreen() {
     }
   }, [product.multipleImage]);
 
-  return (
-    
-
-
-    loading ? (
-      <LoadingBox />
-      ) : error ? (
-        <MessageBox>{error}</MessageBox>
-    ) : (
-      <div>
+  return loading ? (
+    <LoadingBox />
+  ) : error ? (
+    <MessageBox>{error}</MessageBox>
+  ) : (
+    <div>
       <div className="product_section">
         <div className="images">
           <img className="main_image" src={`/images/${activeImage}`} alt="" />
@@ -131,7 +128,6 @@ function ProductScreen() {
           <h4>Product Features</h4>
           <ul>
             <li style={{ listStyleType: "square" }}>{product.description}</li>
-            
           </ul>
           <div className="button">
             {product.countInStock > 0 && (
@@ -154,14 +150,17 @@ function ProductScreen() {
           })}
         </div>
       </div>
-      <div>
-            <RatingSubmit product={product} />
+      {userinfo ? (
+        <div>
+          <RatingSubmit product={product} />
         </div>
+      ) : (
+        ""
+      )}
       <div className="product_review">
-           <Review product={product} /> 
+        <Review product={product} />
       </div>
     </div>
-    )
   );
 }
 

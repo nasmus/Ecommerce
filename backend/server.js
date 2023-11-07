@@ -24,6 +24,7 @@ import categorySellerApi from './routes/sellerRouter/Category/categorySellerApi.
 import TopProductRouter from './routes/userRouter/ProductView/TopProductRouter.js';
 import review from './routes/userRouter/ProductReview/review.js';
 import productDelevaryStatus from './routes/userRouter/ProductReview/productDelevaryStatus.js';
+import countInStock from './routes/userRouter/ProductView/countInStock.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -48,6 +49,7 @@ app.use('/api/category', getCategoryRouter)
 app.use('/api/top_product', TopProductRouter) // 
 app.use('/api/user_review', review) // product review api
 app.use('/api/delevary_status', productDelevaryStatus); //product delevary status
+app.use('/api/count_in_stock', countInStock)
 
 //seller api
 app.use('/api/seller', sellerRouter);
