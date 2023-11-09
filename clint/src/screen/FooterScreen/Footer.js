@@ -1,39 +1,71 @@
 import React from "react";
+import {
+  FacebookTwoTone,
+  Instagram,
+  SubscriptionsTwoTone,
+} from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className=" flex justify-between mt-8 bg-amber-600 pt-7 pb-7 text-neutral-50">
-      <div className="alinment_1  ">
-        <ul className="  " >
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-        </ul>
+    <div className="text-white bg-orange-900">
+      <div className="px-6 py-2 md:flex md:justify-between md:px-20 md:py-9 md:items-start">
+        <div className="max-w-sm my-6 md:my-0">
+          <h1 className="text-5xl font-bold py-1 text-white">LOGO</h1>
+          <p className="py-4">
+            Largest product search engine, maximum categorized online shopping
+            mall and quickest home delivery system.
+          </p>
+          <div className="flex items-center" >
+            <p className="text-lg">Follow US </p>
+            <div className="flex items-center ">
+              <FacebookTwoTone className="mx-2 cursor-pointer" />
+              <Instagram className="mx-2 cursor-pointer" />
+              <SubscriptionsTwoTone className="mx-2 cursor-pointer" />
+            </div>
+          </div>
+        </div>
+        <div className="my-8 md:my-0">
+          <h3 className="font-semibold text-xl py-3 text-white">Contact Us</h3>
+          <p>
+            House #8, Road # 14,Dhanmondi,
+            <br /> Dhaka-1209.
+            <br />
+            Email: support@e-valy.com
+          </p>
+          <p></p>
+          <p className="pt-2"></p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl py-3 text-white">
+            Let Us Help You
+          </h3>
+          <ul className="text-left">
+            <Link className=" no-underline text-white " to="#">
+              <li>Your Account</li>
+            </Link>
+            <Link className=" no-underline  text-white" to="#">
+              <li>Your Order</li>
+            </Link>
+            <Link className=" no-underline text-white " to="#">
+              <li>Terms & Conditions</li>
+            </Link>
+            <Link className=" no-underline text-white " to="#">
+              <li>Return & Refund Policy</li>
+            </Link>
+            <Link className=" no-underline text-white " to="#">
+              <li>FAQ</li>
+            </Link>
+          </ul>
+        </div>
+        <div className="my-8 md:my-0 flex flex-col items-start md:justify-center md:items-center">
+          <h3 className="font-semibold text-xl py-3 text-white">
+            MoneybagGo App
+          </h3>
+        </div>
       </div>
-      <div className="alinment_2">
-        <ul>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-        </ul>
-      </div>
-      <div className="alinment_3">
-        <ul>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-        </ul>
-      </div>
-      <div className="alinment_4">
-        <ul>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-        </ul>
+      <div className="bg-[#2b3242] text-slate-400 flex items-center justify-center p-6">
+        <p>2023 E-valy.com Limited. All rights reserved.</p>
       </div>
     </div>
   );

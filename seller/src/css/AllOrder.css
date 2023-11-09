@@ -15,15 +15,12 @@
     padding: 10px;
 }
 .cancel{
-    background-color: rgb(224, 118, 118);
-    border-radius: 20px;
-    color: rgb(255, 255, 255);
+    color: red;
+    font-weight: bold;
+    font-size: large;
 }
 .shipped{
-    background-color: rgb(147, 189, 147);
-    border-radius: 20px;
-    color: rgb(255, 255, 255);
-}
-table > tr > td {
-    padding: 10px;
+    color: rgb(27, 143, 27);
+    font-weight: bold;
+    font-size: large;
 }

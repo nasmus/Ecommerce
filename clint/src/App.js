@@ -55,6 +55,9 @@ function App() {
             <Route path="/category/:id" element={ <CategoryPage /> } />
           </Routes>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </BrowserRouter>
   );
