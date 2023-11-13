@@ -69,10 +69,138 @@ function OrderDetails() {
   }, [orderId, userInfo.token]);
 
   return (
-    <div style={{ paddingLeft: "255px" }}>
+    <div style={{ paddingLeft: "200px" }}>
       <Sidebar />
-      <div>
-        <h1>address</h1>
+      
+        <div className="flex items-center justify-between px-5 py-5">
+          <h1 className="text-4xl text-center font-bold">Order Details</h1>
+          <div className="flex md:flex-col md:w-1/5">
+            <select
+              id="status"
+              className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:px-6 p-2 "
+            >
+              <option value="Processing">Processing</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Received">Received</option>
+            </select>
+            <button className="bg-green-500 hover:bg-green-600 p-2 ml-2 md:ml-0 md:px-6 md:my-1.5 text-white rounded-lg">
+              Submit
+            </button>
+          </div>
+        </div>
+        
+        <div className="px-5 py-5 md:flex w-10/12 ">
+          <section className="md:w-4/5 md:px-6 text-black">
+            <div className="relative overflow-x-auto py-3 md:py-6">
+              <table className="w-full text-sm text-left rtl:text-right text-black font-medium">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
+                  <tr>
+                    <th scope="col" className="px-6 py-3">
+                      Product
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Order ID
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Quantity
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Price
+                    </th>
+                  </tr>
+                </thead>
+                {orderDetail.orderItems &&
+                  orderDetail.orderItems.map((item) => {
+                    if (item.seller === userInfo._id) {
+                      return (
+                        <tbody>
+                          <tr className="bg-white border-b ">
+                            <th
+                              scope="row"
+                              className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                            >
+                              <img
+                                src={`/images/${item.image}`}
+                                alt=""
+                                className="w-8 h-8"
+                              />
+                              <span className="pl-2">{item.name}</span>
+                            </th>
+                            <td className="px-6 py-4">{item._id}</td>
+                            <td className="px-6 py-4 ">
+                              <span>{item.quantity}</span>
+                            </td>
+                            <td className="px-6 py-4">
+                              {item.price * item.quantity}
+                            </td>
+                          </tr>
+                        </tbody>
+                      );
+                    }
+                  })}
+              </table>
+            </div>
+          </section>
+          <section className="py-4 md:w-2/5">
+            <div className="bg-gradient-to-tr from-gray-900 to-gray-700 text-white p-4 md:py-16 md:px-8  rounded-xl">
+              <h1 className="text-4xl  font-bold">Address Info.</h1>
+              <div className="pt-6">
+                <div className="text-lg flex justify-evenly  md:justify-between py-3 ">
+                  <div className="">
+                    <span className="font-medium">Name: </span>
+                    <span>
+                      {orderDetail.shippingAddress &&
+                        orderDetail.shippingAddress.fullName}
+                    </span>
+                  </div>
+                  <div className="">
+                    <span className="font-medium">User ID: </span>
+                    <span>{orderDetail.user}</span>
+                  </div>
+                </div>
+                <span className="text-lg font-medium"> Shipping Address: </span>
+                <span>
+                  {orderDetail.shippingAddress &&
+                    orderDetail.shippingAddress.address}
+                </span>
+                <div className="text-lg flex justify-evenly md:justify-between py-3 ">
+                  <div>
+                    <span className="font-medium">District: </span>
+                    <span>
+                      {orderDetail.shippingAddress &&
+                        orderDetail.shippingAddress.distric}
+                    </span>
+                  </div>
+                  <div className="">
+                    <span className="font-bold">Total amount: </span>
+                    <span className="font-bold">$545</span>
+                  </div>
+                  <div className="">
+                    <span className="font-bold">city: </span>
+                    <span className="font-bold">
+                      {orderDetail.shippingAddress &&
+                        orderDetail.shippingAddress.city}
+                    </span>
+                  </div>
+                  <div className="">
+                    <span className="font-bold">Phone number </span>
+                    <span className="font-bold">
+                      {orderDetail.shippingAddress &&
+                        orderDetail.shippingAddress.phoneNumber}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-center py-3">
+                  <button className="text-xl border px-6 py-3 rounded-full  ">
+                    Invoice
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* <h1>address</h1>
         <ul class="list-group list-group-light">
           <li> user ID:{orderDetail.user}</li>
           <li class="list-group-item">
@@ -142,8 +270,8 @@ function OrderDetails() {
             </select>
             <button type="submit">submit</button>
           </form>
-        </div>
-      </div>
+        </div>*/}
+      
     </div>
   );
 }

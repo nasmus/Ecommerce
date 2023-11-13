@@ -16,8 +16,9 @@ import AppsIcon from '@mui/icons-material/Apps';
 function Sidebar() {
     return (
         <div className="sidebar">
-            <Link className='dashboard' to='/dashboard'>
-                <AppsIcon /><h2> DashBoard</h2>
+            <Link className='sidebar__link' to='/dashboard'>
+                <SidebarRow Icon={AppsIcon} title="DashBoard" />
+                
             </Link>
             
             <Link className="sidebar__link" to="/upload">
