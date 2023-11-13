@@ -55,7 +55,7 @@ function App() {
             <Route path="/category/:id" element={ <CategoryPage /> } />
           </Routes>
         </main>
-        <footer>
+        <footer className=" mt-16 ">
           <Footer />
         </footer>
       </div>

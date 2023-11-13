@@ -48,6 +48,7 @@ function Product(props) {
         </span>
         <p>${product.price}</p>
         {product.countInStock === 0 ? (
+          
           <Button
             variant="contained"
             size="small"
@@ -57,6 +58,7 @@ function Product(props) {
             Out Of Stock
           </Button>
         ) : (
+          
           <Button
             onClick={() => addToCartHandeler(product)}
             variant="contained"
