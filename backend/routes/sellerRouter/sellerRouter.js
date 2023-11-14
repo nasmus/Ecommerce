@@ -23,7 +23,6 @@ sellerRouter.post(
                 })
             }
         }
-        res.status(401).send({message:'invalid email or password'});
     })
 )
 

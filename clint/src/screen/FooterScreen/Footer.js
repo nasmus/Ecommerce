@@ -16,14 +16,6 @@ function Footer() {
             Largest product search engine, maximum categorized online shopping
             mall and quickest home delivery system.
           </p>
-          <div className="flex items-center" >
-            <p className="text-lg">Follow US </p>
-            <div className="flex items-center ">
-              <FacebookTwoTone className="mx-2 cursor-pointer" />
-              <Instagram className="mx-2 cursor-pointer" />
-              <SubscriptionsTwoTone className="mx-2 cursor-pointer" />
-            </div>
-          </div>
         </div>
         <div className="my-8 md:my-0">
           <h3 className="font-semibold text-xl py-3 text-white">Contact Us</h3>
@@ -62,6 +54,13 @@ function Footer() {
           <h3 className="font-semibold text-xl py-3 text-white">
             MoneybagGo App
           </h3>
+          <div className="flex" >
+            <div className="flex items-center ">
+              <FacebookTwoTone className="mx-2 cursor-pointer" />
+              <Instagram className="mx-2 cursor-pointer" />
+              <SubscriptionsTwoTone className="mx-2 cursor-pointer" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="bg-[#2b3242] text-slate-400 flex items-center justify-center p-6">
