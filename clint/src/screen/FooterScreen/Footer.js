@@ -32,23 +32,23 @@ function Footer() {
           <h3 className="font-semibold text-xl py-3 text-white">
             Let Us Help You
           </h3>
-          <ul className="text-left">
+          <div className="text-left">
             <Link className=" no-underline text-white " to="#">
-              <li>Your Account</li>
+              <div>Your Account</div>
             </Link>
             <Link className=" no-underline  text-white" to="#">
-              <li>Your Order</li>
+              <div>Your Order</div>
             </Link>
             <Link className=" no-underline text-white " to="#">
-              <li>Terms & Conditions</li>
+              <div>Terms & Conditions</div>
             </Link>
             <Link className=" no-underline text-white " to="#">
-              <li>Return & Refund Policy</li>
+              <div>Return & Refund Policy</div>
             </Link>
             <Link className=" no-underline text-white " to="#">
-              <li>FAQ</li>
+              <div>FAQ</div>
             </Link>
-          </ul>
+          </div>
         </div>
         <div className="my-8 md:my-0 flex flex-col items-start md:justify-center md:items-center">
           <h3 className="font-semibold text-xl py-3 text-white">

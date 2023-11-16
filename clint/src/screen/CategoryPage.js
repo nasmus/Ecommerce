@@ -5,26 +5,24 @@ import { useParams } from "react-router-dom";
 
 function CategoryPage() {
   const [categoryValue, setCategoryValue] = useState([]);
-  const param = useParams()
+  const param = useParams();
 
   useEffect(() => {
-    const fatchData = async() => {
-        const category = await axios.get(`/api/category/${param.id}`)
-        if(category){
-            setCategoryValue(category.data)
-        }
+    const fatchData = async () => {
+      const category = await axios.get(`/api/category/${param.id}`);
+      if (category) {
+        setCategoryValue(category.data);
+      }
     };
-    fatchData()
+    fatchData();
   }, [param.id]);
   return (
     <div>
-      
-        <div className="product-grid2">
-          {categoryValue.map((product) => {
-            return <Product product={product}></Product>;
-          })}
-        </div>
-      
+      <div className="product-grid2">
+        {categoryValue.map((product) => {
+          return <Product product={product}></Product>;
+        })}
+      </div>
     </div>
   );
 }

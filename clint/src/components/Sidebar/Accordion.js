@@ -4,15 +4,10 @@ import { useState } from 'react';
 export default function Accordion({ title, icon, children }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="mb-4">
+        <div className='px-2' >
             <div className="flex">
                 {/* Accordion header */}
                 <div className={isOpen ? 'text-black' : 'text-slate-400'}>{icon}</div>
-
-                {/* <WalletSharp
-                    fontSize="small"
-                    className={`mt-2 text-slate-400 ${isOpen ? 'text-black' : 'text-slate-400'}`}
-                /> */}
                 <button
                     className="w-full flex items-center justify-between p-1  rounded-md focus:outline-none"
                     onClick={() => setIsOpen(!isOpen)}
@@ -40,15 +35,6 @@ export default function Accordion({ title, icon, children }) {
             >
                 {children}
             </div>
-            {/* <div className={`p-2 ${isOpen ? 'block' : 'hidden'}  rounded-md`}>
-                <ul className="pl-4">
-                    <li>Product List</li>
-                    <li>Product</li>
-                    <li>Category</li>
-                    <li>Shopping Cart</li>
-                    <li>Checkout</li>
-                </ul>
-            </div> */}
         </div>
     );
 }

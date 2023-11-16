@@ -1,29 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 import CloseIcon from "@mui/icons-material/Close";
 import Accordion from "./Sidebar/Accordion";
-import { ArrowCircleDown } from "@mui/icons-material";
-import { DashboardSharp, MenuRounded, Settings } from "@mui/icons-material";
+import { Settings } from "@mui/icons-material";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { Avatar } from "@mui/material";
 
 function SocialHeader() {
-  const sidebarData = [
-    {
-      titel: "Home",
-      path: "/",
-      cName: "nav-text",
-    },
-    {
-      titel: "manu",
-      path: "/",
-      cName: "nav-text",
-    },
-    {
-      titel: "this",
-      path: "/",
-      cName: "nav-text",
-    },
-  ];
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    const fatchData = async () => {
+      const categoryData = await axios.get("api/category/get_all_category");
+      setCategory(categoryData.data.categoryList);
+    };
+    fatchData();
+  }, []);
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => {
@@ -60,45 +54,55 @@ function SocialHeader() {
 
       <div className="navbar">
         <div className={sidebar ? "nav-manu active" : "nav-manu"}>
-          <div className="navbar-toggle" onClick={showSidebar}>
-            <Link to="#" className="menu-bars">
+          <div className="navbar-toggle absolute -right-5  top-3 hover:font-bold  " onClick={showSidebar}>
+            <Link to="#" className="menu-bars relative text-cyan-600 hover:text-orange-600 ">
               <CloseIcon />
             </Link>
           </div>
-          <div className="nav-manu-items">
-            <section className="flex w-full p-1 border-b-2">
-              <div className="flex justify-center items-center m-2">
-                <img
-                  className="w-11 h-11 rounded-full border"
-                  src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="m-2">
-                <h5 className="font-bold">Alexe Jordar</h5>
-                <p className=" text-sm ">Sales Manager</p>
-              </div>
-            </section>
-
-            <div className="p-3 ">
-              <section className=" border-b">
-                <Accordion
-                  title="Dashboard"
-                  icon={<DashboardSharp fontSize="small" className={`mt-1 `} />}
-                >
-                  {sidebarData.map((item, index) => {
-                    return (
-                      <div key={index} className=" pl-5 font-bold  ">
-                        <Link className="no-underline text-slate-600" onClick={showSidebar} to={item.path}>
-                          {item.titel}
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Accordion>
+          <div className="nav-manu-items flex flex-col justify-between">
+            <div>
+              <section className="border-b-2 flex items-center p-3 ">
+                <div>
+                  <Avatar />
+                </div>
+                <div className=" pl-3 "> 
+                  <p className="m-0 text-lg font-bold ">Alex Jorder</p>
+                  <p className="m-0 text-sm font-light ">Member</p>
+                </div>
               </section>
-
-              <div className=" bottom-0 text-slate-400">
+              <section className="border-b py-2">
+                {category.map((item, index) => {
+                  return (
+                    <Accordion title={item.name}>
+                      {item.children.length > 0 ? (
+                        <div>
+                          {item.children.map((element, index) => {
+                            return (
+                              <div
+                                key={index}
+                                className=" pl-2 py-0.5 font-sans font-medium text-sm "
+                              >
+                                <Link
+                                  className="no-underline text-slate-600 hover:text-orange-600 "
+                                  onClick={showSidebar}
+                                  to={`/category/${element._id}`}
+                                >
+                                  {element.name}
+                                </Link>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </Accordion>
+                  );
+                })}
+              </section>
+            </div>
+            <div className=" pb-3 pl-2 ">
+              <section className=" bottom-0 text-slate-400">
                 <div className="flex ">
                   <Settings
                     fontSize="small"
@@ -109,7 +113,7 @@ function SocialHeader() {
                   </button>
                 </div>
                 <div className="flex ">
-                  <ArrowCircleDown
+                  <ExitToAppIcon
                     fontSize="small"
                     className={`mt-2 text-slate-400 `}
                   />
@@ -117,16 +121,7 @@ function SocialHeader() {
                     <span className={`text-sm font-medium  `}>Logout</span>
                   </button>
                 </div>
-                <div className="flex ">
-                  <MenuRounded
-                    fontSize="small"
-                    className={`mt-2 text-slate-400 `}
-                  />
-                  <button className="w-full flex items-center justify-between p-2  rounded-md focus:outline-none">
-                    <span className={`text-sm font-medium  `}>Menu</span>
-                  </button>
-                </div>
-              </div>
+              </section>
             </div>
           </div>
         </div>

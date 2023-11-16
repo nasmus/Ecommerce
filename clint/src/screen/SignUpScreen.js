@@ -39,8 +39,8 @@ function SignUpScreen() {
                 password,
             });
             ctxDispatch({type:'USER_SIGNIN', payload: data});
-            localStorage.setItem('userInfo', JSON.stringify(data));
-            navigate(redirect || '/dashboard');
+            //localStorage.setItem('userInfo', JSON.stringify(data));
+            navigate(redirect || '/signin');
 
         } catch (err){
             toast.error(getError(err));
