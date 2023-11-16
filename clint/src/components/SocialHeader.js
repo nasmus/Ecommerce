@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
@@ -7,9 +7,18 @@ import Accordion from "./Sidebar/Accordion";
 import { Settings } from "@mui/icons-material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Avatar } from "@mui/material";
+import { Store } from "../Store";
 
 function SocialHeader() {
   const [category, setCategory] = useState([]);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart, userInfo } = state;
+  const signOutHandler = () => {
+    ctxDispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
+  };
 
   useEffect(() => {
     const fatchData = async () => {
@@ -37,11 +46,18 @@ function SocialHeader() {
             </button>
           </div>
 
-          <Link to="#" className="ec-header-btn ec-side-toggle">
+          <Link to="/cart" className="ec-header-btn ec-side-toggle">
             <div className="header-icon">
               <i className="fi-rr-shopping-bag"></i>
             </div>
-            <span className="ec-header-count cart-count-lable">3</span>
+            <span className="ec-header-count cart-count-lable">
+              {cart.cartItems.length > 0 && (
+                <span>
+                  {" "}
+                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
+                </span>
+              )}
+            </span>
           </Link>
 
           <Link to="#" className="ec-header-btn ec-side-toggle d-lg-none">
@@ -54,8 +70,14 @@ function SocialHeader() {
 
       <div className="navbar">
         <div className={sidebar ? "nav-manu active" : "nav-manu"}>
-          <div className="navbar-toggle absolute -right-5  top-3 hover:font-bold  " onClick={showSidebar}>
-            <Link to="#" className="menu-bars relative text-cyan-600 hover:text-orange-600 ">
+          <div
+            className="navbar-toggle absolute -right-5  top-3 hover:font-bold  "
+            onClick={showSidebar}
+          >
+            <Link
+              to="#"
+              className="menu-bars relative text-cyan-600 hover:text-orange-600 "
+            >
               <CloseIcon />
             </Link>
           </div>
@@ -65,7 +87,7 @@ function SocialHeader() {
                 <div>
                   <Avatar />
                 </div>
-                <div className=" pl-3 "> 
+                <div className=" pl-3 ">
                   <p className="m-0 text-lg font-bold ">Alex Jorder</p>
                   <p className="m-0 text-sm font-light ">Member</p>
                 </div>
@@ -112,15 +134,21 @@ function SocialHeader() {
                     <span className={`text-sm font-medium  `}>Setting</span>
                   </button>
                 </div>
-                <div className="flex ">
-                  <ExitToAppIcon
-                    fontSize="small"
-                    className={`mt-2 text-slate-400 `}
-                  />
-                  <button className="w-full flex items-center justify-between p-2  rounded-md focus:outline-none">
-                    <span className={`text-sm font-medium  `}>Logout</span>
-                  </button>
-                </div>
+                <Link
+                  className=" no-underline text-slate-400 hover:text-slate-400 "
+                  to="/"
+                  onClick={signOutHandler}
+                >
+                  <div className="flex ">
+                    <ExitToAppIcon
+                      fontSize="small"
+                      className={`mt-2 text-slate-400 `}
+                    />
+                    <button className="w-full flex items-center justify-between p-2  rounded-md focus:outline-none">
+                      <span className={`text-sm font-medium  `}>Logout</span>
+                    </button>
+                  </div>
+                </Link>
               </section>
             </div>
           </div>
