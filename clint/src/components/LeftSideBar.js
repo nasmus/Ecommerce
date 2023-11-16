@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
 import "../css/LeftSideBar.css";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 function LeftSideBar() {
   const [Categories, setCategories] = useState([]);
@@ -28,7 +27,7 @@ function LeftSideBar() {
         {Categories.map((category) => (
           <Link className="Link_style" to={`/search?category=${category}`}>
             <li key={category}>             
-              <span className="items"> {category}</span>
+              <span className="items">{category}</span>
             </li>
           </Link>
         ))}

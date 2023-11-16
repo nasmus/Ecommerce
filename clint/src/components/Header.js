@@ -35,8 +35,6 @@ function Header({ handleClick }) {
         <div className="container position-relative">
           <div className="row">
             <div className="ec-flex">
-              <div className="align-self-center"></div>
-
               <div className="align-self-center">
                 <div className="header-logo">
                   <Link to="/">

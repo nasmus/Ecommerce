@@ -127,7 +127,7 @@ function ProductScreen() {
           <h5>${product.price}</h5>
           <h4>Product Features</h4>
           <ul>
-            <li style={{ listStyleType: "square" }}>{product.description}</li>
+            <li style={{ listStyleType: "square" }}> <div dangerouslySetInnerHTML={{ __html: product.description }} /> </li>
           </ul>
           <div className="button">
             {product.countInStock > 0 && (
