@@ -20,6 +20,7 @@ import Header from "./components/Header";
 import { useState } from "react";
 import CategoryPage from "./screen/CategoryPage";
 import Footer from "./screen/FooterScreen/Footer";
+import CategoryHeader from "./components/CategoryHeader/CategoryHeader";
 
 function App() {
   // const {state, dispatch:ctxDispatch} = useContext(Store);

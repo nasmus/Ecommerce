@@ -32,7 +32,7 @@ getCategoryRouter.get(
         const category = await Category.find({})
         if(category){
             const categoryList = createAddCategories(category)
-            res.status(200).json({categoryList})
+            res.status(200).send({categoryList})
         } else(
             res.status(400).send({message:"product not found"})
         )

@@ -21,9 +21,11 @@ function SocialHeader() {
   };
 
   useEffect(() => {
-    const fatchData = async () => {
-      const categoryData = await axios.get("api/category/get_all_category");
-      setCategory(categoryData.data.categoryList);
+    const fatchData = async() => {
+      const categoryData = await axios.get(`api/category/get_all_category`);
+      if(categoryData){
+        setCategory(categoryData.data.categoryList);
+      }
     };
     fatchData();
   }, []);

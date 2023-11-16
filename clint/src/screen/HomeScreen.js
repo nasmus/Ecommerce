@@ -1,13 +1,12 @@
 import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import "../css/Product.css";
-import logger from "use-reducer-logger";
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import BannerSidebar from "../components/BannerSidebar";
 import TopRatedProduct from "./ProudctScreen/TopRatedProduct";
-import Footer from "./FooterScreen/Footer";
+
 
 const reducer = (state, action) => {
   switch (action.type) {

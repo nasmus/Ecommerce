@@ -1,32 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { Store } from "../Store";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
 import logo from "../css/logo.png";
 import SearchBox from "./SearchBox";
 import SocialHeader from "./SocialHeader";
+import CategoryHeader from "./CategoryHeader/CategoryHeader";
 
-function Header({ handleClick }) {
+function Header() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
-  const [category, setCategory] = useState([]);
-
   const signOutHandler = () => {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
     localStorage.removeItem("paymentMethod");
   };
-
-  useEffect(() => {
-    const fatchData = async () => {
-      const categoryData = await axios.get("api/category/get_all_category");
-      setCategory(categoryData.data.categoryList);
-    };
-    fatchData();
-  }, []);
 
   return (
     <div>
@@ -159,45 +149,7 @@ function Header({ handleClick }) {
         </div>
       </div>
       {/* Header Main Categori */}
-      <div
-        style={{ marginBottom: "10px", marginTop: "10px" }}
-        className="header_category"
-      >
-        <div id="ec-main-menu-desk" className="d-none d-lg-block sticky-nav">
-          <div className="container position-relative">
-            <div className="row">
-              <div className="col-md-12 align-self-center">
-                <div className="ec-main-menu">
-                  <ul>
-                    {category.map((item, index) => {
-                      return (
-                        <li key={index} className="dropdown position-static">
-                          <Link to={`/category/${item._id}`}>{item.name}</Link>
-                          {item.children.length > 0 ? (
-                            <ul style={{ width: "20%" }} className="sub-menu">
-                              {item.children.map((element, index) => {
-                                return (
-                                  <li key={index}>
-                                    <Link to={`/category/${element._id}`}>
-                                      {element.name}
-                                    </Link>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          ) : (
-                            ""
-                          )}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CategoryHeader />
     </div>
   );
 }
