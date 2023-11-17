@@ -34,7 +34,7 @@ getCategoryRouter.get(
             const categoryList = createAddCategories(category)
             res.status(200).send({categoryList})
         } else(
-            res.status(400).send({message:"product not found"})
+            res.status(404).send({message:"product not found"})
         )
     })
     

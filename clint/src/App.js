@@ -3,24 +3,24 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HomeScreen from "./screen/HomeScreen";
-import ProductScreen from "./screen/ProductScreen";
+import ProductScreen from "./screen/ProudctScreen/ProductScreen";
 import "./App.css";
 //import { Store } from './Store';
 import CartScreen from "./screen/CartScreen";
-import SignInScreen from "./screen/SignInScreen";
+import SignInScreen from "./screen/SignUp/SignInScreen";
 import ShipingAddressScreen from "./screen/ShipingAddressScreen";
-import SignUpScreen from "./screen/SignUpScreen";
-import PaymentMethodScreen from "./screen/PaymentMethodScreen";
-import PlaceOrderScreen from "./screen/PlaceOrderScreen";
-import OrderScreen from "./screen/OrderScreen";
-import OrederHistoryScreen from "./screen/OrederHistoryScreen";
+import SignUpScreen from "./screen/SignUp/SignUpScreen";
+import PaymentMethodScreen from "./screen/Order/PaymentMethodScreen";
+import PlaceOrderScreen from "./screen/Order/PlaceOrderScreen";
+import OrderScreen from "./screen/Order/OrderScreen";
+import OrederHistoryScreen from "./screen/Order/OrederHistoryScreen";
 import ProfileScreen from "./screen/ProfileScreen";
 import SearchScreen from "./screen/SearchScreen";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import { useState } from "react";
 import CategoryPage from "./screen/CategoryPage";
 import Footer from "./screen/FooterScreen/Footer";
-import CategoryHeader from "./components/CategoryHeader/CategoryHeader";
+import CategoryHeader from "./components/Header/CategoryHeader";
 
 function App() {
   // const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -38,6 +38,7 @@ function App() {
         <ToastContainer position="bottom-center" limit={1} />
         <header>
           <Header isVisible={isVisible} handleClick={handleClick} />
+          <CategoryHeader />
         </header>
         <main>
           <Routes>

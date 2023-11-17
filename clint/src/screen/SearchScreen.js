@@ -4,7 +4,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
 import "../css/Product.css";
-import Rating from "../components/Rating";
+import Rating from "../components/Review/Rating";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import Button from "react-bootstrap/esm/Button";

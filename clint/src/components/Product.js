@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import '../css/Product.css';
-import Rating from "./Rating";
+import Rating from "./Review/Rating";
 import { Store } from "../Store";
 import axios from "axios";
 import Button from "@mui/material/Button";

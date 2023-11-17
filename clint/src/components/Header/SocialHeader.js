@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../css/Navbar.css";
+import "../../css/Navbar.css";
 import CloseIcon from "@mui/icons-material/Close";
-import Accordion from "./Sidebar/Accordion";
+import Accordion from "../Sidebar/Accordion";
 import { Settings } from "@mui/icons-material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Avatar } from "@mui/material";
-import { Store } from "../Store";
+import { Store } from "../../Store";
 
 function SocialHeader() {
   const [category, setCategory] = useState([]);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../css/Slider.css";
+import "../../css/Slider.css";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 function BannerSidebar() {
@@ -40,7 +40,6 @@ function BannerSidebar() {
 
   useEffect(() => {
     const interval = setInterval(nextBanner, 5000);
-
     return () => {
       clearInterval(interval);
     };

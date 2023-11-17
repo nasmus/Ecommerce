@@ -1,10 +1,10 @@
 import  axios  from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react'
 import { useNavigate, useParams,Link } from 'react-router-dom';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import { Store } from '../Store';
-import { getError } from '../utils';
+import LoadingBox from '../../components/LoadingBox';
+import MessageBox from '../../components/MessageBox';
+import { Store } from '../../Store';
+import { getError } from '../../utils';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';

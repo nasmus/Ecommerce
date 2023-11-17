@@ -7,10 +7,10 @@ import Button from "react-bootstrap/esm/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ListGroup from "react-bootstrap/esm/ListGroup";
-import { Store } from "../Store";
+import { Store } from "../../Store";
 import Container from "react-bootstrap/esm/Container";
-import { getError } from "../utils";
-import LoadingBox from "../components/LoadingBox";
+import { getError } from "../../utils";
+import LoadingBox from "../../components/LoadingBox";
 
 const reducer = (state, action) => {
   switch (action.type) {

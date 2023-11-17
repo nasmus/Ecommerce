@@ -4,9 +4,8 @@ import "../css/Product.css";
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import BannerSidebar from "../components/BannerSidebar";
+import BannerSidebar from "../components/Sidebar/BannerSidebar";
 import TopRatedProduct from "./ProudctScreen/TopRatedProduct";
-
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -22,7 +21,7 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen(props) {
-  const [{ loading, error, products }, dispatch] = useReducer((reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
     error: "",
@@ -49,13 +48,13 @@ function HomeScreen(props) {
       } */}
 
       <div className="products">
-        <BannerSidebar />
         {loading ? (
           <LoadingBox />
         ) : error ? (
           <MessageBox>{error}</MessageBox>
         ) : (
           <>
+            <BannerSidebar />
             <TopRatedProduct />
             <div className="product-grid">
               {products.map((product) => (

@@ -5,9 +5,9 @@ import Form from 'react-bootstrap/Form'
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import  Axios  from 'axios'
-import { Store } from '../Store';
+import { Store } from '../../Store';
 import { toast } from 'react-toastify';
-import {getError} from '../utils';
+import {getError} from '../../utils';
 
 
 

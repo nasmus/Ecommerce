@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Store } from "../Store";
+import { Store } from "../../Store";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
-import logo from "../css/logo.png";
-import SearchBox from "./SearchBox";
+import logo from "../../css/logo.png";
+import SearchBox from "../SearchBox";
 import SocialHeader from "./SocialHeader";
-import CategoryHeader from "./CategoryHeader/CategoryHeader";
+
 
 function Header() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -149,7 +149,6 @@ function Header() {
         </div>
       </div>
       {/* Header Main Categori */}
-      <CategoryHeader />
     </div>
   );
 }

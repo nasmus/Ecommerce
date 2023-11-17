@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Rating } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { Store } from "../Store";
+import { Store } from "../../Store";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -10,7 +10,6 @@ function RatingSubmit(props) {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [delevaryStatus, setDelevaryStatus] = useState(false);
-  
   const { state } = useContext(Store);
   const { userInfo } = state;
 

@@ -2,17 +2,17 @@ import React, { useEffect, useReducer, useState } from "react";
 import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "../css/ProductScreen.css";
+import "../../css/ProductScreen.css";
 import ListGroup from "react-bootstrap/ListGroup";
-import Rating from "../components/Rating";
+import Rating from "../../components/Review/Rating";
 import Button from "react-bootstrap/esm/Button";
-import { getError } from "../utils";
-import { Store } from "../Store";
-import Product from "../components/Product";
-import Review from "../components/Review";
-import RatingSubmit from "../components/RatingSubmit";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
+import { getError } from "../../utils";
+import { Store } from "../../Store";
+import Product from "../../components/Product";
+import Review from "../../components/Review/Review";
+import RatingSubmit from "../../components/Review/RatingSubmit";
+import LoadingBox from "../../components/LoadingBox";
+import MessageBox from "../../components/MessageBox";
 
 const reducer = (state, action) => {
   switch (action.type) {

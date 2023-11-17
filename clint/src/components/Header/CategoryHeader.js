@@ -1,19 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Store } from "../../Store";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "FATCH_REQUEST":
+      return { ...state, loading: true };
+    case "FATCH_SUCCESS":
+      return { ...state, category: action.payload, loading: false };
+    case "FATCH_FAILLED":
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
 
 function CategoryHeader() {
-  const [category, setCategory] = useState([]);
+  const [{ loading, error, category }, dispatch] = useReducer(reducer, {
+    category: [],
+    loading: true,
+    error: "",
+  });
+
+
+
+  //const [category, setCategory] = useState([]);
+
+
   useEffect(() => {
     const fatchData = async () => {
-      const categoryData = await axios.get("api/category/get_all_category");
-      setCategory(categoryData.data.categoryList);
+      dispatch({type: "FATCH_REQUEST"})
+      try{
+        const categoryData = await axios.get(`/api/category/get_all_category`);
+        dispatch({ type: "FATCH_SUCCESS", payload:categoryData.data.categoryList })
+      } catch(error){
+        console.log("eroor",error)
+        dispatch({ type: "FATCH_FAILLED", payload: error.message })
+      }
+      
+      //setCategory(categoryData.data.categoryList);
     };
     fatchData();
   }, []);
+
+
   return (
     <div>
-        {console.log(category)}
       <div
         style={{ marginBottom: "10px", marginTop: "10px" }}
         className="header_category"
