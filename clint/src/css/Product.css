@@ -17,6 +17,10 @@
     padding: 10px;
     text-align: center;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .product-card_link{
@@ -27,7 +31,8 @@
   
   .product-card img {
     max-width: 100%;
-    border: 1px solid rgb(240, 235, 235);
+    max-height: 200px;
+    /* border: 1px solid rgb(240, 235, 235); */
   }
   
   .product-card h4 {

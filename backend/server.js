@@ -44,7 +44,7 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/random', randomProductApi);
-app.use('api/rating', productRating);
+app.use('/api/rating', productRating);
 app.use('/api/category', getCategoryRouter)
 app.use('/api/top_product', TopProductRouter) // 
 app.use('/api/user_review', review) // product review api

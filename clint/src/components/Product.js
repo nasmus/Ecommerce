@@ -47,7 +47,7 @@ function Product(props) {
           <Rating rating={product.rating} numReviews={product.numReviews} />
         </span>
         <p>${product.price}</p>
-        {product.countInStock === 0 ? (
+        {/* {product.countInStock === 0 ? (
           
           <Button
             variant="contained"
@@ -67,7 +67,7 @@ function Product(props) {
           >
             Add To Cart
           </Button>
-        )}
+        )} */}
       </div>
 
     </>

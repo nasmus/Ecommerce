@@ -22,7 +22,7 @@ function SocialHeader() {
 
   useEffect(() => {
     const fatchData = async() => {
-      const categoryData = await axios.get(`api/category/get_all_category`);
+      const categoryData = await axios.get(`/api/category/get_all_category`);
       if(categoryData){
         setCategory(categoryData.data.categoryList);
       }
