@@ -21,9 +21,9 @@ function SocialHeader() {
   };
 
   useEffect(() => {
-    const fatchData = async() => {
+    const fatchData = async () => {
       const categoryData = await axios.get(`/api/category/get_all_category`);
-      if(categoryData){
+      if (categoryData) {
         setCategory(categoryData.data.categoryList);
       }
     };
@@ -43,9 +43,14 @@ function SocialHeader() {
       >
         <div className="ec-header-bottons">
           <div className="ec-header-user dropdown">
-            <button className="dropdown-toggle">
+            <Link
+              to="/signin"
+              style={{ textDecoration: "none" }}
+              className="dropdown-toggle"
+              data-bs-toggle="dropdown"
+            >
               <i className="fi-rr-user"></i>
-            </button>
+            </Link>
           </div>
 
           <Link to="/cart" className="ec-header-btn ec-side-toggle">
@@ -55,7 +60,7 @@ function SocialHeader() {
             <span className="ec-header-count cart-count-lable">
               {cart.cartItems.length > 0 && (
                 <span>
-                  {" "}
+                  
                   {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
                 </span>
               )}

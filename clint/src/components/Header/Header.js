@@ -53,6 +53,9 @@ function Header() {
                         <LinkContainer to="/orderhistory">
                           <NavDropdown.Item>Order history</NavDropdown.Item>
                         </LinkContainer>
+                        <LinkContainer to="/reset_password">
+                          <NavDropdown.Item>Password Reset</NavDropdown.Item>
+                        </LinkContainer>
                         <NavDropdown.Divider />
                         <Link
                           className="dropdown-item"

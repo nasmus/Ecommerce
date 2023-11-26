@@ -118,7 +118,7 @@ function SignInScreen() {
                     </div>
                   </div>
                   <Link
-                    href="#"
+                    to={`/forgot-password`}
                     class=" no-underline text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Forgot password?

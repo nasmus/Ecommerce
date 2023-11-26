@@ -277,7 +277,7 @@ function AllOrder() {
                         >
                           {order._id}
                         </th>
-                        <td className={`px-6 py-4 ${item.orderStatus}`}>{item.orderStatus}</td>
+                        <td className={`px-6 py-4 ${item.orderStatus}`}><p>{item.orderStatus}</p></td>
                         <td class="px-6 py-4">{item.quantity}</td>
                         <td class="px-6 py-4">Cash On Delevary</td>
                         <td class="px-6 py-4">

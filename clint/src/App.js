@@ -21,6 +21,8 @@ import { useState } from "react";
 import CategoryPage from "./screen/CategoryPage";
 import Footer from "./screen/FooterScreen/Footer";
 import CategoryHeader from "./components/Header/CategoryHeader";
+import ResetPassword from "./screen/SignUp/ResetPassword";
+import SendEmail from "./screen/SignUp/SendEmail";
 
 function App() {
   // const {state, dispatch:ctxDispatch} = useContext(Store);
@@ -55,6 +57,8 @@ function App() {
             <Route path="/order/:id" element={<OrderScreen />} />
             <Route path="/orderhistory" element={<OrederHistoryScreen />} />
             <Route path="/category/:id" element={ <CategoryPage /> } />
+            <Route path="/reset_password/:token" element={ <ResetPassword /> } />
+            <Route path="/forgot-password" element={ <SendEmail /> } />
           </Routes>
         </main>
         <footer className=" mt-16 ">

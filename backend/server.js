@@ -26,7 +26,6 @@ import review from './routes/userRouter/ProductReview/review.js';
 import productDelevaryStatus from './routes/userRouter/ProductReview/productDelevaryStatus.js';
 import countInStock from './routes/userRouter/ProductView/countInStock.js';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

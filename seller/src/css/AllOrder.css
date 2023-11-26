@@ -15,12 +15,23 @@
     padding: 10px;
 }
 .cancel{
-    color: red;
+    color: white;
     font-weight: bold;
     font-size: large;
 }
+.cancel > p {
+    background-color: red;
+    padding-left: 24px;
+    border-radius: 10px;
+}
 .shipped{
-    color: rgb(27, 143, 27);
+    color: white;
     font-weight: bold;
     font-size: large;
+    
+}
+.shipped > p {
+    background-color: green;
+    padding-left: 22px;
+    border-radius: 5px;
 }

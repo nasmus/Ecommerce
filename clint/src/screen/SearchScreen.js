@@ -156,7 +156,7 @@ export default function SearchScreen() {
                 </li>
               </ul>
             </div> */}
-            <div className=" sm: hidden ">
+            <div className="">
               <h3>Price</h3>
               <ul>
                 <li>
@@ -179,7 +179,7 @@ export default function SearchScreen() {
                 ))}
               </ul>
             </div>
-            <div className="sm: hidden">
+            <divs>
               <h3>Customer Review</h3>
               <ul>
                 {ratings.map((r) => (
@@ -204,7 +204,7 @@ export default function SearchScreen() {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </divs>
           </Col>
           <Col md={9}>
             {loading ? (

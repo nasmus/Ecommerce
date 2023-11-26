@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Store } from "../../Store";
 
 const reducer = (state, action) => {
   switch (action.type) {
