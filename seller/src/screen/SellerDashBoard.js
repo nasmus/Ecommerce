@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import Sidebar from "../component/Sidebar";
 import "../css/SellerDashboard.css";
 import axios from "axios";
@@ -39,6 +39,7 @@ const reducer = (state, action) => {
 function SellerDashBoard() {
   const { state } = useContext(Store);
   const { userInfo } = state;
+  const [pandingOrder, setPandingOrder] = useState()
   const [{ error, productCount, totalOrder, totalOrderPrice }, dispatch] =
     useReducer(reducer, {
       loading: true,
@@ -80,6 +81,14 @@ function SellerDashBoard() {
     };
     fatchData();
   }, [userInfo, userInfo._id]);
+
+  useEffect(() => {
+    const fatchData = async() => {
+      const pandingstatus = await axios.get(`/api/order/orderStatus`,{headers: { Authorization: `Bearer ${userInfo.token}` }})
+      setPandingOrder(pandingstatus.data.pendingOrdersCount)
+    }
+    fatchData()
+  },[userInfo.token])
 
   //Total Order Price
   useEffect(() => {
@@ -140,7 +149,7 @@ function SellerDashBoard() {
           </div>
           <div className="Order_card_1">
             <div className="left">
-              <h1 className="text-2xl font-extrabold ">5</h1>
+              <h1 className="text-2xl font-extrabold ">{pandingOrder}</h1>
               <p>Panding Order</p>
             </div>
             <div className="right">

@@ -25,12 +25,12 @@ function AllOrder() {
   const { state } = useContext(Store);
   const { userInfo } = state;
   const navigate = useNavigate();
-  //const [orders,setOrders] = useState([]);
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     error: "",
     orders: [],
   });
+  
 
   useEffect(() => {
     const fatchData = async () => {
@@ -209,7 +209,7 @@ function AllOrder() {
             <input
               type="text"
               id="table-search"
-              class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search for items"
             />
           </div>
@@ -254,18 +254,18 @@ function AllOrder() {
                     return (
                       <tr
                         key={item._id}
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                        className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                       >
-                        <td class="w-4 p-4">
-                          <div class="flex items-center">
+                        <td className="w-4 p-4">
+                          <div className="flex items-center">
                             <input
                               id="checkbox-table-search-1"
                               type="checkbox"
-                              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                             />
                             <label
                               for="checkbox-table-search-1"
-                              class="sr-only"
+                              className="sr-only"
                             >
                               checkbox
                             </label>
@@ -273,14 +273,15 @@ function AllOrder() {
                         </td>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
                           {order._id}
                         </th>
+                        
                         <td className={`px-6 py-4 ${item.orderStatus}`}><p>{item.orderStatus}</p></td>
-                        <td class="px-6 py-4">{item.quantity}</td>
-                        <td class="px-6 py-4">Cash On Delevary</td>
-                        <td class="px-6 py-4">
+                        <td className="px-6 py-4">{item.quantity}</td>
+                        <td className="px-6 py-4">Cash On Delevary</td>
+                        <td className="px-6 py-4">
                           <Button
                             variant="contained"
                             color="success"

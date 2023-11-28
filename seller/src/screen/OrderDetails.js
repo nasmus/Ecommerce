@@ -147,15 +147,15 @@ function OrderDetails() {
               <div className="pt-6">
                 <div className="text-lg flex justify-evenly  md:justify-between py-3 ">
                   <div className="">
-                    <span className="font-medium">Name: </span>
-                    <span>
+                    <p className="font-medium">Name: </p>
+                    <p>
                       {orderDetail.shippingAddress &&
                         orderDetail.shippingAddress.fullName}
-                    </span>
+                    </p>
                   </div>
                   <div className="">
-                    <span className="font-medium">User ID: </span>
-                    <span>{orderDetail.user}</span>
+                    <p className="font-medium">User ID: </p>
+                    <p>{orderDetail.user}</p>
                   </div>
                 </div>
                 <span className="text-lg font-medium"> Shipping Address: </span>

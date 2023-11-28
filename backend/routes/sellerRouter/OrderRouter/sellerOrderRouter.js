@@ -15,6 +15,7 @@ sellerOrderRouter.get(
   expressAsyncHandler(async (req, res) => {
     const userId = req.user._id;
     //const order = await Order.find({"orderItems.seller": userId},{"orderItems":{$elemMatch:{"orderItems.seller":userId}}});
+    
     const order = await Order.find(
       { "orderItems.seller": userId },
       { "orderItems.$": 1 }
@@ -136,7 +137,29 @@ sellerOrderRouter.put(
   })
 );
 
-// avaiable balance for transection seller
+// order status for panding order
+
+sellerOrderRouter.get(
+  "/orderStatus",
+  isAuth,
+  isSeller,
+  expressAsyncHandler(async (req, res) => {
+    const userId = req.user._id;
+    const order = await Order.find(
+      { "orderItems.seller": userId },
+      { "orderItems.$": 1 }
+    );
+    const pendingOrdersCount = order.reduce((count, order) => {
+      const pendingItems = order.orderItems.filter(item => item.orderStatus === 'Panding');
+      return count + pendingItems.length;
+    }, 0);
+    if (pendingOrdersCount) {
+      res.status(200).send({pendingOrdersCount});
+    } else {
+      res.status(404).send({ message: "Data Not Found" });
+    }
+  })
+);
 
 
 

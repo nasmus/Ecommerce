@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import { Store } from "../Store";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -28,8 +28,9 @@ function DetailsProductScreen() {
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     error: "",
     loading: true,
-    product: {},
+    product: [],
   });
+  const [imageValue, setImageValue] = useState([]);
 
   useEffect(() => {
     const fatchdata = async () => {
@@ -44,12 +45,23 @@ function DetailsProductScreen() {
       }
     };
     fatchdata();
-  }, [userInfo]);
+  }, [userInfo, productId]);
+
+  useEffect(() => {
+    setImageValue(product.multipleImage);
+  }, [product.multipleImage]);
 
   return (
     <div>
       <Sidebar />
-      <div>
+      <div className=" ml-52 pt-8 ">
+        <div className="flex items-center justify-center gap-7  ">
+          {imageValue &&
+            imageValue.map((image, index) => {
+              return <img className=" w-20 " src={`/images/${image}`} alt="" />;
+            })}
+        </div>
+
         <h3>{product.name}</h3>
         <h3>{product.price}</h3>
         <h2>{product.category}</h2>
