@@ -75,7 +75,7 @@ export const ratings = [
 export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
-  const sp = new URLSearchParams(search); // /search?category=Shirts
+  const sp = new URLSearchParams(search); // search?category=Shirts
   const category = sp.get('category') || "all";
   const query = sp.get('query') || "all";
   const price = sp.get('price') || "all";
@@ -258,7 +258,6 @@ export default function SearchScreen() {
                     <Product product={product}></Product>
                   ))}
                 </div>
-
                 <div>
                   {[...Array(pages).keys()].map((x) => (
                     <LinkContainer
