@@ -49,7 +49,7 @@ function ProductListComponent() {
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-            <th scope="col" class="px-6 py-3">
+              <th scope="col" class="px-6 py-3">
                 Product Picture
               </th>
               <th scope="col" class="px-6 py-3">
@@ -79,12 +79,19 @@ function ProductListComponent() {
             </tr>
           </thead>
           <tbody>
-            {product.map((pro,index) => (
+            {product.map((pro, index) => (
               <tr
                 key={pro.index}
                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
               >
-                <td class="px-6 py-4"> <img className=" h-12 " src={`/images/${pro.image}`} alt="" /> </td>
+                <td class="px-6 py-4">
+                  {" "}
+                  <img
+                    className=" h-12 "
+                    src={`/images/${pro.image}`}
+                    alt=""
+                  />{" "}
+                </td>
                 <td class="px-6 py-4">{pro._id}</td>
                 <td class="px-6 py-4 font-medium text-gray-900">{pro.name}</td>
                 <td class="px-6 py-4">{pro.category}</td>
@@ -94,7 +101,8 @@ function ProductListComponent() {
                 <th class="px-6 py-4">{pro.numReviews}</th>
                 <th>
                   <button
-                  class="font-medium text-green-600  "
+                    type="button"
+                    class="px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r rounded-lg from-cyan-400 via-cyan-500 to-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 "
                     variant="contained"
                     color="success"
                     onClick={() => {
@@ -103,6 +111,7 @@ function ProductListComponent() {
                   >
                     Product Details
                   </button>
+                  
                 </th>
               </tr>
             ))}
