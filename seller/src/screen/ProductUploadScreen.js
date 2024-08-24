@@ -97,11 +97,11 @@ function ProductUploadScreen() {
               <h1 className="text-2xl font-semibold">Product Upload</h1>
             </div>
             <div>
-              <button className="p-3 bg-slate-200 text-gray-500 rounded-md md:mr-3">
-                Duplicate
-              </button>
-              <button className=" ml-1 p-3 bg-black text-white rounded-md">
-                Save
+              <button
+                type="button"
+                class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Upload Product
               </button>
             </div>
           </div>
