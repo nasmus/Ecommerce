@@ -3,6 +3,7 @@ import Sidebar from "../component/Sidebar";
 import axios from "axios";
 
 import { Editor } from "@tinymce/tinymce-react";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 //import '../css/ProductUploadScreen.css'
 import { Store } from "../Store";
@@ -20,13 +21,40 @@ function ProductUploadScreen() {
   const [countInStock, setCountInStock] = useState("");
   const [multipleImage, setMultipleImages] = useState([]);
   const [submitCategory, setSubmitCategory] = useState("");
+  const [imageShow, setImageShow] = useState([]);
 
   const editorRef = useRef(null);
 
   const handleMultipleImageChange = (e) => {
     const files = e.target.files;
+    const length = files.length;
     setMultipleImages([...multipleImage, ...files]);
+    let imageUrl = [];
+    for (let i = 0; i < length; i++) {
+      imageUrl.push({ url: URL.createObjectURL(files[i]) });
+    }
+    setImageShow([...imageShow, ...imageUrl]);
   };
+
+  const changeImage = (img,index) => {
+    if(img){
+      let tempUrl = imageShow
+      let tempImage = multipleImage
+
+      tempImage[index] = img
+      tempUrl[index]={url: URL.createObjectURL(img)}
+      setImageShow([...tempUrl])
+      setMultipleImages([...tempImage])
+    }
+  }
+
+  const removeImage= (i) => {
+    const filterImage = multipleImage.filter((img,index) => index !== i)
+    const filterImageUrl = imageShow.filter((img,index) => index !== i)
+
+    setMultipleImages(filterImage)
+    setImageShow(filterImageUrl)
+  }
 
   useEffect(() => {
     const fatchData = async () => {
@@ -261,11 +289,19 @@ function ProductUploadScreen() {
               </section>
               <section className="bg-slate-50 p-2 m-1 md:w-1/3">
                 <h3 className="my-3 text-lg font-semibold">Image Upload</h3>
-                <div>
-                  <div className="image_grid">
-                    {multipleImage.map((images, index) => (
-                      <div className="image" key={index}>
-                        <img src={URL.createObjectURL(images)} alt="" />
+                <div className="">
+                  <div className="image_grid p-2">
+                    {imageShow.map((images, index) => (
+                      <div className="image p-2" key={index}>
+                        <label htmlFor={index}>
+                          <img
+                            className="h-52 w-52 rounded-lg"
+                            src={images.url}
+                            alt=""
+                          />
+                        </label>
+                        <input onChange={(e) => changeImage(e.target.files[0],index)} type="file" id={index} className="hidden" />
+                        <span onClick={() => removeImage(index)} className="p-2 z-10 cursor-pointer  top-1 left-1 " > <CancelIcon /> </span>
                       </div>
                     ))}
                   </div>
